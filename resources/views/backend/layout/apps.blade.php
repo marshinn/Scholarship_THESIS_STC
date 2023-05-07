@@ -247,7 +247,7 @@
 
 
  <li>
-<a href="#"><img src="assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
+<a href="{{URL::to('/Scholarship')}}"><img src="assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
 </li>
 
 

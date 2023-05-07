@@ -32,3 +32,7 @@ Route::get('/Edit-User/{id}', [App\Http\Controllers\UserController::class, 'edit
 Route::post('/Update-user/{id}', [App\Http\Controllers\UserController::class, 'UpdateUser'])->name('UpdateUser');
 
 Route::get('/delete-user/{id}', [App\Http\Controllers\UserController::class, 'Deleteuser'])->name('DeleteUser');
+
+
+Route::get('/Scholarship', [App\Http\Controllers\ScholarshipController::class, 'Scholarship'])->name('Scholarship');
+
