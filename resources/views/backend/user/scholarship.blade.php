@@ -22,11 +22,18 @@
 </div>
 </div>
 </div>
+
+
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12 text-right add-btn-col">
-<a class="btn btn-primary btn-rounded float-right" href="add-blog.html"><i class="fas fa-plus"></i> Add Blog</a>
+<a class="btn btn-primary btn-rounded float-right" href=""><i class="fas fa-plus"></i> Add Scholarship</a>
 </div>
+
+
 </div>
+
+
+
 <div class="row">
 <div class="col-sm-6 col-md-6 col-lg-4">
 <div class="blog grid-blog">
