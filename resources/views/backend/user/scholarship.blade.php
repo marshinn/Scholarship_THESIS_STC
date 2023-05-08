@@ -11,7 +11,7 @@
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Blog</h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">Scholarship</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
@@ -50,7 +50,7 @@
 <li><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>December 6, 2018</span></a></li>
 </ul>
 </div>
-<div class="post-right"><a href="#"><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href="#"><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href="#"><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
+<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href=""><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
 </div>
 </div>
 </div>
