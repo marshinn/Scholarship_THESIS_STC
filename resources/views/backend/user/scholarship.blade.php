@@ -15,9 +15,9 @@
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="index.html">Blog</a></li>
-<li class="breadcrumb-item"><span> Blog</span></li>
+<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Menu</a></li>
+
+<li class="breadcrumb-item"><span> Scholarship</span></li>
 </ul>
 </div>
 </div>
