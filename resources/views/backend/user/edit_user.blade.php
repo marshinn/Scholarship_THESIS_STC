@@ -171,11 +171,11 @@
 </div>
 </li>
 <li class="nav-item dropdown d-none d-sm-block">
-<a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><img src="assets/img/sidebar/icon-23.png" alt=""> </a>
+<a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><img src="../../assets/img/sidebar/icon-23.png" alt=""> </a>
 </li>
  <li class="nav-item dropdown has-arrow">
 <a href="#" class=" nav-link user-link" data-toggle="dropdown">
-<span class="user-img"><img class="rounded-circle" src="assets/img/user-06.jpg" width="30" alt="Admin">
+<span class="user-img"><img class="rounded-circle" src="../../assets/img/user-06.jpg" width="30" alt="Admin">
 <span class="status online"></span></span>
 <span>{{auth()->user()->name}}</span>
 </a>
@@ -226,22 +226,13 @@
 <li class="menu-title">Menu</li>
 
 
-<li class="active">
+<li>
 <a href="{{URL::to('/home')}}"><img src="../../assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
 </li>
 
 
    @if(auth()->user()->role=='Admin')
 
-<li class="submenu">
-<a href="#"><img src="../../assets/img/sidebar/icon-3.png" alt="icon"> <span> Students</span> <span class="menu-arrow"></span></a>
-<ul class="list-unstyled" style="display: none;">
-<li><a href="all-students.html"><span>All Students</span></a></li>
-<li><a href="add-student.html"><span>Add Student</span></a></li>
-<li><a href="edit-student.html"><span>Edit Student</span></a></li>
-<li><a href="about-student.html"><span>ABout student</span></a></li>
-</ul>
-</li>
 
 <li>
 <a href="{{URL::to('/User')}}"><img src="../../assets/img/sidebar/icon-2.png" alt="icon"> <span>Users</span></a>
@@ -365,7 +356,7 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 <div class="form-group text-center custom-mt-form-group">
 <button class="btn btn-primary mr-2" type="submit">Submit</button>
-<button class="btn btn-secondary" type="reset">Cancel</button>
+<a href="/User" class="btn btn-secondary" type="reset">Cancel</a>
 <script>  
 function submitForm(form) {
         swal({
