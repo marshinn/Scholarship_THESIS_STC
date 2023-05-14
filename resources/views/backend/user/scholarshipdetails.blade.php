@@ -326,12 +326,9 @@
 <a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
 </div>
 <div class="blog-content">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id eft laborum.</p>
-<p>Sed ut perspiciatis unde omnis ifte natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam eft, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis noftrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil moleftiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-<blockquote>
-<p>Veftibulum id ligula porta felis euismod semper. Sed posuere consectetur eft at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis veftibulum. Duis mollis, eft non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Veftibulum id ligula porta felis euismod semper.</p>
-</blockquote>
-<p>At vero eos et accusamus et iufto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas moleftias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id eft laborum et dolorum fuga. Et harum quidem rerum facilis eft et expedita distinctio. Nam libero tempore, cum soluta nobis eft eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda eft, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et moleftiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+<p>{{$detail->description}} </p>
+
+    <p> {{$detail->description}} </p>
 </div>
 </article>
 
@@ -480,14 +477,21 @@
 </div>
 </div>
 </div>
+
+
 <aside class="col-md-4">
 <div class="widget search-widget">
-<h5>Blog Search</h5>
+<h5><center>Scholarship </center></h5>
 <form class="search-form">
-<div class="input-group">
-<input type="text" placeholder="Search..." class="form-control">
+<div class="input-group"> &nbsp; &nbsp; 
+<a href="/Scholarship" class="btn btn-secondary" type="reset">Apply</a> &nbsp; &nbsp; &nbsp; &nbsp; 
+<a href="/Scholarship" class="btn btn-primary " type="reset"> Cancel</a>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+<a href=""><i class="far fa-heart" aria-hidden="true"></i>21</a>   &nbsp; &nbsp;  &nbsp; &nbsp;
+<a href=""><i class="fas fa-eye" aria-hidden="true"></i>8</a>   &nbsp; &nbsp;  &nbsp; &nbsp;
+<a href=""><i class="fas fa-comment" aria-hidden="true"></i>17</a>  &nbsp; &nbsp;  &nbsp; &nbsp; <p> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;bobo ka</p>
 <div class="input-group-append">
-<button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+
 </div>
 </div>
 </form>
@@ -498,9 +502,9 @@
 <div class="widget category-widget">
 <h5>Scholarship Criteria</h5>
 <ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b>Grades:</b> {{(!empty($detail->grade))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b>Address:</b>  {{(!empty($detail->address))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></</li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b>Address:</b>  {{(!empty($detail->Parent_Income))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->address:$swabe}}</i></a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b class="blog-author-name">Address:</b>  {{(!empty($detail->address))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></</li>
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b class="blog-author-name">Address:</b>  {{(!empty($detail->Parent_Income))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
 </ul>
 </div>
 <div class="widget tags-widget">
