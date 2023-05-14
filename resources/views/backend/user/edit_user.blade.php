@@ -208,7 +208,7 @@
 </div>
 
 
-  <!-- Start of Side BAR kaya mo yan  :) ^_^ -->
+<!-- Start of Side BAR kaya mo yan  :) ^_^ -->
 
 
 <div class="sidebar" id="sidebar">
@@ -226,7 +226,7 @@
 <li class="menu-title">Menu</li>
 
 
-<li>
+<li >
 <a href="{{URL::to('/home')}}"><img src="../../assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
 </li>
 
@@ -240,45 +240,55 @@
 <li>
 @endif
 
-  <!--Calendar Side :) ^_^ -->
+ 
 
 
-<li>
+
+ <!-- Scholarship Side :) ^_^ -->
+
+
+ <li>
+<a href="{{URL::to('/Scholarship')}}"><img src="../../assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
+</li>
+
+
+
+
+
+ <!--Calendar Side :) ^_^ -->
+
+
+ <li>
 <a href="calendar.html"><img src="../../assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
 </li>
 <li>
+
 
  <!-- Accounts Side :) ^_^ -->
 
 <li class="submenu">
 <a href="#"><img src="../../assets/img/sidebar/icon-10.png" alt="icon"><span> Accounts </span> <span class="menu-arrow"></span></a>
 <ul class="list-unstyled" style="display: none;">
-<li><a href="invoices.html"><span>Invoices</span></a></li>
-<li><a href="payments.html"><span>Payments</span></a></li>
-<li><a href="expenses.html"><span>Expenses</span></a></li>
-<li><a href="provident-fund.html"><span>Provident Fund</span></a></li>
-<li><a href="taxes.html"><span>Taxes</span></a></li>
+<li><a href="invoices.html"><span>Profile</span></a></li>
+<li><a href="payments.html"><span>Change Password</span></a></li>
+
 </ul>
 </li>
 
- <!-- Scholarship Side :) ^_^ -->
-
-
-<li class="submenu">
-<a href="#"><img src="../../assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span> <span class="menu-arrow"></span></a>
-<ul class="list-unstyled" style="display: none;">
-<li><a href="blog.html"><span>Blog</span></a></li>
-<li><a href="blog-details.html"><span>Blog View</span></a></li>
-<li><a href="add-blog.html"><span>Add Blog</span></a></li>
-<li><a href="edit-blog.html"><span>Edit Blog</span></a></li>
-</ul>
-</li>
 
 
  <!-- Settings Side :) ^_^ -->
 
 <li>
-<a href="settings.html"><img src="../../assets/img/sidebar/icon-14.png" alt="icon"> <span>Settings</span></a>
+<a href="{{ route('logout') }}"     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                     <img src="../../assets/img/sidebar/icon-14.png" alt="icon"> <span>Logout</span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
 </li>
 
 
@@ -287,6 +297,7 @@
 </div>
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
+
 
 
 

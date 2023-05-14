@@ -208,7 +208,7 @@
 </div>
 
 
-  <!-- Start of Side BAR kaya mo yan  :) ^_^ -->
+<!-- Start of Side BAR kaya mo yan  :) ^_^ -->
 
 
 <div class="sidebar" id="sidebar">
@@ -226,7 +226,7 @@
 <li class="menu-title">Menu</li>
 
 
-<li>
+<li >
 <a href="{{URL::to('/home')}}"><img src="../../assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
 </li>
 
@@ -240,45 +240,55 @@
 <li>
 @endif
 
-  <!--Calendar Side :) ^_^ -->
+ 
 
 
-<li>
+
+ <!-- Scholarship Side :) ^_^ -->
+
+
+ <li>
+<a href="{{URL::to('/Scholarship')}}"><img src="../../assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
+</li>
+
+
+
+
+
+ <!--Calendar Side :) ^_^ -->
+
+
+ <li>
 <a href="calendar.html"><img src="../../assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
 </li>
 <li>
+
 
  <!-- Accounts Side :) ^_^ -->
 
 <li class="submenu">
 <a href="#"><img src="../../assets/img/sidebar/icon-10.png" alt="icon"><span> Accounts </span> <span class="menu-arrow"></span></a>
 <ul class="list-unstyled" style="display: none;">
-<li><a href="invoices.html"><span>Invoices</span></a></li>
-<li><a href="payments.html"><span>Payments</span></a></li>
-<li><a href="expenses.html"><span>Expenses</span></a></li>
-<li><a href="provident-fund.html"><span>Provident Fund</span></a></li>
-<li><a href="taxes.html"><span>Taxes</span></a></li>
+<li><a href="invoices.html"><span>Profile</span></a></li>
+<li><a href="payments.html"><span>Change Password</span></a></li>
+
 </ul>
 </li>
 
- <!-- Scholarship Side :) ^_^ -->
-
-
-<li class="submenu">
-<a href="#"><img src="../../assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span> <span class="menu-arrow"></span></a>
-<ul class="list-unstyled" style="display: none;">
-<li><a href="blog.html"><span>Blog</span></a></li>
-<li><a href="blog-details.html"><span>Blog View</span></a></li>
-<li><a href="add-blog.html"><span>Add Blog</span></a></li>
-<li><a href="edit-blog.html"><span>Edit Blog</span></a></li>
-</ul>
-</li>
 
 
  <!-- Settings Side :) ^_^ -->
 
 <li>
-<a href="settings.html"><img src="../../assets/img/sidebar/icon-14.png" alt="icon"> <span>Settings</span></a>
+<a href="{{ route('logout') }}"     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                     <img src="../../assets/img/sidebar/icon-14.png" alt="icon"> <span>Logout</span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
 </li>
 
 
@@ -287,7 +297,6 @@
 </div>
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
-
 
   
   <!-- Start of Dashboard :) ^_^ -->
@@ -320,7 +329,7 @@
 <li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
 </ul>
 </div>
-<div class="post-right"><a href="#"><i class="fas fa-comment" aria-hidden="true"></i>1 Comment</a></div>
+
 </div>
 <div class="blog-image">
 <a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
@@ -480,12 +489,25 @@
 
 
 <aside class="col-md-4">
+
+
+
+
+<div class="widget category-widget">
+<h5>Scholarship Criteria</h5>
+<ul class="categories">
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->address:$swabe}}</i></a></li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address:$swabe}}</i></a><h6></h6></li>
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Address:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->address:$swabe}} </i></a><h6></h6></li>
+</ul>
+</div>
+
 <div class="widget search-widget">
-<h5><center>Scholarship </center></h5>
+
 <form class="search-form">
 <div class="input-group"> &nbsp; &nbsp; 
-<a href="/Scholarship" class="btn btn-secondary" type="reset">&nbsp; &nbsp;  Apply &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp; 
-<a href="/Scholarship" class="btn btn-primary " type="reset"> &nbsp; &nbsp;  Cancel &nbsp; &nbsp;  </a>
+<a href="/Scholarship" class="btn btn-success" type="reset">&nbsp; &nbsp;  Apply &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp; 
+<a href="/Scholarship" class="btn btn-secondary" type="reset"> &nbsp; &nbsp;  Cancel &nbsp; &nbsp;  </a>
 &nbsp; &nbsp; &nbsp; &nbsp; 
 <a href=""><i class="far fa-heart" aria-hidden="true"></i> &nbsp;21</a>   &nbsp; &nbsp;  
 <a href=""><i class="fas fa-eye" aria-hidden="true"></i> &nbsp;8</a>   &nbsp; &nbsp;  
@@ -499,30 +521,7 @@
 
 
 
-<div class="widget category-widget">
-<h5>Scholarship Criteria</h5>
-<ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->address:$swabe}}</i></a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b class="blog-author-name">Address:</b>  {{(!empty($detail->address))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></</li>
-<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b class="blog-author-name">Address:</b>  {{(!empty($detail->Parent_Income))? $detail->address:$swabe}}</a><h6></h6><p>&nbsp;&nbsp;&nbsp;bobo ka </p></li>
-</ul>
-</div>
-<div class="widget tags-widget">
-<h5>Tags</h5>
-<ul class="tags">
-<li><a href="#" class="tag">Maths</a></li>
-<li><a href="#" class="tag">Science</a></li>
-<li><a href="#" class="tag">Library</a></li>
-<li><a href="#" class="tag">Family</a></li>
-<li><a href="#" class="tag">Sports</a></li>
-<li><a href="#" class="tag">Test</a></li>
-<li><a href="#" class="tag">student</a></li>
-<li><a href="#" class="tag">Employee</a></li>
-<li><a href="#" class="tag">Assignment</a></li>
-<li><a href="#" class="tag">Exam</a></li>
-<li><a href="#" class="tag">Blog</a></li>
-</ul>
-</div>
+
 </aside>
 </div>
 </div>
