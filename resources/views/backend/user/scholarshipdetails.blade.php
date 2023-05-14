@@ -484,12 +484,12 @@
 <h5><center>Scholarship </center></h5>
 <form class="search-form">
 <div class="input-group"> &nbsp; &nbsp; 
-<a href="/Scholarship" class="btn btn-secondary" type="reset">Apply</a> &nbsp; &nbsp; &nbsp; &nbsp; 
-<a href="/Scholarship" class="btn btn-primary " type="reset"> Cancel</a>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
-<a href=""><i class="far fa-heart" aria-hidden="true"></i>21</a>   &nbsp; &nbsp;  &nbsp; &nbsp;
-<a href=""><i class="fas fa-eye" aria-hidden="true"></i>8</a>   &nbsp; &nbsp;  &nbsp; &nbsp;
-<a href=""><i class="fas fa-comment" aria-hidden="true"></i>17</a>  &nbsp; &nbsp;  &nbsp; &nbsp; <p> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;bobo ka</p>
+<a href="/Scholarship" class="btn btn-secondary" type="reset">&nbsp; &nbsp;  Apply &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp; 
+<a href="/Scholarship" class="btn btn-primary " type="reset"> &nbsp; &nbsp;  Cancel &nbsp; &nbsp;  </a>
+&nbsp; &nbsp; &nbsp; &nbsp; 
+<a href=""><i class="far fa-heart" aria-hidden="true"></i> &nbsp;21</a>   &nbsp; &nbsp;  
+<a href=""><i class="fas fa-eye" aria-hidden="true"></i> &nbsp;8</a>   &nbsp; &nbsp;  
+<a href=""><i class="fas fa-comment" aria-hidden="true"></i> &nbsp;17 Comments</a>  &nbsp; &nbsp;  &nbsp; &nbsp; <span class="blog-author-name"  >  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;As of {{ now()->format('M  d,  Y') }}</span>
 <div class="input-group-append">
 
 </div>
