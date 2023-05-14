@@ -26,28 +26,28 @@
 
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12 text-right add-btn-col">
-<a class="btn btn-primary btn-rounded float-right" href=""><i class="fas fa-plus"></i> Add Scholarship</a>
+<a class="btn btn-primary btn-rounded float-right" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-plus"></i> Add Scholarship</a>
 </div>
 
 
 </div>
-
 
 
 <div class="row">
+@foreach($alls as $Scholarship)
 <div class="col-sm-6 col-md-6 col-lg-4">
 <div class="blog grid-blog">
 <div class="blog-image">
-<a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-01.jpg" alt=""></a>
+<a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}"><img class="img-fluid" src="{{(!empty($Scholarship->image))? url('upload/image/'.$Scholarship->image):url('upload/no_image.jpg')}}" alt=""></a>
 </div>
 <div class="blog-content">
-<h3 class="blog-title"><a href="blog-details.html">Do You Know the ABCs School?</a></h3>
-<p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor incididunt ut labore etmis dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco sit laboris.</p>
-<a href="blog-details.html" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
+<h3 class="blog-title"><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}">{{ $Scholarship->title}}</a></h3>
+<p>{{ $Scholarship->description}}</p>
+<a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
 <div class="blog-info clearfix">
 <div class="post-left">
 <ul>
-<li><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>December 6, 2018</span></a></li>
+<li><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($Scholarship->created_at))}}</span></a></li>
 </ul>
 </div>
 <div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href=""><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
@@ -55,68 +55,69 @@
 </div>
 </div>
 </div>
-<div class="col-sm-6 col-md-6 col-lg-4">
-<div class="blog grid-blog">
-<div class="blog-image">
-<a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-02.jpg" alt=""></a>
-</div>
-<div class="blog-content">
-<h3 class="blog-title"><a href="blog-details.html">Do You Know the ABCs School?</a></h3>
-<p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor incididunt ut labore etmis dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco sit laboris.</p>
-<a href="blog-details.html" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>December 6, 2018</span></a></li>
-</ul>
-</div>
-<div class="post-right"><a href="#"><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href="#"><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href="#"><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
+@endforeach
 </div>
 </div>
-</div>
-</div>
-<div class="col-sm-6 col-md-6 col-lg-4">
-<div class="blog grid-blog">
-<div class="blog-image">
-<a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-03.jpg" alt=""></a>
-</div>
-<div class="blog-content">
-<h3 class="blog-title"><a href="blog-details.html">Do You Know the ABCs School?</a></h3>
-<p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor incididunt ut labore etmis dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco sit laboris.</p>
-<a href="blog-details.html" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>December 6, 2018</span></a></li>
-</ul>
-</div>
-<div class="post-right"><a href="#"><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href="#"><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href="#"><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6 col-md-6 col-lg-4">
-<div class="blog grid-blog">
-<div class="blog-image">
-<a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-04.jpg" alt=""></a>
-</div>
-<div class="blog-content">
-<h3 class="blog-title"><a href="blog-details.html">Do You Know the ABCs School?</a></h3>
-<p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor incididunt ut labore etmis dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco sit laboris.</p>
-<a href="blog-details.html" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href="#"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>December 6, 2018</span></a></li>
-</ul>
-</div>
-<div class="post-right"><a href="#"><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href="#"><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href="#"><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="notification-box">
 <div class="msg-sidebar notifications msg-noti">
 <div class="topnav-dropdown-header">

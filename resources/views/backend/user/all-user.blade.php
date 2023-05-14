@@ -7,13 +7,13 @@
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">students List</h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">USERs LIST</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
 <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
 <li class="breadcrumb-item"><a href="#">Students</a></li>
-<li class="breadcrumb-item"><span> Students List</span></li>
+<li class="breadcrumb-item"><span> Users List</span></li>
 </ul>
 </div>
 </div>

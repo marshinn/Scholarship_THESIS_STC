@@ -9,11 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('scholarships', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+       
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('address')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('Parent_Income')->nullable();
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 

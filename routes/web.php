@@ -33,6 +33,10 @@ Route::post('/Update-user/{id}', [App\Http\Controllers\UserController::class, 'U
 
 Route::get('/delete-user/{id}', [App\Http\Controllers\UserController::class, 'Deleteuser'])->name('DeleteUser');
 
-
 Route::get('/Scholarship', [App\Http\Controllers\ScholarshipController::class, 'Scholarship'])->name('Scholarship');
 
+Route::get('/AddScholarship', [App\Http\Controllers\ScholarshipController::class, 'AddScholarship'])->name('AddScholarship');
+
+Route::post('/p', [App\Http\Controllers\ScholarshipController::class, 'Store'])->name('Store');
+
+Route::get('/Scholarship-details/{id}', [App\Http\Controllers\ScholarshipController::class, 'Scholarshipdetails'])->name('Scholarshipdetails');
