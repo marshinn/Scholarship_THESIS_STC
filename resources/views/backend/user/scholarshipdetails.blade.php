@@ -321,7 +321,13 @@
 <div class="col-md-8">
 <div class="blog-view">
 <article class="blog blog-single-post">
+<div class="col-sm-12 d-flex justify-content-between">
+  
 <h3 class="blog-title">{{$detail->title}}</h3>
+@if(auth()-> user() ->role=='Admin')
+<a href="/Scholarship" class="btn btn-dark " type="reset"> <h5></h5>&nbsp;  Edit   &nbsp; </a>
+@endif
+    </div>
 <div class="blog-info clearfix">
 <div class="post-left">
 <ul>
@@ -329,7 +335,7 @@
 <li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
 </ul>
 </div>
-
+<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>&nbsp;21 &nbsp;</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>&nbsp;8&nbsp;</a> <a href=""><i class="fas fa-comment" aria-hidden="true"></i>&nbsp;17 &nbsp;</a></div>
 </div>
 <div class="blog-image">
 <a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
@@ -509,9 +515,7 @@
 <a href="/Scholarship" class="btn btn-success" type="reset">&nbsp; &nbsp;  Apply &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp; 
 <a href="/Scholarship" class="btn btn-secondary" type="reset"> &nbsp; &nbsp;  Cancel &nbsp; &nbsp;  </a>
 &nbsp; &nbsp; &nbsp; &nbsp; 
-<a href=""><i class="far fa-heart" aria-hidden="true"></i> &nbsp;21</a>   &nbsp; &nbsp;  
-<a href=""><i class="fas fa-eye" aria-hidden="true"></i> &nbsp;8</a>   &nbsp; &nbsp;  
-<a href=""><i class="fas fa-comment" aria-hidden="true"></i> &nbsp;17 Comments</a>  &nbsp; &nbsp;  &nbsp; &nbsp; <span class="blog-author-name"  >  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;As of {{ now()->format('M  d,  Y') }}</span>
+
 <div class="input-group-append">
 
 </div>
@@ -519,7 +523,14 @@
 </form>
 </div>
 
+<div class="widget tags-widget">
+<h5>View the applied Applicants</h5>
+<a href="/Scholarship" class="btn btn-info"     type="reset">&nbsp; &nbsp;  View &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
+<p></p>
+<h5>Find suitable student for the scholarship </h5>
+<a href="/Scholarship"class="btn btn-warning"   type="reset">&nbsp; &nbsp;  Find Student &nbsp; &nbsp;  </a> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 
+</div>
 
 
 </aside>
