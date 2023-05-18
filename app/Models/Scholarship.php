@@ -14,4 +14,9 @@ class Scholarship extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function student()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

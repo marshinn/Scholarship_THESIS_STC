@@ -40,3 +40,8 @@ Route::get('/AddScholarship', [App\Http\Controllers\ScholarshipController::class
 Route::post('/p', [App\Http\Controllers\ScholarshipController::class, 'Store'])->name('Store');
 
 Route::get('/Scholarship-details/{id}', [App\Http\Controllers\ScholarshipController::class, 'Scholarshipdetails'])->name('Scholarshipdetails');
+
+Route::get('/Apply/{id}', [App\Http\Controllers\StudentController::class, 'Apply'])->name('Apply');
+
+
+Route::post('/applying/{id}', [App\Http\Controllers\StudentController::class, 'applying'])->name('applying');

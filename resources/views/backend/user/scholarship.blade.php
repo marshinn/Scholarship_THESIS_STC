@@ -2,7 +2,20 @@
 @section('content')
 
 
+<style>
 
+      .texxt {
+        display: block;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+        
+  max-width: 200ch;">
+      }
+      
+      
+    </style>
 
 
 
@@ -42,7 +55,7 @@
 </div>
 <div class="blog-content">
 <h3 class="blog-title"><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}">{{ $Scholarship->title}}</a></h3>
-<p>{{ $Scholarship->description}}</p>
+<span  class="texxt" >{{ $Scholarship->description}}</span>
 <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
 <div class="blog-info clearfix">
 <div class="post-left">
@@ -50,7 +63,9 @@
 <li><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($Scholarship->created_at))}}</span></a></li>
 </ul>
 </div>
-<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>21</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>8</a> <a href=""><i class="fas fa-comment-o" aria-hidden="true"></i>17</a></div>
+<div class="post-right">
+<a class="btn btn-dark btn-rounded float-right" href="  {{ URL::to('/Apply/'.$Scholarship->id) }}" ><i class="fas fa-moon"></i> Apply  &nbsp; </a> 
+</div>
 </div>
 </div>
 </div>

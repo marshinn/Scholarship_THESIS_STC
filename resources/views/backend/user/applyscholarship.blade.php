@@ -298,246 +298,245 @@
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
 
+
   
   <!-- Start of Dashboard :) ^_^ -->
 
-<div class="page-wrapper">
+
+  <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Scholarship </h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">Personal Information</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="">Scholarship</a></li>
-<li class="breadcrumb-item"><span> Scholarship Details</span></li>
+<li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li class="breadcrumb-item"><a href="index.html">Student</a></li>
+<li class="breadcrumb-item"><span> Add Student</span></li>
 </ul>
 </div>
 </div>
 </div>
+<div class="page-content">
 <div class="row">
-<div class="col-md-8">
-<div class="blog-view">
-<article class="blog blog-single-post">
-<div class="col-sm-12 d-flex justify-content-between">
-  
-<h3 class="blog-title">{{$detail->title}}</h3>
-@if(auth()-> user() ->role=='Admin')
-
-<a class="btn btn-dark  float-right" href="{{ URL::to('/AddScholarship') }}" > <h5></h5><i class="fas fa-wrench"></i> &nbsp; Edit </a> 
-@endif
-    </div>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href=""><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($detail->created_at))}}</span></a></li>
-<li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
-</ul>
-</div>
-<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>&nbsp;21 &nbsp;</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>&nbsp;8&nbsp;</a> <a href=""><i class="fas fa-comment" aria-hidden="true"></i>&nbsp;17 &nbsp;</a></div>
-</div>
-<div class="blog-image">
-<a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
-</div>
-<div class="blog-content">
-<p > {{$detail->description}} </p>
-
-    <p> {{$detail->description}} </p>
-</div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="widget author-widget clearfix">
-<h3>About author</h3>
-<div class="about-author">
-<div class="about-author-img">
-<div class="author-img-wrap">
-<img class="img-fluid rounded-circle" alt="" src="assets/img/user.jpg">
-</div>
-</div>
-<div class="author-details">
-<span class="blog-author-name">{{$detail->user?->name}}</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-</div>
-</div>
-<div class="widget blog-comments clearfix">
-<h3>Comments (3)</h3>
-<ul class="comments-list">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
- <span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-<ul class="comments-list reply">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Henry Daniels</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 7, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Marie Wells</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 11, 2018</span>
-</div>
- </div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Pamela Curtis</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 13, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="widget new-comment clearfix">
-<h3>Leave Comment</h3>
-<form>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="card">
+<div class="card-body">
 <div class="row">
-<div class="col-sm-8">
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<form action="{{ URL::to('/applying/'.$data->id) }}" enctype="multipart/form-data" method="post">
+@csrf
 <div class="form-group">
-<label>Name <span class="text-red">*</span></label>
+<label>Firstname</label>
+<input type="text" class="form-control" name="Fname" id="Fname">
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="Email" class="form-control"  value="{{ auth()->user()->email }}"  disabled> 
+</div>
+  <!-- end of Dashboard :) 
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Subject</label>
+<input type="text" class="form-control">
+</div>
+^_^ -->
+<div class="form-group">
+<label>Gender</label>
+<select class="form-control" name="Gender" id="Gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+<div class="form-group">
+<label>Birth Date</label>
+<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker" name="Birthdate" id="Birthdate">
+</div>
+ <!-- end of Dashboard :) 
+<div class="form-group">
+<label>Class</label>
+<input type="text" class="form-control">
+</div>
+^_^ -->
+<div class="form-group">
+<label>Religion</label>
+<input type="text" class="form-control" name="Religion" id="Religion">
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+<div class="form-group">
+<label>Lastname</label>
+<input type="text" class="form-control" name="Lname" id="Lname">
+</div>
+ <!-- end of Dashboard :) 
+<div class="form-group">
+<label>Joining Date</label>
+<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
+</div>
+<div class="form-group">
+<label>Comfirm Password</label>
+<input type="password" class="form-control">
+</div>
+^_^ -->
+<div class="form-group">
+<label>Mobile number</label>
+<input type="text" class="form-control"  name="Mobile_number" id="Mobile_number">
+</div>
+<div class="form-group">
+<label>Nationality</label>
+<input type="text" class="form-control" name="Nationality" id="Nationality">
+</div>
+<div class="form-group">
+<label> School ID Number</label>
+ <input type="text" class="form-control"  name="School_ID" id="School_ID">
+</div>
+ <!-- end of Dashboard :) 
+<div class="form-group">
+<label>Section</label>
+<input type="text" class="form-control">
+</div>
+^_^ -->
+
+</div>
+<div class="mt-4">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="page-title ml-3">Parents information</div>
+</div>
+</div>
+</div>
+<div class="card-body w-100 p-3">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+<div class="form-group">
+<label>Father Name</label>
+<input type="text" class="form-control"   name="Father_name" id="Father_name">
+</div>
+<div class="form-group">
+<label>Father Occupation</label>
+<input type="text" class="form-control"   name="Father_job" id="Father_job">
+</div>
+<div class="form-group">
+<label> Parent Mobile number</label>
+<input type="text" class="form-control"  name="Father_number" id="Father_number" >
+</div>
+<div class="form-group">
+<label>Present Address</label>
+<textarea class="form-control" rows="4"  name="Present_Address" id="Present_Address"></textarea>
+</div>
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+<div class="form-group">
+<label>Mother Name</label>
+<input type="text" class="form-control"  name="Mother_name" id="Mother_name">
+</div>
+<div class="form-group">
+<label>Mother Occupation</label>
+<input type="text" class="form-control"  name="Mother_job" id="Mother_job">
+</div>
+<div class="form-group">
+<label>Nationality</label>
+<input type="text" class="form-control"  name="Parent_Nationlity" id="Parent_Nationlity">
+</div>
+<div class="form-group">
+<label>Permanent Address</label>
+<textarea class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"></textarea>
+</div>
+
+</div>
+</div>
+</div>
+<div class="mt-4">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="page-title ml-3">Academic Background:</div>
+</div>
+</div>
+</div>
+<div class="card-body w-100 p-3">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+<div class="form-group">
+<label>School Name</label>
+<input type="text" class="form-control" name="School_Name" id="School_Name">
+</div>
+<div class="form-group">
+<label>Honors, Awards, or Recognition Received</label>
+<input type="text" class="form-control" name="Honor" id="Honor">
+</div>
+<div class="form-group">
+<label>Grade Point Average (GPA)</label>
+<input type="text" class="form-control" name="GPA" id="GPA">
+</div>
+<div class="form-group">
+<label>School Address</label>
+<textarea class="form-control" rows="4"  name="School_Address" id="School_Address"></textarea>
+</div>
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+<div class="form-group">
+<label>Extracurricular Activities or Leadership Positions</label>
 <input type="text" class="form-control">
 </div>
 <div class="form-group">
-<label>Your email address <span class="text-red">*</span></label>
-<input type="email" class="form-control">
-</div>
-<div class="form-group">
-<label>Comments</label>
+<label>Community Service or Volunteer Work</label>
 <input type="text" class="form-control">
 </div>
-<div class="comment-submit">
-<input type="submit" value="Submit" class="btn">
-</div>
-</div>
-</div>
-</form>
-</div>
-</div>
+<div class="form-group">
+<label>School Year / Course</label>
+<input type="text" class="form-control"  name="Year_Course" id="Year_Course">
 </div>
 
 
-<aside class="col-md-4">
-
-
-
-
-<div class="widget category-widget">
-<h5>Scholarship Criteria</h5>
-<ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->address:$swabe}}</i></a></li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address:$swabe}}</i></a><h6></h6></li>
-<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Address:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->address:$swabe}} </i></a><h6></h6></li>
-</ul>
-</div>
-
-<div class="widget search-widget">
-
-<form class="search-form">
-<div class="input-group">
-<a class="btn btn-secondary" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>   &nbsp; &nbsp; &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel &nbsp; &nbsp; </a>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
-<p></p>
-<h2></h2>
-<i>Number of Slots Left : 23</i>
-
-<div class="input-group-append">
 
 </div>
+</div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+<div class="form-group">
+<label>Student Image</label>
+<input type="file"   class="form-control" name="Student_Image" id="Student_Image">
+</div>
+
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+<div class="form-group">
+<label>Parent Image</label>
+<input type="file"  class="form-control" name="Parent_Image" id="Parent_Image">
+</div>
+
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+<div class="form-group text-center custom-mt-form-group">
+<button type="submit" class="btn btn-primary mr-2" >Submit</button>
+<a  href="/Scholarship" class="btn btn-secondary" type="reset">Cancel</a>
 </div>
 </form>
 </div>
 
-<div class="widget tags-widget">
-<h5>View the applied Applicants</h5>
-<a class="btn btn-info" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-user"></i>&nbsp; &nbsp;  View &nbsp; &nbsp; </a> 
-
-<p></p>
-<h5>Find suitable student for the scholarship </h5>
-<a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
-
 </div>
-
-
-</aside>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="notification-box">
@@ -610,7 +609,7 @@
 <li>
 <a href="chat.html">
 <div class="list-item">
-<div class="list-left">
+ <div class="list-left">
 <span class="avatar">C</span>
 </div>
 <div class="list-body">
@@ -657,7 +656,7 @@
 <div class="list-item">
 <div class="list-left">
 <span class="avatar">R</span>
- </div>
+</div>
 <div class="list-body">
 <span class="message-author"> Rolland Webber </span>
 <span class="message-time">12:28 AM</span>
@@ -738,7 +737,7 @@
 <span class="message-time">12:28 AM</span>
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
+ </div>
 </div>
 </a>
 </li>
@@ -754,11 +753,18 @@
 </div>
 
 
+
+
+
+    
+  <!-- end of Dashboard :) ^_^ -->
+
+
+
+
+
+
   
-  <!-- Start of Dashboard :) ^_^ -->
-
-
-
 
 
 

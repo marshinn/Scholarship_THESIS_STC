@@ -25,15 +25,15 @@
 <span class="float-left"><img src="assets/img/dash/dash-1.png" alt="" width="80"></span>
 <div class="dash-widget-info text-right">
 <span>Students Applicants</span>
-<h3>60,000</h3>
+<h3>{{auth()-> user()->where('role', 'Student')->count()}}</h3>
 </div>
 </div>
 </div>
 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
 <div class="dash-widget dash-widget5">
 <div class="dash-widget-info text-left d-inline-block">
-<span>Teachers</span>
-<h3>12,000</h3>
+<span>Student</span>
+<h3>{{auth()-> user()->where('role', 'Student')->count()}}</h3>
 </div>
 <span class="float-right"><img src="assets/img/dash/dash-2.png" width="80" alt=""></span>
 </div>
@@ -42,8 +42,8 @@
 <div class="dash-widget dash-widget5">
 <span class="float-left"><img src="assets/img/dash/dash-3.png" alt="" width="80"></span>
 <div class="dash-widget-info text-right">
-<span>Parents</span>
-<h3>20,000</h3>
+<span>Scholarships</span>
+<h3>{{auth()-> user()->where('role', 'Student')->count()}}</h3>
 </div>
 </div>
 </div>
@@ -269,7 +269,7 @@ New Students
 <tr>
 <th>Name </th>
 <th>Student ID</th>
-<th>Parent Name</th>
+<th>Role</th>
 <th>Mobile</th>
 <th>Address</th>
 <th>Date Of Admition</th>
@@ -278,12 +278,13 @@ New Students
 </tr>
 </thead>
 <tbody>
+    @foreach($all as $key=>$row)
 <tr>
 <td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-1.jpg" alt=""></a><a href="profile.html">Parker <span></span></a></h2>
+<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-1.jpg" alt=""></a><a href="profile.html">{{ $row->name}} <span></span></a></h2>
 </td>
 <td>ST-0d001</td>
-<td>Mr. Johnson</td>
+<td>{{ $row->role}}</td>
 <td>973-584-58700</td>
 <td>9946 Baker Rd. Marysville, </td>
 <td>20/1/2021</td>
@@ -297,121 +298,8 @@ New Students
 </button>
 </td>
 </tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-2.jpg" alt=""></a><a href="profile.html">Smith <span></span></a></h2>
-</td>
-<td>ST-0d002</td>
-<td>Mr. Luke Idaman</td>
-<td>973-584-58700</td>
-<td>193 S. Harrison Drive </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-3.jpg" alt=""></a><a href="profile.html">Hensley<span></span></a></h2>
-</td>
-<td>ST-0d003</td>
-<td>Mr. Kevin H</td>
-<td>973-584-58700</td>
-<td>8949 Golf St. Palm Coast </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-4.jpg" alt=""></a><a href="profile.html">Friesen<span></span></a></h2>
-</td>
-<td>ST-0d004</td>
-<td>Mr. Randy O</td>
-<td>973-584-58700</td>
-<td>23 Ohio Court Alexandria </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-5.jpg" alt=""></a><a href="profile.html">Jackson<span></span></a></h2>
-</td>
-<td>ST-0d005</td>
-<td>Mr. Steven</td>
-<td>973-584-58700</td>
-<td>338 North Cleveland Rd </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-6.jpg" alt=""></a><a href="profile.html">Mason<span></span></a></h2>
-</td>
-<td>ST-0d006</td>
-<td>Mr. Ervin</td>
-<td>973-584-58700</td>
-<td>7909 W. Sunnyslope St. </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="assets/img/profile/img-7.jpg" alt=""></a>
-<a href="profile.html">Garrett <span></span></a></h2>
-</td>
-<td>ST-0d007</td>
-<td>Mr. Marquz</td>
-<td>973-584-58700</td>
-<td>7361 Dunbar Street </td>
-<td>20/1/2021</td>
-<td><img src="assets/img/pdf.png" alt=""></td>
-<td class="text-right">
-<a href="edit-student.html" class="btn btn-primary btn-sm mb-1">
-<i class="far fa-edit"></i>
-</a>
-<button type="submit" data-toggle="modal" data-target="#delete_employee" class="btn btn-danger btn-sm mb-1">
-<i class="far fa-trash-alt"></i>
-</button>
-</td>
-</tr>
+
+@endforeach
 </tbody>
 </table>
 </div>
