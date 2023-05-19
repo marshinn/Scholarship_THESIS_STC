@@ -450,6 +450,10 @@
 <input type="text" class="form-control"  name="Parent_Nationlity" id="Parent_Nationlity">
 </div>
 <div class="form-group">
+<label>Parent Income </label>
+<input class="form-control" rows="4" name="Parent_Income" id="Parent_Income"></input>
+</div>
+<div class="form-group">
 <label>Permanent Address</label>
 <textarea class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"></textarea>
 </div>

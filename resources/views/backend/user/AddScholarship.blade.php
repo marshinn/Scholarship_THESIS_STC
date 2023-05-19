@@ -61,7 +61,10 @@
 <label>Scholarship Description</label>
 <textarea class="form-control" placeholder="Description" rows="4"  name="description" id="description" ></textarea>
 </div>
-
+<div class="form-group">
+<label>Scholarship Slots</label>
+<input type="number" class="form-control" name="Slot" id="Slot">
+</div>
 
 
 <div class="row">

@@ -51,6 +51,7 @@ class ScholarshipController extends Controller
         $data['address'] = $request->address;
         $data['grade'] = $request->grade;
         $data['Parent_Income'] = $request->Parent_Income;
+        $data['Slot'] = $request->Slot;
         if ($request->file('image')){
             $file = $request->file('image');
 
@@ -64,8 +65,7 @@ class ScholarshipController extends Controller
 
 
 
-        $alls = DB::table('scholarships')
-        ->get();
+        $alls = scholarship::get();
         return redirect()->route('Scholarship')->with(compact('alls'));
         
     }

@@ -36,12 +36,12 @@
 </div>
 </div>
 
-
+@if(auth()-> user() ->role=='Admin')
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12 text-right add-btn-col">
 <a class="btn btn-primary btn-rounded float-right" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-plus"></i> Add Scholarship</a>
 </div>
-
+@endif
 
 </div>
 
@@ -59,13 +59,31 @@
 <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="read-more"><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> Read More</a>
 <div class="blog-info clearfix">
 <div class="post-left">
-<ul>
+<ul>   @if($Scholarship->student->contains('user_id' , auth::id()))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p class="badge badge-danger-border ">{{auth()->user()->student->firstwhere('scholarship_id', $Scholarship->id)?->Status}}</p>
+@endif
 <li><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($Scholarship->created_at))}}</span></a></li>
 </ul>
 </div>
+@if(auth()-> user() ->role=='Student')
+@if($Scholarship->student->contains('user_id' , auth::id()))
+<div class="post-right">
+<a class="btn btn-white btn-rounded float-right" href="{{URL::to('/Remove/'.$Scholarship->id)}}" id="sed" ><i class="fas fa-moon"></i> cancel  &nbsp; </a> 
+</div>
+@else
 <div class="post-right">
 <a class="btn btn-dark btn-rounded float-right" href="  {{ URL::to('/Apply/'.$Scholarship->id) }}" ><i class="fas fa-moon"></i> Apply  &nbsp; </a> 
 </div>
+@endif
+@endif
+@if(auth()-> user() ->role=='Admin')
+
+<div class="post-right">
+<a class="btn btn-white btn-rounded float-right" href="  {{ URL::to('/Apply/'.$Scholarship->id) }}" ><i class="fas fa-star"></i> View Applicants  &nbsp; </a> 
+</div>
+
+@endif
 </div>
 </div>
 </div>

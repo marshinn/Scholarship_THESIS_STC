@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('grade')->nullable();
             $table->string('Parent_Income')->nullable();
+            $table->string('Slot')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

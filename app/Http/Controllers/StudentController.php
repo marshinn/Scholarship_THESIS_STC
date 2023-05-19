@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\student_scholarship;
+
+
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use DB;
 use App\Models\User;
 use App\Models\Scholarship;
+use App\Models\student_scholarship;
 use App\Models\Student;
-use DB;
-use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -46,7 +50,8 @@ class StudentController extends Controller
             'Mother_job' => 'required',
             'Parent_Nationlity' => 'required',
             'Permanent_Address' => 'required',
-
+            'Parent_Income' => 'required',
+            
 
 
 
@@ -90,6 +95,30 @@ class StudentController extends Controller
         $sana_all= student::get();
         return redirect()->route('Scholarship')->with(compact('sana_all'));
         
+    }
+    public function Remove($id)
+    {
+        $deletes = Auth::user()->student->firstWhere('scholarship_id', $id)->delete();
+        if ($deletes) {
+            $notifications = array
+            (
+                'messege' => 'Successfully User Disapprove',
+                'alert-type' => 'success'
+
+            );
+            return redirect()->back()->with($notifications);
+        }
+    }
+
+
+    public function Applicants()
+    {   
+        $wasted = student::get();
+        
+
+
+        return view ('backend.user.Applicants',  compact( 'wasted'));
+
     }
 
 }

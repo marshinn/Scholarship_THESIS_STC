@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
+            $table->id();
+           
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('scholarship_id');
             $table->string('Fname')->nullable();
@@ -35,7 +37,8 @@ return new class extends Migration
             $table->string('Mother_job')->nullable();
             $table->string('Parent_Nationlity')->nullable();
             $table->string('Permanent_Address')->nullable();
-
+            $table->string('Parent_Income')->nullable();
+            
 
             /**
      * Academic Background

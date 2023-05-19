@@ -298,257 +298,99 @@
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
 
-  
+
+
+
+
+
+
+
+
   <!-- Start of Dashboard :) ^_^ -->
 
-<div class="page-wrapper">
+
+
+
+
+
+
+  <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Scholarship </h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">Applicants</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="">Scholarship</a></li>
-<li class="breadcrumb-item"><span> Scholarship Details</span></li>
+<li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li class="breadcrumb-item"><a href="index.html">Accounts</a></li>
+<li class="breadcrumb-item"><span>Expenses</span></li>
 </ul>
 </div>
 </div>
 </div>
+<div class="content-page">
 <div class="row">
-<div class="col-md-8">
-<div class="blog-view">
-<article class="blog blog-single-post">
-<div class="col-sm-12 d-flex justify-content-between">
-  
-<h3 class="blog-title">{{$detail->title}}</h3>
-@if(auth()-> user() ->role=='Admin')
+<div class="col-sm-8 col-5">
+</div>
 
-<a class="btn btn-dark  float-right" href="{{ URL::to('/AddScholarship') }}" > <h5></h5><i class="fas fa-wrench"></i> &nbsp; Edit </a> 
-@endif
-    </div>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href=""><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($detail->created_at))}}</span></a></li>
-<li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
-</ul>
 </div>
-<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>&nbsp;21 &nbsp;</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>&nbsp;8&nbsp;</a> <a href=""><i class="fas fa-comment" aria-hidden="true"></i>&nbsp;17 &nbsp;</a></div>
-</div>
-<div class="blog-image">
-<a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
-</div>
-<div class="blog-content">
-<p > {{$detail->description}} </p>
 
-    <p> {{$detail->description}} </p>
-</div>
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="widget author-widget clearfix">
-<h3>About author</h3>
-<div class="about-author">
-<div class="about-author-img">
-<div class="author-img-wrap">
-<img class="img-fluid rounded-circle" alt="" src="assets/img/user.jpg">
-</div>
-</div>
-<div class="author-details">
-<span class="blog-author-name">{{$detail->user?->name}}</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-</div>
-</div>
-<div class="widget blog-comments clearfix">
-<h3>Comments (3)</h3>
-<ul class="comments-list">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
- <span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-<ul class="comments-list reply">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Henry Daniels</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 7, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Marie Wells</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 11, 2018</span>
-</div>
- </div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Pamela Curtis</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 13, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="widget new-comment clearfix">
-<h3>Leave Comment</h3>
-<form>
 <div class="row">
-<div class="col-sm-8">
-<div class="form-group">
-<label>Name <span class="text-red">*</span></label>
-<input type="text" class="form-control">
-</div>
-<div class="form-group">
-<label>Your email address <span class="text-red">*</span></label>
-<input type="email" class="form-control">
-</div>
-<div class="form-group">
-<label>Comments</label>
-<input type="text" class="form-control">
-</div>
-<div class="comment-submit">
-<input type="submit" value="Submit" class="btn">
-</div>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
-
-
-<aside class="col-md-4">
-
-
-
-
-<div class="widget category-widget">
-<h5>Scholarship Criteria</h5>
-<ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->address:$swabe}}</i></a></li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address:$swabe}}</i></a><h6></h6></li>
-<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->address:$swabe}} </i></a><h6></h6></li>
-</ul>
-</div>
-
-<div class="widget search-widget">
-
-<form class="search-form">
-
-<div class="input-group">
-@if(auth()-> user() ->role=='Student')
-@if($detail->student->contains('user_id' , auth::id()))
-
-<a class="btn btn-dark" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Status: {{auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Status}}  &nbsp; &nbsp; </a>    &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel My Application &nbsp; &nbsp; </a>     &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; 
-
-@else
-<a class="btn btn-secondary" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>   &nbsp; &nbsp; &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel &nbsp; &nbsp; </a>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
-@endif
-<p></p>
-<h2></h2>
-
-@endif
-<i>Number of Slots Left : 23</i>
-
-<div class="input-group-append">
-
+<div class="col-md-12 mb-3">
+<div class="table-responsive">
+<table class="table custom-table mb-0 datatable">
+<thead class="thead-light">
+<tr>
+<th>Name</th>
+ <th>Gender</th>
+<th>Mobile Number</th>
+<th>Address</th>
+<th>School Name</th>
+<th>Year and Course</th>
+<th class="text-center">status</th>
+<th class="text-right">Actions</th>
+</tr>
+</thead>
+<tbody>
+@foreach($wasted as $baho)
+<tr>
+<td>
+<strong>{{ $baho->Fname}}</strong>
+</td>
+<td>{{ $baho->Gender}}</td>
+<td>{{ $baho->Mobile_number}}</td>
+<td>{{ $baho->Permanent_Address}}</td>
+<td>{{ $baho->School_Name}}</td>
+<td>{{ $baho->Year_Course}}</td>
+<td class="text-center">
+<div class="dropdown action-label">
+<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+<i class="far fa-dot-circle text-danger"></i> {{ $baho->Status}}
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+<a class="dropdown-item" href="" submitForm(this);><i class="far fa-dot-circle text-danger"></i> Pending</a>
+<a class="dropdown-item" href="#"><i class="far fa-dot-circle text-success"></i> Approved</a>
 </div>
 </div>
-</form>
+</td>
+<td class="text-right">
+<div class="dropdown dropdown-action">
+<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+<div class="dropdown-menu dropdown-menu-right">
+<a class="dropdown-item" href="#" title="Edit" data-toggle="modal" data-target="#edit_expense"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a>
+<a class="dropdown-item" href="#" title="Delete" data-toggle="modal" data-target="#delete_expense"><i class="fas fa-trash-alt m-r-5"></i> Delete</a>
 </div>
-@if(auth()-> user() ->role=='Admin')
-<div class="widget tags-widget">
-<h5>View the applied Applicants</h5>
-<a class="btn btn-info" href="{{ URL::to('/Applicants/'.$detail->id) }}" ><i class="fas fa-user"></i>&nbsp; &nbsp;  View &nbsp; &nbsp; </a> 
-
-<p></p>
-<h5>Find suitable student for the scholarship </h5>
-<a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
-
 </div>
-@endif
-
-</aside>
+</td>
+</tr>
+@endforeach
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="notification-box">
@@ -656,7 +498,7 @@
 </div>
 <div class="list-body">
 <span class="message-author"> Buster Wigton </span>
-<span class="message-time">12:28 AM</span>
+ <span class="message-time">12:28 AM</span>
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
 </div>
@@ -668,7 +510,7 @@
 <div class="list-item">
 <div class="list-left">
 <span class="avatar">R</span>
- </div>
+</div>
 <div class="list-body">
 <span class="message-author"> Rolland Webber </span>
 <span class="message-time">12:28 AM</span>
@@ -762,7 +604,228 @@
 </div>
 </div>
 
+<div id="add_expense" class="modal" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content modal-lg">
+<div class="modal-header">
+<h4 class="modal-title">Add Expense</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
+<div class="modal-body">
+<form>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>Item Name</label>
+<input type="text" class="form-control">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Purchase From</label>
+<input type="text" class="form-control">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group form-focus">
+<label>Purchase Date</label>
+<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Purchased By </label>
+<select class="select form-control">
+<option>Daniel Porter</option>
+<option>Roger Dixon</option>
+</select>
+ </div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>Amount</label>
+<input type="text" class="form-control" value="$50">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Paid By</label>
+<select class="form-control select">
+<option>Cash</option>
+<option>Cheque</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>status</label>
+<select class="form-control select">
+<option>Pending</option>
+<option>Approved</option>
+</select>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Attachments</label>
+<input type="file" class="form-control">
+</div>
+</div>
+</div>
+<div class="attach-files">
+<ul>
+<li>
+<img src="assets/img/user.jpg" alt="">
+<a href="#" class="fa fa-close file-remove"></a>
+</li>
+<li>
+<img src="assets/img/user.jpg" alt="">
+<a href="#" class="fa fa-close file-remove"></a>
+</li>
+</ul>
+</div>
+<div class="m-t-20 text-center">
+<button class="btn btn-primary btn-lg">Create Expense</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="edit_expense" class="modal" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content modal-lg">
+<div class="modal-header">
+<h4 class="modal-title">Edit Expense</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body">
+<form>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>Item Name</label>
+<input type="text" class="form-control" value="Dell Laptop">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Purchase From</label>
+<input type="text" class="form-control" value="Amazon">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>Purchase Date</label>
+<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
+</div>
+</div>
+<div class="col-sm-6">
+ <div class="form-group">
+<label>Purchased By </label>
+<select class="form-control select">
+<option>Daniel Porter</option>
+<option>Roger Dixon</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>Amount</label>
+<input type="text" class="form-control" placeholder="$50" value="$10000">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Paid By</label>
+<select class="form-control select">
+<option>Cash</option>
+<option>Cheque</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label>status</label>
+<select class="form-control select">
+<option>Pending</option>
+<option>Approved</option>
+</select>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label>Attachments</label>
+<input type="file" class="form-control">
+</div>
+</div>
+</div>
+<div class="attach-files">
+<ul>
+<li>
+<img src="assets/img/user.jpg" alt="">
+<a href="#" class="fa fa-close file-remove"></a>
+</li>
+<li>
+<img src="assets/img/user.jpg" alt="">
+<a href="#" class="fa fa-close file-remove"></a>
+</li>
+</ul>
+</div>
+<div class="m-t-20 text-center">
+<button class="btn btn-primary btn-lg mb-3">Save Changes</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="delete_expense" class="modal" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content modal-md">
+<div class="modal-header">
+<h4 class="modal-title">Delete Expense</h4>
+</div>
+<div class="modal-body">
+<p>Are you sure want to delete this expense?</p>
+<div class="m-t-20 text-left">
+<a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+<button type="submit" class="btn btn-danger">Delete</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -809,7 +872,23 @@
 <!-- Start Toaster & Sweetalert -->
 <script src="../../assets/toaster/toastr.min.js"></script>
 <script src="../../assets/toaster/sweetalert.min.js"></script>
-
+<script>  
+function submitForm(form) {
+        swal({
+            title: "Are you sure?",
+            text: "This form will be submitted",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then(function (isOkay) {
+            if (isOkay) {
+                form.submit();
+            }
+        });
+        return false;
+    }
+</script>
 
 <script>
             @if(Session::has('messege'))
