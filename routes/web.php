@@ -53,3 +53,5 @@ Route::post('/applying/{id}', [App\Http\Controllers\StudentController::class, 'a
 
 
 Route::get('/Applicants/{id}', [App\Http\Controllers\StudentController::class, 'Applicants'])->name('Applicants');
+
+Route::get('/status/{id}', [App\Http\Controllers\StudentController::class, 'status'])->name('status');

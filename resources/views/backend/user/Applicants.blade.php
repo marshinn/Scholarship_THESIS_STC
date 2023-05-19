@@ -367,11 +367,19 @@
 <td class="text-center">
 <div class="dropdown action-label">
 <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+  @if($baho->Status == 'Pending')
 <i class="far fa-dot-circle text-danger"></i> {{ $baho->Status}}
+@else
+<i class="far fa-dot-circle text-success"></i> {{ $baho->Status}}
+@endif
 </a>
 <div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="" submitForm(this);><i class="far fa-dot-circle text-danger"></i> Pending</a>
-<a class="dropdown-item" href="#"><i class="far fa-dot-circle text-success"></i> Approved</a>
+ 
+ 
+<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}"  ><i class="far fa-dot-circle text-danger"></i> Pending</a>
+
+<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}" ><i class="far fa-dot-circle text-success"></i> Approved</a>
+
 </div>
 </div>
 </td>

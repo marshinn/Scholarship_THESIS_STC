@@ -121,4 +121,25 @@ class StudentController extends Controller
 
     }
 
+    public function status($id)
+    {   
+        $status = student::select('Status')->where('id', $id)->first();
+        
+        if($status->Status =='Pending'){
+            $status = 'Approve';
+        }else{
+            $status = 'Pending';
+        }
+        student::where('id', $id)->update(['Status'=>$status]);
+        $notifications = array
+        (
+            'messege' => 'Successfully Status Change',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notifications);
+
+       
+
+    }
 }

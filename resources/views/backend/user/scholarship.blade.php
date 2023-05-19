@@ -60,8 +60,14 @@
 <div class="blog-info clearfix">
 <div class="post-left">
 <ul>   @if($Scholarship->student->contains('user_id' , auth::id()))
+
+@if($Scholarship->Status == 'Pending')
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p class="badge badge-danger-border ">{{auth()->user()->student->firstwhere('scholarship_id', $Scholarship->id)?->Status}}</p>
+@else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p class="badge badge-success-border ">{{auth()->user()->student->firstwhere('scholarship_id', $Scholarship->id)?->Status}}</p>
+@endif
 @endif
 <li><a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}"><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($Scholarship->created_at))}}</span></a></li>
 </ul>
