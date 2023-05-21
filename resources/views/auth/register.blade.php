@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Preskool - Register</title>
+<title> Register</title>
 
 <link rel="shortcut icon" href="{{('design2/img/favicon.png')}}">
 

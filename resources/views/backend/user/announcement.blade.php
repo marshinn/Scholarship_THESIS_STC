@@ -2,189 +2,154 @@
 @section('content')
 
 
+
 <div class="page-wrapper">
 <div class="content container-fluid">
-
 <div class="page-header">
 <div class="row">
-<div class="col-md-6">
-<h3 class="page-title mb-0">Dashboard</h3>
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<h5 class="text-uppercase mb-0 mt-0 page-title">Annoucement</h5>
 </div>
-<div class="col-md-6">
-<ul class="breadcrumb mb-0 p-0 float-right">
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<ul class="breadcrumb float-right p-0 mb-0">
 <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><span>Dashboard</span></li>
+
+<li class="breadcrumb-item"><span>Annoucement</span></li>
 </ul>
 </div>
 </div>
 </div>
 
+@if(auth()->user()-> role == 'Admin')
 <div class="row">
-<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-<div class="dash-widget dash-widget5">
-<span class="float-left"><img src="assets/img/dash/dash-1.png" alt="" width="80"></span>
-<div class="dash-widget-info text-right">
-<span>Number of Users </span>
-<h3>{{auth()-> user()->count()}}</h3>
+<div class="col-lg-12 col-sm-12 col-12 text-right add-btn-col">
+<a class="btn btn-info btn-rounded float-right" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-bell"></i>  &nbsp;Add Annoucement</a>
 </div>
-</div>
-</div>
-<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-<div class="dash-widget dash-widget5">
-<div class="dash-widget-info text-left d-inline-block">
-<span>Students Who Currently Have Scholarships</span>
-<h3>{{$student->where('Status', 'Approve')->count()}}</h3>
-</div>
-<span class="float-right"><img src="assets/img/dash/dash-2.png" width="80" alt=""></span>
-</div>
-</div>
-<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-<div class="dash-widget dash-widget5">
-<span class="float-left"><img src="assets/img/dash/dash-3.png" alt="" width="80"></span>
-<div class="dash-widget-info text-right">
-<span>Number of Scholarships</span>
-<h3>{{auth()-> user()->where('role', 'Student')->count()}}</h3>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-<div class="dash-widget dash-widget5">
-<div class="dash-widget-info d-inline-block text-left">
-<span>Students Who Currently Have not yet Scholarships</span>
-<h3>{{$student->where('Status', 'Pending')->count()}}</h3>
-</div>
-<span class="float-right"><img src="assets/img/dash/dash-4.png" alt="" width="80"></span>
-</div>
-</div>
-</div>
+@endif
 
-
-
-<div class="row">
-<div class="col-lg-12">
-<div class="card">
-<div class="card-header">
-<div class="row align-items-center">
-<div class="col-sm-6">
- <div class="page-title">
- All Students who currently have scholarships.
-</div>
-</div>
-<div class="col-sm-6 text-sm-right">
-<div class=" mt-sm-0 mt-2">
-<button class="btn btn-outline-primary mr-2"><img src="assets/img/excel.png" alt=""><span class="ml-2">Excel</span></button>
-<button class="btn btn-outline-danger mr-2"><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></button>
-<button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
-<div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="#">Action</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Another action</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Something else here</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="table-responsive">
-<table class="table custom-table">
-<thead class="thead-light">
-<tr>
-<th>Name </th>
-<th>Student ID</th>
-<th>School Name</th>
-<th>Year & Course</th>
-<th>Scholarship Name</th>
-<th>Status</th>
-<th class="text-right">Date when your application is approved.</th>
-</tr>
-</thead>
-<tbody>
-@foreach($student as $students)
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="{{(!empty($student->Student_Image))? url( '../../upload/image/'.$student->Student_Image):url('../../upload/no_image.jpg')}}"  alt=""></a><a href="profile.html">{{ $students->Fname}} {{ $students->Lname}} <span></span></a></h2>
-</td>
-<td> {{ $students->School_ID}}</td>
-<td>{{ $students->School_Name}}</td>
-<td>{{ $students->Year_Course}}</td>
-<td>{{ $students->Scholarship->title}}</td>
-<td>{{ $students->Status}}</td>
-<td class="text-right">
-{{ date('M  d,  Y', strtotime($students->updated_at))}}
-</td>
-</tr>
-@endforeach
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="row">
-<div class="col-12">
-<div class="card">
-<div class="card-header">
-<div class="row align-items-center">
-<div class="col-sm-6">
-<div class="page-title">
-New Registered Students
-</div>
-</div>
-<div class="col-sm-6 text-sm-right">
-<div class=" mt-sm-0 mt-2">
-<button class="btn btn-outline-primary mr-2"><img src="assets/img/excel.png" alt=""><span class="ml-2">Excel</span></button>
-<button class="btn btn-outline-danger mr-2"><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></button>
-<button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
-<div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="#">Action</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Another action</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Something else here</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="card-body">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<div class="table-responsive">
-<table class="table custom-table">
-<thead class="thead-light">
-<tr>
-<th>Name </th>
-
-<th>Role</th>
-<th>Email</th>
-<th>Verified Email</th>
-<th>Date Of Created</th>
-
-</tr>
-</thead>
-<tbody>
-    @foreach($all as $key=>$row)
-<tr>
-<td>
-<h2><a href="profile.html" class="avatar text-white"><img src="{{(!empty($student->Student_Image))? url( '../../upload/image/'.$student->Student_Image):url('../../upload/no_image.jpg')}}" alt=""></a><a href="profile.html">{{ $row->name}} <span></span></a></h2>
-</td>
-
-<td>{{ $row->role}}</td>
-<td>{{ $row->email}}</td>
-<td>{{ $row->email_verified_at}} </td>
-<td>{{ date('M  d,  Y', strtotime($students->created_at))}}</td>
+<div class="col-md-12">
+<div class="activity">
+<div class="activity-box">
+<ul class="activity-list">
 
 
-</tr>
+@foreach($alls as $Scholarship)
+<li>
+
+<div class="activity-user">
+<a href="profile.html" class="avatar" title="Jeffery Lalor" data-toggle="tooltip">L</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+<a href="" class="name"> {{ $Scholarship->user->name}}</a> added a <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="name"> {{ $Scholarship->title}}</a> and it has  <a href="" class="name">  Scholarship Criteria</a> of <a href=""> Average Grades is {{(!empty($Scholarship->grade))? $Scholarship->grade: '' }} , Living in   {{(!empty($Scholarship->address))? $Scholarship->address: '' }}   and has Parent Income of maximum    {{(!empty($Scholarship->Parent_Income))? $Scholarship->Parent_Income: '' }} pesos  </a>
+<span class="time">6 mins ago</span>
+</div>
+</div>
+</li>
 
 @endforeach
-</tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+<li>
+<div class="page-title ml-3">Notifications</div>
+
+</li>
+
+@if(auth()->user()-> role == 'Student')
+
+<li>
+<div class="activity-user">
+<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
+<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+</a>
+</div>
+
+<div class="activity-content">
+
+<div class="timeline-content">
+<a href="" class="name"> <b>You</b> </a> submitted a new scholarship request for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Scholarship->title}} </b> 
+<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
+</div>
+
+</div>
+
+</li>
+
+
+
+
+
+<li>
+<div class="activity-user">
+<a href="#" title="Bernardo Galaviz" data-toggle="tooltip" class="avatar">
+<img alt="Bernardo Galaviz" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+<a href="" class="name">You </a> submitted a scholarship application for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Scholarship->title}} </b>  and it was <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Status}} </b> . 
+<span class="time">{{ date('M  d,  Y', strtotime($details->updated_at))}}</span>
 </div>
 </div>
+</li>
+
+@endif
+@if(auth()->user()-> role == 'Admin')
+
+@foreach($alls as $Scholarship)
+
+<li>
+<div class="activity-user">
+<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
+<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+</a>
+</div>
+
+<div class="activity-content">
+
+<div class="timeline-content">
+<a href="" class="name"> <b>You</b> </a> only have   <b>{{ $Scholarship->Slot}}</b>  slot left   for {{ $Scholarship->title}}
+<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
+</div>
+
+</div>
+
+</li>
+@endforeach
+@foreach($alls as $Scholarship)
+<li>
+<div class="activity-user">
+<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
+<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+</a>
+</div>
+
+<div class="activity-content">
+
+<div class="timeline-content">
+<a href="" class="name"> <b>You</b> </a> have been approve    <b>{{$Scholarship->student()->where('Status', 'Approve')->count()}}</b>  Student and only  {{$Scholarship->student()->where('Status', 'Pending')->count()}} for pending
+<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
+</div>
+
+</div>
+
+</li>
+
+@endforeach
+@endif
+
+</ul>
 </div>
 </div>
 </div>
@@ -209,7 +174,7 @@ New Registered Students
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
 </div>
-</div>
+ </div>
 </a>
 </li>
 <li>
@@ -340,7 +305,7 @@ New Registered Students
 </div>
 <div class="list-body">
 <span class="message-author">Melita Faucher</span>
-<span class="message-time">12:28 AM</span>
+ <span class="message-time">12:28 AM</span>
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
 </div>
@@ -400,9 +365,6 @@ New Registered Students
 </div>
 </div>
 </div>
-</div>
 
 </div>
-
-
 @endsection

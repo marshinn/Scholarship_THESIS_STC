@@ -251,6 +251,13 @@
 </li>
 
 
+<!--Announcement Side :) ^_^ -->
+
+
+<li>
+<a href="{{URL::to('/announcement')}}"><img src="assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
+</li>
+<li>
 
 
 
@@ -258,7 +265,16 @@
 
 
  <li>
-<a href="calendar.html"><img src="assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+<a href="{{URL::to('/calendar')}}"><img src="assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+</li>
+<li>
+
+
+ <!--Message Side :) ^_^ -->
+
+
+ <li>
+<a href=""><img src="assets/img/sidebar/icon-4.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">5</span><span>Message</span></a>
 </li>
 <li>
 

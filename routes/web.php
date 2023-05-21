@@ -55,3 +55,8 @@ Route::post('/applying/{id}', [App\Http\Controllers\StudentController::class, 'a
 Route::get('/Applicants/{id}', [App\Http\Controllers\StudentController::class, 'Applicants'])->name('Applicants');
 
 Route::get('/status/{id}', [App\Http\Controllers\StudentController::class, 'status'])->name('status');
+
+
+Route::get('/calendar', [App\Http\Controllers\UserController::class, 'calendar'])->name('calendar');
+
+Route::get('/announcement', [App\Http\Controllers\AnnouncementController::class, 'announcement'])->name('announcement');

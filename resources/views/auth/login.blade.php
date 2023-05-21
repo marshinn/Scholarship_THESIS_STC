@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Preskool - Login</title>
+<title> Login</title>
 
 <link rel="shortcut icon" href="{{('design2/img/favicon.png')}}">
 
@@ -31,7 +31,7 @@
 </div>
 <div class="login-right">
 <div class="login-right-wrap">
-<h1>Welcome to Preskool</h1>
+<h1>Welcome</h1>
 <p class="account-subtitle">Need an account? <a href="{{ route('register') }}">Sign Up</a></p>
 @if(count($errors))
   @foreach ($errors->all() as $error)

@@ -28,7 +28,7 @@ class ScholarshipController extends Controller
 
         $alls =  Scholarship::get();
   
-        return view ('backend.user.scholarship', compact( 'alls'   )); 
+        return view ('backend.user.scholarship', compact('alls')); 
    
 
     }

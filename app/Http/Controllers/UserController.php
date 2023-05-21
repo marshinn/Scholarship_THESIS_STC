@@ -143,7 +143,10 @@ class UserController extends Controller
     }
 
 
-
+    public function calendar()
+    {
+        return view ('backend.user.calendar');
+    }
 
 
 
