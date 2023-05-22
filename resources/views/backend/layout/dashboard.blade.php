@@ -175,7 +175,7 @@ New Registered Students
 <td>{{ $row->role}}</td>
 <td>{{ $row->email}}</td>
 <td>{{ $row->email_verified_at}} </td>
-<td>{{ date('M  d,  Y', strtotime($students->created_at))}}</td>
+<td>{{ date('M  d,  Y', strtotime($row->created_at))}}</td>
 
 
 </tr>

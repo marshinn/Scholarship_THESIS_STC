@@ -28,6 +28,9 @@ class StudentController extends Controller
 
     public function applying(Request $request, $id)
     {
+
+       
+
        
         $data = $request->validate([
             'Fname' => 'required',
@@ -89,8 +92,17 @@ class StudentController extends Controller
        
    
 
+        $edit = Scholarship::where('id',$id)->first();
 
+        $status = student::select('Status')->firstWhere('id', $id);
 
+        if($data['Parent_Income'] == $edit['Parent_Income']){
+            $status   = 'Approve';
+        }else{
+            $status  =  'Pending';
+        }
+
+        Auth::user()->student->firstWhere('scholarship_id', $id)->update(['Status'=>$status]);
 
         $sana_all= student::get();
         return redirect()->route('Scholarship')->with(compact('sana_all'));

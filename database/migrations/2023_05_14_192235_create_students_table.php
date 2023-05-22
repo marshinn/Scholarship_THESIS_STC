@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('Mother_job')->nullable();
             $table->string('Parent_Nationlity')->nullable();
             $table->string('Permanent_Address')->nullable();
-            $table->string('Parent_Income')->nullable();
+            $table->string('Parent_Income')->default('0');;
             
 
             /**
