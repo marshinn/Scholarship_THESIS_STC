@@ -151,7 +151,14 @@ class StudentController extends Controller
         );
         return redirect()->back()->with($notifications);
 
-       
-
     }
+
+    
+    public function studentdetails($id)
+    {
+        $tada = Student::get()->where('id',$id)->first();
+        $swabe = 'Not Active';
+        return view ('backend.user.studentdetails',  compact('tada' , 'swabe'));
+    }
+
 }

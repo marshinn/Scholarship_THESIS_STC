@@ -298,104 +298,200 @@
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
 
+  
+
+    <!-- Start of Dashboard :) ^_^ -->
 
 
 
 
 
-
-
-
-  <!-- Start of Dashboard :) ^_^ -->
-
-
-
-
-
-
-
-  <div class="page-wrapper">
+    <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Applicants</h5>
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+<h5 class="text-uppercase mb-0 mt-0 page-title">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="index.html">Accounts</a></li>
-<li class="breadcrumb-item"><span>Expenses</span></li>
+<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Dashboard</a></li>
+
 </ul>
 </div>
 </div>
 </div>
-<div class="content-page">
 <div class="row">
-<div class="col-sm-8 col-5">
-</div>
-
-</div>
-
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile-sidebar">
 <div class="row">
-<div class="col-md-12 mb-3">
-<div class="table-responsive">
-<table class="table custom-table mb-0 datatable">
-<thead class="thead-light">
-<tr>
-<th>Name</th>
- <th>Gender</th>
-<th>Mobile Number</th>
-<th>Address</th>
-<th>School Name</th>
-<th>Year and Course</th>
-<th class="text-center">status</th>
-<th class="text-right">Actions</th>
-</tr>
-</thead>
-<tbody>
-@foreach($wasted as $baho)
-<tr>
-<td>
-<a href="{{ URL::to('/studentdetails/'.$baho->id) }}"><strong>{{ $baho->Fname}}</strong></a>
-</td>
-<td>{{ $baho->Gender}}</td>
-<td>{{ $baho->Mobile_number}}</td>
-<td>{{ $baho->Permanent_Address}}</td>
-<td>{{ $baho->School_Name}}</td>
-<td>{{ $baho->Year_Course}}</td>
-<td class="text-center">
-<div class="dropdown action-label">
-<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-  @if($baho->Status == 'Pending')
-<i class="far fa-dot-circle text-danger"></i> {{ $baho->Status}}
-@else
-<i class="far fa-dot-circle text-success"></i> {{ $baho->Status}}
-@endif
-</a>
-<div class="dropdown-menu dropdown-menu-right">
- 
- 
-<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}"  ><i class="far fa-dot-circle text-danger"></i> Pending</a>
+<div class="col-lg-3 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile">
+<div class="card">
+<div class="card-body">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile-pic">
+<img class="card-img-top" src="{{(!empty($tada->Student_Imag))? url(  'upload/image/'.$tada->Student_Image):url('upload/no_image.jpg')}}"
+                        alt="Card image">
+</div>
+<div class="aboutprofile-name">
+<h5 class="text-center mt-2">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
+<p class="text-center">{{$tada->School_Name}}</p>
+</div>
+<ul class="list-group list-group-flush">
 
-<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}" ><i class="far fa-dot-circle text-success"></i> Approved</a>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="aboutme-profile">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+Scholarship Criteria
+</h4>
+</div>
+<div class="card-body">
 
+<ul class="categories">
+<center><p>Scholarship Name &nbsp;: &nbsp; <b>{{$tada->Scholarship->title}}</b> </p></center>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->grade))? $tada->Scholarship->grade:$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->GPA) == ($tada->Scholarship->grade) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->grade)) && ($tada->GPA) != ($tada->Scholarship->grade) ?  ' ':''}}</p>  </li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;</i></a> <h5 class="badge badge-pill bg-primary float-right"></h5>  </li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;</i></a> <h5 class="badge badge-pill bg-primary float-right"></h5>  </li>
+
+
+</ul>
 </div>
 </div>
-</td>
-<td class="text-right">
-<div class="dropdown dropdown-action">
-<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
-<div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="#" title="Edit" data-toggle="modal" data-target="#edit_expense"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a>
-<a class="dropdown-item" href="#" title="Delete" data-toggle="modal" data-target="#delete_expense"><i class="fas fa-trash-alt m-r-5"></i> Delete</a>
+</div>
+<div class="aboutprofile-address">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">Status</h4>
+</div>
+<div class="card-body">
+<a class="btn btn-success" href=" " ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
+<a class="btn btn-danger float-right" href=" " ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
 </div>
 </div>
-</td>
-</tr>
-@endforeach
-</tbody>
-</table>
+</div>
+</div>
+<div class="col-lg-9 col-md-12 col-sm-12 col-12">
+<div class="profile-content">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+ &nbsp;Personal Information
+</h4>
+</div>
+
+<div class="card-body">
+<div id="biography" class="biography">
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Full Name</strong>
+<p class="text-muted">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mobile</strong>
+<p class="text-muted">{{$tada->Mobile_number}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Email</strong>
+<p class="text-muted"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543e31323226312d14312c35392438317a373b39">[email&#160;protected]</a></p>
+</div>
+<div class="col-md-3 col-6"> <strong>Address</strong>
+<p class="text-muted">{{$tada->Permanent_Address}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Birthdate</strong>
+<p class="text-muted"> {{ date('M  d,  Y', strtotime($tada->Birthdate))}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Gender</strong>
+<p class="text-muted">{{$tada->Gender}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Religion</strong>
+<p class="text-muted">{{$tada->Religion}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Nationality</strong>
+<p class="text-muted">{{$tada->Nationality}}</p>
+</div>
+</div>
+<hr>
+
+
+<div class="card-header">
+<h4 class="page-title">
+Education
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>School Name</strong>
+<p class="text-muted">{{$tada->School_Name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>School Address</strong>
+<p class="text-muted">{{$tada->School_Address}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Grade</strong>
+<p class="text-muted">{{$tada->GPA}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Year and Course</strong>
+<p class="text-muted">{{$tada->Year_Course}}</p>
+</div>
+</div>
+<hr>
+
+<div class="card-header">
+<h4 class="page-title">
+Parent Information
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Father Name</strong>
+<p class="text-muted">{{$tada->Father_name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Father Occupation</strong>
+<p class="text-muted">{{$tada->Father_job}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Name</strong>
+<p class="text-muted">{{$tada->Mother_name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Occupation</strong>
+<p class="text-muted">{{$tada->Mother_job}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Parent Income Monthly</strong>
+<p class="text-muted">{{$tada->Parent_Income}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Nationality</strong>
+<p class="text-muted">{{$tada->Parent_Nationlity}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Present Address</strong>
+<p class="text-muted">{{$tada->Present_Address}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Number</strong>
+<p class="text-muted">{{$tada->Mobile_number}}</p>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -464,7 +560,7 @@
 <span class="message-time">12:28 AM</span>
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
+ </div>
 </div>
 </a>
 </li>
@@ -506,7 +602,7 @@
 </div>
 <div class="list-body">
 <span class="message-author"> Buster Wigton </span>
- <span class="message-time">12:28 AM</span>
+<span class="message-time">12:28 AM</span>
 <div class="clearfix"></div>
 <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
 </div>
@@ -531,7 +627,7 @@
 <li>
 <a href="chat.html">
 <div class="list-item">
-<div class="list-left">
+ <div class="list-left">
 <span class="avatar">C</span>
 </div>
 <div class="list-body">
@@ -612,210 +708,6 @@
 </div>
 </div>
 
-<div id="add_expense" class="modal" role="dialog">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content modal-lg">
-<div class="modal-header">
-<h4 class="modal-title">Add Expense</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-<div class="modal-body">
-<form>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>Item Name</label>
-<input type="text" class="form-control">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Purchase From</label>
-<input type="text" class="form-control">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group form-focus">
-<label>Purchase Date</label>
-<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Purchased By </label>
-<select class="select form-control">
-<option>Daniel Porter</option>
-<option>Roger Dixon</option>
-</select>
- </div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>Amount</label>
-<input type="text" class="form-control" value="$50">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Paid By</label>
-<select class="form-control select">
-<option>Cash</option>
-<option>Cheque</option>
-</select>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>status</label>
-<select class="form-control select">
-<option>Pending</option>
-<option>Approved</option>
-</select>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Attachments</label>
-<input type="file" class="form-control">
-</div>
-</div>
-</div>
-<div class="attach-files">
-<ul>
-<li>
-<img src="assets/img/user.jpg" alt="">
-<a href="#" class="fa fa-close file-remove"></a>
-</li>
-<li>
-<img src="assets/img/user.jpg" alt="">
-<a href="#" class="fa fa-close file-remove"></a>
-</li>
-</ul>
-</div>
-<div class="m-t-20 text-center">
-<button class="btn btn-primary btn-lg">Create Expense</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-<div id="edit_expense" class="modal" role="dialog">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content modal-lg">
-<div class="modal-header">
-<h4 class="modal-title">Edit Expense</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-<div class="modal-body">
-<form>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>Item Name</label>
-<input type="text" class="form-control" value="Dell Laptop">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Purchase From</label>
-<input type="text" class="form-control" value="Amazon">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>Purchase Date</label>
-<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
-</div>
-</div>
-<div class="col-sm-6">
- <div class="form-group">
-<label>Purchased By </label>
-<select class="form-control select">
-<option>Daniel Porter</option>
-<option>Roger Dixon</option>
-</select>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>Amount</label>
-<input type="text" class="form-control" placeholder="$50" value="$10000">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Paid By</label>
-<select class="form-control select">
-<option>Cash</option>
-<option>Cheque</option>
-</select>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<div class="form-group">
-<label>status</label>
-<select class="form-control select">
-<option>Pending</option>
-<option>Approved</option>
-</select>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<label>Attachments</label>
-<input type="file" class="form-control">
-</div>
-</div>
-</div>
-<div class="attach-files">
-<ul>
-<li>
-<img src="assets/img/user.jpg" alt="">
-<a href="#" class="fa fa-close file-remove"></a>
-</li>
-<li>
-<img src="assets/img/user.jpg" alt="">
-<a href="#" class="fa fa-close file-remove"></a>
-</li>
-</ul>
-</div>
-<div class="m-t-20 text-center">
-<button class="btn btn-primary btn-lg mb-3">Save Changes</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-<div id="delete_expense" class="modal" role="dialog">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content modal-md">
-<div class="modal-header">
-<h4 class="modal-title">Delete Expense</h4>
-</div>
-<div class="modal-body">
-<p>Are you sure want to delete this expense?</p>
-<div class="m-t-20 text-left">
-<a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-<button type="submit" class="btn btn-danger">Delete</button>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 
 
@@ -836,12 +728,22 @@
 
 
 
-  
-  <!-- Start of Dashboard :) ^_^ -->
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 <script src="../../assets/js/jquery-3.6.0.min.js"></script>
@@ -880,23 +782,7 @@
 <!-- Start Toaster & Sweetalert -->
 <script src="../../assets/toaster/toastr.min.js"></script>
 <script src="../../assets/toaster/sweetalert.min.js"></script>
-<script>  
-function submitForm(form) {
-        swal({
-            title: "Are you sure?",
-            text: "This form will be submitted",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then(function (isOkay) {
-            if (isOkay) {
-                form.submit();
-            }
-        });
-        return false;
-    }
-</script>
+
 
 <script>
             @if(Session::has('messege'))

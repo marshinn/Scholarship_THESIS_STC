@@ -62,3 +62,6 @@ Route::get('/status/{id}', [App\Http\Controllers\StudentController::class, 'stat
 Route::get('/calendar', [App\Http\Controllers\UserController::class, 'calendar'])->name('calendar');
 
 Route::get('/announcement', [App\Http\Controllers\AnnouncementController::class, 'announcement'])->name('announcement');
+
+Route::get('/studentdetails/{id}', [App\Http\Controllers\StudentController::class, 'studentdetails'])->name('studentdetails');
+
