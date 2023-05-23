@@ -64,10 +64,10 @@
 
 
 @if($Scholarship->Status == 'Pending')
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 <p class="badge badge-danger-border ">{{auth()->user()->student->firstwhere('scholarship_id', $Scholarship->id)?->Status}}</p>
 @else
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p class="badge badge-success-border ">{{auth()->user()->student->firstwhere('scholarship_id', $Scholarship->id)?->Status}}</p>
 @endif
 @endif
@@ -77,8 +77,10 @@
 @if(auth()-> user() ->role=='Student')
 @if($Scholarship->student->contains('user_id' , auth::id()))
 <div class="post-right">
+<a class="btn btn-white btn-rounded float-right" href="{{URL::to('/Remove/'.$Scholarship->id)}}" id="sed" ><i class="fas fa-book"></i> View   &nbsp; </a>  
 <a class="btn btn-white btn-rounded float-right" href="{{URL::to('/Remove/'.$Scholarship->id)}}" id="sed" ><i class="fas fa-moon"></i> cancel  &nbsp; </a> 
 </div>
+
 @else
 <div class="post-right">
 <a class="btn btn-dark btn-rounded float-right" href="  {{ URL::to('/Apply/'.$Scholarship->id) }}" ><i class="fas fa-moon"></i> Apply  &nbsp; </a> 

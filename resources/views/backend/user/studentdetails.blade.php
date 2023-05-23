@@ -336,8 +336,8 @@
                         alt="Card image">
 </div>
 <div class="aboutprofile-name">
-<h5 class="text-center mt-2">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
-<p class="text-center">{{$tada->School_Name}}</p>
+<h5 class="text-center mt-2">Full Name : &nbsp; {{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
+<p class="text-center">School Name :&nbsp;  {{$tada->School_Name}}</p>
 </div>
 <ul class="list-group list-group-flush">
 
@@ -360,8 +360,14 @@ Scholarship Criteria
 <center><p>Scholarship Name &nbsp;: &nbsp; <b>{{$tada->Scholarship->title}}</b> </p></center>
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->grade))? $tada->Scholarship->grade:$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->GPA) == ($tada->Scholarship->grade) ?  'ok':''}}</p> 
 <p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->grade)) && ($tada->GPA) != ($tada->Scholarship->grade) ?  ' ':''}}</p>  </li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;</i></a> <h5 class="badge badge-pill bg-primary float-right"></h5>  </li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;</i></a> <h5 class="badge badge-pill bg-primary float-right"></h5>  </li>
+
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->address))? $tada->Scholarship->address . ' '. 'Only' :$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Permanent_Address) == ($tada->Scholarship->address) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->address)) && ($tada->Permanent_Address) != ($tada->Scholarship->address) ?  '':''}}</p>  </li>
+
+
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->Parent_Income))? $tada->Scholarship->Parent_Income . ' '. 'Pesos':$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Parent_Income) == ($tada->Scholarship->Parent_Income) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->Parent_Income)) && ($tada->Parent_Income) != ($tada->Scholarship->Parent_Income) ?  ' ':''}}</p>  </li>
+
 
 
 </ul>
@@ -371,10 +377,11 @@ Scholarship Criteria
 <div class="aboutprofile-address">
 <div class="card">
 <div class="card-header">
-<h4 class="page-title">Status</h4>
+<h4 class="page-title post-left">Status</h4>
+<i class= "post-right">Current : &nbsp; {{$tada->Status}}</i>
 </div>
 <div class="card-body">
-<a class="btn btn-success" href=" " ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
+<a class="btn btn-success" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
 <a class="btn btn-danger float-right" href=" " ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
 </div>
 </div>
