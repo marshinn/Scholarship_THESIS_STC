@@ -261,7 +261,7 @@
 
 
 
- <!--Calendar Side :) ^_^ -->
+ <!--Calendar Side :) ^_^ 
 
 
  <li>
@@ -269,8 +269,10 @@
 </li>
 <li>
 
+-->
 
- <!--Message Side :) ^_^ -->
+
+ <!--Message Side :) 
 
 
  <li>
@@ -278,6 +280,7 @@
 </li>
 <li>
 
+^_^ -->
 
  <!-- Accounts Side :) ^_^ -->
 

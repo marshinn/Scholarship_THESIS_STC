@@ -1,6 +1,10 @@
 @extends('backend.layout.apps')
 @section('content')
-
+<style>
+    .red-text {
+      color: red;
+    }
+  </style>
 
 <div class="page-wrapper">
 <div class="content container-fluid">
@@ -18,6 +22,163 @@
 </div>
 </div>
 </div>
+
+
+
+@if(auth()-> user() ->role=='Student')
+
+
+<div class="row staff-grid-row">
+<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+<div class="profile-widget">
+<div class="profile-img">
+<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
+</div>
+<div class="dropdown profile-action">
+
+</div>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 1 </a></h4>
+<div class="text-muted ">No. of Slot : 55/100 </div>
+<div class=" small text-muted text-primary">Status:  Open</div>
+
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+
+</div>
+</div>
+
+
+<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+<div class="profile-widget">
+<div class="profile-img">
+<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
+</div>
+<div class="dropdown profile-action">
+
+</div>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 2  </a></h4>
+<div class="text-muted ">No. of Slot : 10/35 </div>
+<div class=" small text-muted text-primary">Status:  Open</div>
+
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+<div class="profile-widget">
+<div class="profile-img">
+<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
+</div>
+<div class="dropdown profile-action">
+
+</div>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 3 </a></h4>
+<div class="text-muted ">No. of Slot : 55/100 </div>
+<div class=" small text-muted text-primary">Status:  Open</div>
+
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+
+</div>
+</div>
+<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+<div class="profile-widget">
+<div class="profile-img">
+<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
+</div>
+<div class="dropdown profile-action">
+
+</div>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 4 </a></h4>
+<div class="text-muted ">No. of Slot : 55/100 </div>
+<div class=" small text-muted text-primary">Status:  Open</div>
+
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+
+</div>
+</div>
+<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+<div class="profile-widget">
+<div class="profile-img">
+<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
+</div>
+<div class="dropdown profile-action">
+
+</div>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 5 </a></h4>
+<div class="text-muted ">No. of Slot : 85/85 </div>
+<div class="red-text small" >No Slot</div>
+
+<button class="btn btn-warning" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp; </button>
+
+</div>
+</div>
+
+</div>
+
+
+
+
+@endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@if(auth()-> user() ->role=='Admin')
 
 <div class="row">
 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -190,6 +351,9 @@ New Registered Students
 </div>
 </div>
 </div>
+
+
+@endif
 <div class="notification-box">
 <div class="msg-sidebar notifications msg-noti">
 <div class="topnav-dropdown-header">

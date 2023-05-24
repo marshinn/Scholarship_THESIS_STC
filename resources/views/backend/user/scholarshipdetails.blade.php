@@ -543,11 +543,11 @@
 <div class="widget tags-widget">
 <h5>View the applied Applicants</h5>
 <a class="btn btn-info" href="{{ URL::to('/Applicants/'.$detail->id) }}" ><i class="fas fa-user"></i>&nbsp; &nbsp;  View &nbsp; &nbsp; </a> 
-
+<!--
 <p></p>
 <h5>Find suitable student for the scholarship </h5>
 <a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
-
+-->
 </div>
 @endif
 
