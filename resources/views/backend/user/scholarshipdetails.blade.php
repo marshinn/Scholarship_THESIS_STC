@@ -507,7 +507,7 @@
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Address)) && ($detail->Address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Address) ?  'ok':''}}</h5> @endif </li>
 <li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->Parent_Income. ' '. 'Pesos':$swabe}}  </i></a> @if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Parent_Income)) && ($detail->Parent_Income) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Parent_Income) ?  'ok':''}}</h5>
 @endif</li>
-<li>  <p> <center>If you meet the required criteria, the system will automatically approve your application and you will be forward to the next step. </center></p>  </li>
+<li>  <p> <center>If you meet the required criteria, the system will automatically approve your application. </center></p>  </li>
 
 </ul>
 </div>

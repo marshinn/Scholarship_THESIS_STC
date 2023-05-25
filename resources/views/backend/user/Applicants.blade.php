@@ -349,8 +349,8 @@
 <th>Address</th>
 <th>School Name</th>
 <th>Year and Course</th>
-<th class="text-center">status</th>
-<th class="text-right">Actions</th>
+<th class="text-center">Status</th>
+<th class="text-right">Sholarship Name</th>
 </tr>
 </thead>
 <tbody>
@@ -384,13 +384,7 @@
 </div>
 </td>
 <td class="text-right">
-<div class="dropdown dropdown-action">
-<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
-<div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item" href="#" title="Edit" data-toggle="modal" data-target="#edit_expense"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a>
-<a class="dropdown-item" href="#" title="Delete" data-toggle="modal" data-target="#delete_expense"><i class="fas fa-trash-alt m-r-5"></i> Delete</a>
-</div>
-</div>
+{{ $baho->Scholarship->title}}
 </td>
 </tr>
 @endforeach

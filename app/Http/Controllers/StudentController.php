@@ -96,9 +96,41 @@ class StudentController extends Controller
 
         $status = student::select('Status')->firstWhere('id', $id);
 
-        if($data['Parent_Income'] == $edit['Parent_Income']){
+        if($data['Parent_Income'] == $edit['Parent_Income'] && (empty($edit->address))  &&  (empty($edit->grades)) ){
             $status   = 'Approve';
-        }else{
+        }
+        
+        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (empty($edit->grades)) ){
+            $status   = 'Approve';
+        }
+        
+        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grades'] ){
+            $status   = 'Approve';
+        }
+
+
+        elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grades'] ){
+            $status   = 'Approve';
+        }
+
+        
+        elseif((empty($edit->Parent_Income)) &&  (empty($edit->address))  &&   $data['GPA'] == $edit['grades'] ){
+            $status   = 'Approve';
+        }
+
+
+        elseif((empty($edit->Parent_Income)) && $data['Permanent_Address'] == $edit['address'] &&   (empty($edit->grades)) ){
+            $status   = 'Approve';
+        }
+
+
+        elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&   $data['GPA'] == $edit['grades'] ){
+            $status   = 'Approve';
+        }
+
+        
+
+        else{
             $status  =  'Pending';
         }
 
@@ -123,12 +155,9 @@ class StudentController extends Controller
     }
 
 
-    public function Applicants()
+    public function Applicants($id)
     {   
-        $wasted = student::get();
-        
-
-
+        $wasted = student::where('Scholarship_id', $id)->get();
         return view ('backend.user.Applicants',  compact( 'wasted'));
 
     }
@@ -139,7 +168,10 @@ class StudentController extends Controller
         
         if($status->Status =='Pending'){
             $status = 'Approve';
-        }else{
+        }
+        
+        
+        else{
             $status = 'Pending';
         }
         student::where('id', $id)->update(['Status'=>$status]);
