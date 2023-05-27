@@ -524,14 +524,22 @@
 <a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel My Application &nbsp; &nbsp; </a>     &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; 
 
 @else
+
+@if(($detail->Slot - $detail->Student->where('Status', 'Approve')->count()) == 0)
+
+<button class="btn  btn-warning float-right" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp;  </button>&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+@else
 <a class="btn btn-secondary" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>   &nbsp; &nbsp; &nbsp; 
 <a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel &nbsp; &nbsp; </a>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+
+@endif
+
 @endif
 <p></p>
 <h2></h2>
 
 @endif
-<i>Number of Slots Left : 23</i>
+<i>Number of Slots Left : {{$detail->Slot - $detail->Student->where('Status', 'Approve')->count() }}  /  {{$detail->Slot}} </i>
 
 <div class="input-group-append">
 

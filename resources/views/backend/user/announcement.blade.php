@@ -78,8 +78,8 @@
 <div class="activity-content">
 
 <div class="timeline-content">
-<a href="" class="name"> <b>You</b> </a> submitted a new scholarship request for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Scholarship->title}} </b> 
-<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
+<a href="" class="name"> <b>You</b> </a> submitted a new scholarship request for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Scholarship->title}} </b> 
+<span class="time"> {{ date('M  d,  Y', strtotime($details?->created_at))}}</span>
 </div>
 
 </div>
@@ -98,8 +98,8 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-<a href="" class="name">You </a> submitted a scholarship application for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Scholarship->title}} </b>  and it was <b>{{auth()->user()->student->firstwhere('scholarship_id', $details->id)?->Status}} </b> . 
-<span class="time">{{ date('M  d,  Y', strtotime($details->updated_at))}}</span>
+<a href="" class="name">You </a> submitted a scholarship application for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Scholarship->title}} </b>  and it was <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Status}} </b> . 
+<span class="time">{{ date('M  d,  Y', strtotime($details?->updated_at))}}</span>
 </div>
 </div>
 </li>

@@ -82,9 +82,15 @@
 </div>
 
 @else
+@if(($Scholarship->Slot - $Scholarship->Student->where('Status', 'Approve')->count()) == 0)
+<button class="btn btn-rounded btn-warning float-right" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp; </button>
+@else
 <div class="post-right">
 <a class="btn btn-dark btn-rounded float-right" href="  {{ URL::to('/Apply/'.$Scholarship->id) }}" ><i class="fas fa-moon"></i> Apply  &nbsp; </a> 
 </div>
+
+@endif
+
 @endif
 @endif
 @if(auth()-> user() ->role=='Admin')
