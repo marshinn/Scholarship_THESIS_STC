@@ -96,40 +96,39 @@ class StudentController extends Controller
 
         $status = student::select('Status')->firstWhere('id', $id);
 
-        if($data['Parent_Income'] == $edit['Parent_Income'] && (empty($edit->address))  &&  (empty($edit->grades)) ){
+        if($data['Parent_Income'] == $edit['Parent_Income'] && (empty($edit->address))  &&  (empty($edit->grade)) ){
             $status   = 'Approve';
         }
         
-        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (empty($edit->grades)) ){
+        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (empty($edit->grade)) ){
             $status   = 'Approve';
         }
         
-        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grades'] ){
+        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grade'] ){
             $status   = 'Approve';
         }
 
 
-        elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grades'] ){
-            $status   = 'Approve';
-        }
-
-        
-        elseif((empty($edit->Parent_Income)) &&  (empty($edit->address))  &&   $data['GPA'] == $edit['grades'] ){
-            $status   = 'Approve';
-        }
-
-
-        elseif((empty($edit->Parent_Income)) && $data['Permanent_Address'] == $edit['address'] &&   (empty($edit->grades)) ){
-            $status   = 'Approve';
-        }
-
-
-        elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&   $data['GPA'] == $edit['grades'] ){
+        elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grade'] ){
             $status   = 'Approve';
         }
 
         
+        elseif((empty($edit->Parent_Income)) &&  (empty($edit->address))  &&   $data['GPA'] == $edit['grade'] ){
+            $status   = 'Approve';
+        }
 
+
+        elseif((empty($edit->Parent_Income)) && $data['Permanent_Address'] == $edit['address'] &&   (empty($edit->grade)) ){
+            $status   = 'Approve';
+        }
+
+
+        elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&   $data['GPA'] == $edit['grade'] ){
+            $status   = 'Approve';
+        }
+
+       
         else{
             $status  =  'Pending';
         }
