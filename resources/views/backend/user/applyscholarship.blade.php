@@ -436,6 +436,10 @@
 <textarea class="form-control" rows="4"  name="Present_Address" id="Present_Address"></textarea>
 </div>
     -->
+    <div class="form-group">
+<label>Permanent Address </label> <span class="text-danger">&nbsp;*</span>
+<input class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"></input>
+</div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 
@@ -452,13 +456,10 @@
 <input type="text" class="form-control"  name="Parent_Nationlity" id="Parent_Nationlity">
 </div>
 <div class="form-group">
-<label>Parent Income </label>
+<label>Parent Income </label><span class="text-danger">&nbsp;*</span> 
 <input class="form-control" rows="4" name="Parent_Income" id="Parent_Income"></input>
 </div>
-<div class="form-group">
-<label>Permanent Address</label>
-<textarea class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"></textarea>
-</div>
+
 
 </div>
 </div>
@@ -478,22 +479,21 @@
 <label>School Name</label>
 <input type="text" class="form-control" name="School_Name" id="School_Name">
 </div>
+<!--
 <div class="form-group">
 <label>Honors, Awards, or Recognition Received</label>
 <input type="text" class="form-control" name="Honor" id="Honor">
 </div>
-<div class="form-group">
-<label>Grade Point Average (GPA)</label>
-<input type="text" class="form-control" name="GPA" id="GPA">
-</div>
+    -->
+
 <div class="form-group">
 <label>School Address</label>
-<textarea class="form-control" rows="4"  name="School_Address" id="School_Address"></textarea>
+<input class="form-control" rows="4"  name="School_Address" id="School_Address"></input>
 </div>
 
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-
+<!--
 <div class="form-group">
 <label>Extracurricular Activities or Leadership Positions</label>
 <input type="text" class="form-control">
@@ -501,6 +501,11 @@
 <div class="form-group">
 <label>Community Service or Volunteer Work</label>
 <input type="text" class="form-control">
+</div>
+    -->
+    <div class="form-group">
+<label>Grade Point Average (GPA)</label> <span class="text-danger">&nbsp;*</span> 
+<input type="text" class="form-control" name="GPA" id="GPA">
 </div>
 <div class="form-group">
 <label>School Year / Course</label>
@@ -524,7 +529,7 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
 <div class="form-group">
-<label>Parent Image</label>
+<label>Registration Form</label>
 <input type="file"  class="form-control" name="Parent_Image" id="Parent_Image">
 </div>
 

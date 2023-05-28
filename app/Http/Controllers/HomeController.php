@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Student;
-
+use App\Models\Scholarship;
 class HomeController extends Controller
 {
     /**
@@ -31,8 +31,8 @@ class HomeController extends Controller
     {
         
         $all =  User::get();
-  
+        $done = Scholarship::get();
         $student =  student::get();
-        return view('backend.layout.dashboard' , compact( 'all', 'student'   ));
+        return view('backend.layout.dashboard' , compact( 'all', 'student' , 'done' ));
     }
 }

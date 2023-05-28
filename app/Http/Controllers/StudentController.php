@@ -48,7 +48,6 @@ class StudentController extends Controller
             'Father_name' => 'required',
             'Father_job' => 'required',
             'Father_number' => 'required',
-            'Present_Address' => 'required',
             'Mother_name' => 'required',
             'Mother_job' => 'required',
             'Parent_Nationlity' => 'required',
@@ -59,7 +58,6 @@ class StudentController extends Controller
 
 
             'School_Name' => 'required',
-            'Honor' => 'required',
             'GPA' => 'required',
             'School_Address' => 'required',
             'Year_Course' => 'required',
@@ -67,7 +65,7 @@ class StudentController extends Controller
 
 
             'Student_Image' => ['required','image'],
-            'Parent_Image' => ['required','image'],
+            'Parent_Image' => ['required'],
          
         ]);
         if ($request->file('Student_Image')){
@@ -81,7 +79,7 @@ class StudentController extends Controller
             $file = $request->file('Parent_Image');
 
             $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('upload/image'),$filename);
+            $file->move(public_path('upload/reg'),$filename);
             $data['Parent_Image'] = $filename;
         }
 
@@ -109,12 +107,12 @@ class StudentController extends Controller
         }
 
 
-        elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grade'] ){
+        elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address'] &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
             $status   = 'Approve';
         }
 
         
-        elseif((empty($edit->Parent_Income)) &&  (empty($edit->address))  &&   $data['GPA'] == $edit['grade'] ){
+        elseif((empty($edit->Parent_Income)) &&  (empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
             $status   = 'Approve';
         }
 
@@ -124,7 +122,7 @@ class StudentController extends Controller
         }
 
 
-        elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&   $data['GPA'] == $edit['grade'] ){
+        elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
             $status   = 'Approve';
         }
 

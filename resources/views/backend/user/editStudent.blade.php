@@ -207,7 +207,6 @@
 </div>
 </div>
 
-
 <!-- Start of Side BAR kaya mo yan  :) ^_^ -->
 
 
@@ -252,17 +251,36 @@
 </li>
 
 
+<!--Announcement Side :) ^_^ -->
 
 
-
- <!--Calendar Side :) ^_^ -->
-
-
- <li>
-<a href="calendar.html"><img src="../../assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+<li>
+<a href="{{URL::to('/announcement')}}"><img src="../../assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
 </li>
 <li>
 
+
+
+ <!--Calendar Side :) ^_^ 
+
+
+ <li>
+<a href="{{URL::to('/calendar')}}"><img src="assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+</li>
+<li>
+
+-->
+
+
+ <!--Message Side :) 
+
+
+ <li>
+<a href=""><img src="assets/img/sidebar/icon-4.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">5</span><span>Message</span></a>
+</li>
+<li>
+
+^_^ -->
 
  <!-- Accounts Side :) ^_^ -->
 
@@ -298,285 +316,361 @@
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
 
-  
-  <!-- Start of Dashboard :) ^_^ -->
 
-<div class="page-wrapper">
+
+
+
+ <!-- Start of Dashboard :) ^_^ -->
+
+
+
+
+
+ <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Scholarship </h5>
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+<h5 class="text-uppercase mb-0 mt-0 page-title">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="">Scholarship</a></li>
-<li class="breadcrumb-item"><span> Scholarship Details</span></li>
+<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Dashboard</a></li>
+
 </ul>
 </div>
 </div>
 </div>
 <div class="row">
-<div class="col-md-8">
-<div class="blog-view">
-<article class="blog blog-single-post">
-<div class="col-sm-12 d-flex justify-content-between">
-  
-<h3 class="blog-title">{{$detail->title}}</h3>
-@if(auth()-> user() ->role=='Admin')
-
-<a class="btn btn-dark  float-right" href="{{ URL::to('/editScholarship/'.$detail->id) }}" > <h5></h5><i class="fas fa-wrench"></i> &nbsp; Edit </a> 
-@endif
-    </div>
-<div class="blog-info clearfix">
-<div class="post-left">
-<ul>
-<li><a href=""><i class="far fa-calendar-alt" aria-hidden="true"></i> <span>{{ date('M  d,  Y', strtotime($detail->created_at))}}</span></a></li>
-<li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
-</ul>
-</div>
-
-<div class="blog-image">
-<a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
-</div>
-<div class="blog-content">
-<p > <b>Description</b> </p>
-<p > {{$detail->description}} </p>
-
-    <p> {{$detail->description}} </p>
-</div>
-</article>
-
-
-
-
-
-
-
-
-
-
-<!--
--->
-
-
-
-
-<div class="widget author-widget clearfix">
-  <!--
-<h3>About author</h3>
-<div class="about-author">
-<div class="about-author-img">
-<div class="author-img-wrap">
-<img class="img-fluid rounded-circle" alt="" src="assets/img/user.jpg">
-</div>
-</div>
-<div class="author-details">
-<span class="blog-author-name">{{$detail->user?->name}}</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noftrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-</div>
-</div>
-<div class="widget blog-comments clearfix">
-<h3>Comments (3)</h3>
-<ul class="comments-list">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
- <span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-<ul class="comments-list reply">
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Henry Daniels</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 6, 2018</span>
-</div>
-</div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Diana Bailey</span>
-<span class="float-right">
-<span class="blog-reply"> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-<span class="blog-date">December 7, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Marie Wells</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 11, 2018</span>
-</div>
- </div>
-</li>
-<li>
-<div class="comment">
-<div class="comment-author">
-<img class="avatar" alt="" src="assets/img/user.jpg">
-</div>
-<div class="comment-block">
-<span class="comment-by">
-<span class="blog-author-name">Pamela Curtis</span>
-<span class="float-right">
-<span class="blog-reply"><a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-</span>
-</span>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<span class="blog-date">December 13, 2018</span>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="widget new-comment clearfix">
-<h3>Leave Comment</h3>
-<form>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile-sidebar">
 <div class="row">
-<div class="col-sm-8">
-<div class="form-group">
-<label>Name <span class="text-red">*</span></label>
-<input type="text" class="form-control">
+<div class="col-lg-3 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile">
+<div class="card">
+<div class="card-body">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile-pic">
+<img class="card-img-top" src="{{(!empty($tada->Student_Imag))? url(  'upload/image/'.$tada->Student_Image):url('upload/no_image.jpg')}}"
+                        alt="Card image">
 </div>
-<div class="form-group">
-<label>Your email address <span class="text-red">*</span></label>
-<input type="email" class="form-control">
+<div class="aboutprofile-name">
+<h5 class="text-center mt-2">Full Name : &nbsp; {{$tada->Fname}} &nbsp; {{$tada->Lname}}</h5>
+<p class="text-center">School Name :&nbsp;  {{$tada->School_Name}}</p>
 </div>
-<div class="form-group">
-<label>Comments</label>
-<input type="text" class="form-control">
-</div>
-<div class="comment-submit">
-<input type="submit" value="Submit" class="btn">
-</div>
-</div>
-</div>
-</form>
--->
+<ul class="list-group list-group-flush">
 
-
+</ul>
 </div>
 </div>
-
 </div>
+</div>
+</div>
+<div class="aboutme-profile">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+Scholarship Criteria
+</h4>
+</div>
+<div class="card-body">
 
-
-<aside class="col-md-4">
-
-
-
-
-<div class="widget category-widget">
-<h5>Scholarship Criteria</h5>
 <ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->grade:$swabe}}  {{(!empty($detail->grade))? '-'.' '.$detail->grade2.' '.'Average'.' '.'Range':$swabe}}           </i>         </a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->grade)) &&  (($detail->grade) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) || ((auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA)  >=  ($detail->grade) &&  (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) <= ($detail->grade2) )) ?  'ok':''}}</h5> @endif </li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->address)) && ($detail->address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Permanent_Address) ?  'ok':''}}</h5> @endif </li>
-<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->Parent_Income. ' '. 'Pesos':$swabe}}  </i></a> @if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Parent_Income)) && ($detail->Parent_Income) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Parent_Income) ?  'ok':''}}</h5>
-@endif</li>
-<li>  <p> <center>If you meet the required criteria, the system will automatically approve your application. </center></p>  </li>
+<center><p>Scholarship Name &nbsp;: &nbsp; <b>{{$tada->Scholarship->title}}</b> </p></center>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->grade))? $tada->Scholarship->grade:$swabe}} {{(!empty($tada->Scholarship->grade2))? '-'.' '.$tada->Scholarship->grade2.' '.'Average'.' '.'Range':$swabe}}   </i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{ ($tada->GPA) == ($tada->Scholarship->grade) || (($tada->GPA) >= ($tada->Scholarship->grade)  && ($tada->GPA) <= ($tada->Scholarship->grade2)  ) ?   'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->grade)) && (  ($tada->GPA) != ($tada->Scholarship->grade) && !(($tada->GPA) >= ($tada->Scholarship->grade) && ($tada->GPA) <= ($tada->Scholarship->grade2)) ) ?  ' ':''}}</p>  </li>
+
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->address))? $tada->Scholarship->address . ' '. 'Only' :$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Permanent_Address) == ($tada->Scholarship->address) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->address)) && ($tada->Permanent_Address) != ($tada->Scholarship->address) ?  '':''}}</p>  </li>
+
+
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->Parent_Income))? $tada->Scholarship->Parent_Income . ' '. 'Pesos':$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Parent_Income) == ($tada->Scholarship->Parent_Income) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->Parent_Income)) && ($tada->Parent_Income) != ($tada->Scholarship->Parent_Income) ?  ' ':''}}</p>  </li>
+
+
 
 </ul>
 </div>
+</div>
+</div>
+<div class="aboutprofile-address">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title post-left">Status</h4>
+<i class= "post-right">Current : &nbsp; {{$tada->Status}}</i>
+</div>
+<div class="card-body">
+<a class="btn btn-success" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
+<a class="btn btn-danger float-right" href=" " ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-12 col-sm-12 col-12">
+<div class="profile-content">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+ &nbsp;Personal Information
+</h4>
+</div>
 
-<div class="widget search-widget">
+<div class="card-body">
+<div id="biography" class="biography">
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Full Name</strong>
+<p class="text-muted">{{$tada->Fname}} &nbsp; {{$tada->Lname}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mobile</strong>
+<p class="text-muted">{{$tada->Mobile_number}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Email</strong>
+<p class="text-muted"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543e31323226312d14312c35392438317a373b39">[email&#160;protected]</a></p>
+</div>
+<div class="col-md-3 col-6"> <strong>Address</strong>
+<p class="text-muted">{{$tada->Permanent_Address}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Birthdate</strong>
+<p class="text-muted"> {{ date('M  d,  Y', strtotime($tada->Birthdate))}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Gender</strong>
+<p class="text-muted">{{$tada->Gender}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Religion</strong>
+<p class="text-muted">{{$tada->Religion}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Nationality</strong>
+<p class="text-muted">{{$tada->Nationality}}</p>
+</div>
+</div>
+<hr>
 
-<form class="search-form">
 
-<div class="input-group">
-@if(auth()-> user() ->role=='Student')
-@if($detail->student->contains('user_id' , auth::id()))
-
-<a class="btn btn-dark" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Status: {{auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Status}}  &nbsp; &nbsp; </a>    &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel My Application &nbsp; &nbsp; </a>     &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; 
-
-@else
-
-@if(($detail->Slot - $detail->Student->where('Status', 'Approve')->count()) == 0)
-
-<button class="btn  btn-warning float-right" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp;  </button>&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
-@else
-<a class="btn btn-secondary" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>   &nbsp; &nbsp; &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel &nbsp; &nbsp; </a>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
-
-@endif
-
-@endif
+<div class="card-header">
+<h4 class="page-title">
+Education
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>School Name</strong>
+<p class="text-muted">{{$tada->School_Name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>School Address</strong>
+<p class="text-muted">{{$tada->School_Address}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Grade</strong>
+<p class="text-muted">{{$tada->GPA}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Year and Course</strong>
+<p class="text-muted">{{$tada->Year_Course}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Registration Form</strong>
 <p></p>
-<h2></h2>
+<span class="name" ><b>Download :  &nbsp;</b>  </span>
+<a  href= "{{$tada->Parent_Image}}" class="btn btn-outline-danger mr-2" download> <img src="../../assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
 
-@endif
-<i>Number of Slots Left : {{$detail->Slot - $detail->Student->where('Status', 'Approve')->count() }}  /  {{$detail->Slot}} </i>
-
-<div class="input-group-append">
-
-</div>
-</div>
-</form>
-</div>
-@if(auth()-> user() ->role=='Admin')
-<div class="widget tags-widget">
-<h5>View the applied Applicants</h5>
-<a class="btn btn-info" href="{{ URL::to('/Applicants/'.$detail->id) }}" ><i class="fas fa-user"></i>&nbsp; &nbsp;  View &nbsp; &nbsp; </a> 
-<!--
-<p></p>
-<h5>Find suitable student for the scholarship </h5>
-<a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
--->
-</div>
-@endif
-
-</aside>
-</div>
 </div>
 
 
 
 </div>
+<hr>
+<div class="card-header">
+<h4 class="page-title">
+Parent Information
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Father Name</strong>
+<p class="text-muted">{{$tada->Father_name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Father Occupation</strong>
+<p class="text-muted">{{$tada->Father_job}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Name</strong>
+<p class="text-muted">{{$tada->Mother_name}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Occupation</strong>
+<p class="text-muted">{{$tada->Mother_job}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Parent Income Monthly</strong>
+<p class="text-muted">{{$tada->Parent_Income}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Nationality</strong>
+<p class="text-muted">{{$tada->Parent_Nationlity}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Present Address</strong>
+<p class="text-muted">{{$tada->Present_Address}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Number</strong>
+<p class="text-muted">{{$tada->Mobile_number}}</p>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-  <!-- Start of Dashboard :) ^_^ -->
 
 
 
@@ -682,6 +776,87 @@
                     });
                 });
         </script>
+
+<script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch1' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+    <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning2' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch2' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+		  <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning5' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch5' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning3' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch3' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+        <script type="text/javascript">
+    $(document).ready(function(){
+      $('#image').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          $('#showImage').attr('src',e.target.result);  
+        }
+        reader.readAsDataURL(e.target.files['0']);
+      });
+    });
+    </script>
+
 
 </body>
 </html>

@@ -65,4 +65,7 @@ Route::get('/announcement', [App\Http\Controllers\AnnouncementController::class,
 
 Route::get('/studentdetails/{id}', [App\Http\Controllers\StudentController::class, 'studentdetails'])->name('studentdetails');
 
-Route::get('/editScholarship/{id}', [App\Http\Controllers\StudentController::class, 'editScholarship'])->name('editScholarship');
+Route::get('/editScholarship/{id}', [App\Http\Controllers\ScholarshipController::class, 'editScholarship'])->name('editScholarship');
+
+
+Route::post('/updates/{id}', [App\Http\Controllers\ScholarshipController::class, 'updates'])->name('updates');

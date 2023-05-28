@@ -217,7 +217,7 @@
 
 
 <a href="" class="logo">
-<img src="assets/img/logo1.png" width="40" height="40" alt="">
+<img src="../../assets/img/logo1.png" width="40" height="40" alt="">
 <span class="text-uppercase">Scholarship</span>
 </a>
 </div>
@@ -226,7 +226,7 @@
 
 
 <li >
-<a href="{{URL::to('/home')}}"><img src="assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
+<a href="{{URL::to('/home')}}"><img src="../../assets/img/sidebar/icon-1.png" alt="icon"><span>Dashboard</span></a>
 </li>
 
 
@@ -234,7 +234,7 @@
 
 
 <li>
-<a href="{{URL::to('/User')}}"><img src="assets/img/sidebar/icon-2.png" alt="icon"> <span>Users</span></a>
+<a href="{{URL::to('/User')}}"><img src="../../assets/img/sidebar/icon-2.png" alt="icon"> <span>Users</span></a>
 </li>
 <li>
 @endif
@@ -247,7 +247,7 @@
 
 
  <li>
-<a href="{{URL::to('/Scholarship')}}"><img src="assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
+<a href="{{URL::to('/Scholarship')}}"><img src="../../assets/img/sidebar/icon-12.png" alt="icon"> <span> Scholarship</span></a>
 </li>
 
 
@@ -255,7 +255,7 @@
 
 
 <li>
-<a href="{{URL::to('/announcement')}}"><img src="assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
+<a href="{{URL::to('/announcement')}}"><img src="../../assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
 </li>
 <li>
 
@@ -285,7 +285,7 @@
  <!-- Accounts Side :) ^_^ -->
 
 <li class="submenu">
-<a href="#"><img src="assets/img/sidebar/icon-10.png" alt="icon"><span> Accounts </span> <span class="menu-arrow"></span></a>
+<a href="#"><img src="../../assets/img/sidebar/icon-10.png" alt="icon"><span> Accounts </span> <span class="menu-arrow"></span></a>
 <ul class="list-unstyled" style="display: none;">
 <li><a href="invoices.html"><span>Profile</span></a></li>
 <li><a href="payments.html"><span>Change Password</span></a></li>
@@ -300,7 +300,7 @@
 <li>
 <a href="{{ route('logout') }}"     onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                                     <img src="assets/img/sidebar/icon-14.png" alt="icon"> <span>Logout</span>
+                                     <img src="../../assets/img/sidebar/icon-14.png" alt="icon"> <span>Logout</span>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -327,65 +327,143 @@
 
   <script src="sweetalert.min.js"></script>
 
+  <style>
+    .image-frame {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    .image-frame img {
+        max-height: 150px;
+         width: 150px;
+         height: 150px;
+    }
+  </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">add user</h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">Edit Scholarship</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="">Exam list</a></li>
-<li class="breadcrumb-item"><span> Add User</span></li>
+<li class="breadcrumb-item"><a href="">Home</a></li>
+<li class="breadcrumb-item"><a href="">Scholarship</a></li>
+<li class="breadcrumb-item"><span> Edit Scholarship</span></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="page-content1">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 <div class="card">
 <div class="card-body">
 <div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
-
-<form role="form" action="{{URL::to('/Update-user/'.$edit->id)}}"  method="post" onsubmit="return submitForm(this);">
+<div class="col-md-12">
+<form action="{{URL::to('/updates/'.$edit->id)}}" enctype="multipart/form-data" method="post" onsubmit="return submitForm(this);">
 @csrf
 <div class="form-group">
-<label>Name</label>
-<input type="text" class="form-control" name="name" value="{{$edit->name}}">
+<label>Scholarship Name</label>
+<input type="text" class="form-control" name="title" id="title" value="{{$edit->title}}" >
 </div>
 <div class="form-group">
-<label>Role</label>
-<select class="form-control" name="role" id="exampleFormControlSelect1">
-<option value="Admin" {{'Admin' == $edit-> role ? 'selected' : ''}}>Admin</option>
-<option value="Student" {{'Student' == $edit-> role ? 'selected' : ''}}>Student</option>
-</select>
+<label>Scholarship Image</label>
+<input type="file" name="image" accept="image/*" class="form-control" id="image">
+
+@if ($errors->has('image'))
+            
+                <strong>{{ $errors->first('image')}}</strong>
+          
+        @endif
+<small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png.</small>
+
 </div>
 <div class="form-group">
-<label>Email</label>
-<input type="text" class="form-control" name="email" value="{{$edit->email}}">
+              <img id="showImage"  class="image-frame">
+              
+              </div>
+<div class="row">
 </div>
-
 <div class="form-group">
-<label>Password</label>
-<input type="Password" class="form-control" name="password" value="{{$edit->password}}">
+<label>Scholarship Description</label>
+<textarea class="form-control" placeholder="Description" rows="4"  name="description" id="description" value="{{$edit->description}}"  ></textarea>
 </div>
-
 <div class="form-group">
-<label>Confirm Password</label>
-<input type="Password" class="form-control" value="{{$edit->password}}">
+<label>Scholarship Slots</label>
+<input type="number" class="form-control" name="Slot" id="Slot" value="{{$edit->Slot}}" >
 </div>
 
 
+<div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<div class="form-group text-center custom-mt-form-group">
-<button class="btn btn-primary mr-2" type="submit">Submit</button>
-<a href="/User" class="btn btn-secondary" type="reset">Cancel</a>
+<h4>Scholarship Criteria</h4>
+</div>
+</div>
+<div class="form-group">
+                        <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Set a Criteria</label>
+                        <p>You can set one or more criteria to find the right applicants </p>
+                        </div>
+                        <div class="form-group">
+<div class="custom-control custom-switch" >
+<input type="checkbox" class="custom-control-input" id="customSwitch1" for="customSwitch1"  checked="checked" >
+<label class="custom-control-label" for="customSwitch1">Location</label>
+</div>
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter ..." disabled="disabled" name="address"  value="{{$edit->address}}">
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch2" for="customSwitch2" checked="checked" >
+<label class="custom-control-label" for="customSwitch2">GWA  </label>
+</div>
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control is-warning" id="inputWarning2" placeholder="Enter First Number" disabled="disabled" name="grade" value="{{$edit->grade}}">
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch5" for="customSwitch5" checked="checked" >
+<label class="custom-control-label" for="customSwitch5">UP TO </label>
+</div>
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control is-warning" id="inputWarning5" placeholder="Enter Second Number" disabled="disabled" name="grade2" value="{{$edit->grade2}}">
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch3" for="customSwitch3" checked="checked" >
+<label class="custom-control-label" for="customSwitch3">Parent Income Monthly</label>
+</div>
+</div>
+<div class="form-group">
+
+<input type="number" class="form-control is-warning" id="inputWarning3" placeholder="Enter ..." disabled="disabled" name="Parent_Income" value="{{$edit->Parent_Income}}">
+</div>
+
+<div class="m-t-20 text-center">
+<button type="submit" class="btn btn-primary mr-2">Add Scholarship</button>
+<a href="/Scholarship" class="btn btn-secondary" type="reset">Cancel</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 <script>  
 function submitForm(form) {
         swal({
@@ -767,6 +845,87 @@ function submitForm(form) {
                     });
                 });
         </script>
+
+<script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch1' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+    <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning2' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch2' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+		  <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning5' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch5' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning3' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch3' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+        <script type="text/javascript">
+    $(document).ready(function(){
+      $('#image').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          $('#showImage').attr('src',e.target.result);  
+        }
+        reader.readAsDataURL(e.target.files['0']);
+      });
+    });
+    </script>
+
 
 </body>
 </html>

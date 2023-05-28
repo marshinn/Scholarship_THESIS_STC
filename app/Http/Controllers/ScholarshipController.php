@@ -88,4 +88,48 @@ class ScholarshipController extends Controller
        
         return view('backend.user.editScholarship', compact('edit'));
     }
+
+    public function updates(request $request, $id)
+    {
+       
+        
+        $data['title'] = $request->title;
+        $data['description'] = $request->description;
+        $data['address'] = $request->address;
+        $data['grade'] = $request->grade;
+        $data['grade2'] = $request->grade2;
+        $data['Parent_Income'] = $request->Parent_Income;
+        $data['Slot'] = $request->Slot;
+        if ($request->file('image')){
+            $file = $request->file('image');
+
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/image'),$filename);
+            $data['image'] = $filename;
+        }
+        Auth()->user()->Scholarship()->where('id', $id)->update($data);
+        if($data)
+        {
+           $notifications = array
+           (
+            'messege'=>'Successfully User Inserted',
+            'alert-type'=>'success'
+
+           );
+           return redirect()->route('Scholarshipdetails', $id )->with($notifications);
+
+        }
+        else
+        {
+            $notifications = array
+           (
+            'messege'=>'Something is wrong,please try again',
+            'alert-type'=>'error'
+
+           );
+           return redirect()->route('Scholarshipdetails')->with($notifications);
+        }
+    }
+
+  
 }
