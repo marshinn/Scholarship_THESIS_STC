@@ -29,6 +29,7 @@
 
 
 <div class="row staff-grid-row">
+  @foreach($done as $lucky)
 <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
 <div class="profile-widget">
 <div class="profile-img">
@@ -37,88 +38,28 @@
 <div class="dropdown profile-action">
 
 </div>
-<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 1 </a></h4>
+<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">{{$lucky->title}} </a></h4>
 <div class="text-muted ">No. of Slot : 55/100 </div>
+
+@if()
 <div class=" small text-muted text-primary">Status:  Open</div>
 
 <a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
 
-</div>
-</div>
-
-
-<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-<div class="profile-widget">
-<div class="profile-img">
-<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
-</div>
-<div class="dropdown profile-action">
-
-</div>
-<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 2  </a></h4>
-<div class="text-muted ">No. of Slot : 10/35 </div>
-<div class=" small text-muted text-primary">Status:  Open</div>
-
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
-
-</div>
-</div>
-
-<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-<div class="profile-widget">
-<div class="profile-img">
-<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
-</div>
-<div class="dropdown profile-action">
-
-</div>
-<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 3 </a></h4>
-<div class="text-muted ">No. of Slot : 55/100 </div>
-<div class=" small text-muted text-primary">Status:  Open</div>
-
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
-
-</div>
-</div>
-<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-<div class="profile-widget">
-<div class="profile-img">
-<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
-</div>
-<div class="dropdown profile-action">
-
-</div>
-<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 4 </a></h4>
-<div class="text-muted ">No. of Slot : 55/100 </div>
-<div class=" small text-muted text-primary">Status:  Open</div>
-
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
-
-</div>
-</div>
-<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
-<div class="profile-widget">
-<div class="profile-img">
-<a href="profile.html" class="avatar"> <img src="assets/img/dash/dash-2.png" alt="" width="80"></a>
-</div>
-<div class="dropdown profile-action">
-
-</div>
-<h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Scholarship 5 </a></h4>
-<div class="text-muted ">No. of Slot : 85/85 </div>
+@else
 <div class="red-text small" >No Slot</div>
 
 <button class="btn btn-warning" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp; </button>
-
+@endif
 </div>
 </div>
-
-</div>
-
-
-
+@endforeach
 
 @endif
+
+
+
+
 
 
 
