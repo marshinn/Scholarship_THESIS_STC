@@ -104,7 +104,7 @@ class StudentController extends Controller
             $status   = 'Approve';
         }
         
-        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&   $data['GPA'] == $edit['grade'] ){
+        elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
             $status   = 'Approve';
         }
 

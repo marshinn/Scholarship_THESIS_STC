@@ -91,12 +91,24 @@
                        
 <div class="custom-control custom-switch">
 <input type="checkbox" class="custom-control-input" id="customSwitch2" for="customSwitch2" checked="checked" >
-<label class="custom-control-label" for="customSwitch2">GWA</label>
+<label class="custom-control-label" for="customSwitch2">GWA  </label>
 </div>
 </div>
 <div class="form-group">
 
-<input type="text" class="form-control is-warning" id="inputWarning2" placeholder="Enter ..." disabled="disabled" name="grade">
+<input type="text" class="form-control is-warning" id="inputWarning2" placeholder="Enter First Number" disabled="disabled" name="grade">
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch5" for="customSwitch5" checked="checked" >
+<label class="custom-control-label" for="customSwitch5">UP TO </label>
+</div>
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control is-warning" id="inputWarning5" placeholder="Enter Second Number" disabled="disabled" name="grade2">
 </div>
 
 <div class="form-group">
@@ -372,6 +384,23 @@
 			( function() { // javascript document ready function
 				var firstJavaScriptInput = document.getElementById( 'inputWarning2' );
 				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch2' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+		  <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning5' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch5' );
 			
 				
 				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked

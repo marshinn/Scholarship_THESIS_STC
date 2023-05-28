@@ -43,7 +43,7 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-<a href="" class="name"> {{ $Scholarship->user->name}}</a> added a <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="name"> {{ $Scholarship->title}}</a> and it has  <a href="" class="name">  Scholarship Criteria</a> of <a href=""> Average Grades is {{(!empty($Scholarship->grade))? $Scholarship->grade: '' }} , Living in   {{(!empty($Scholarship->address))? $Scholarship->address: '' }}   and has Parent Income of maximum    {{(!empty($Scholarship->Parent_Income))? $Scholarship->Parent_Income: '' }} pesos  </a>
+<a href="" class="name"> {{ $Scholarship->user->name}}</a> added a <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="name"> {{ $Scholarship->title}}</a> and it has  <a href="" class="name">  Scholarship Criteria</a> of <a href=""> @if(!empty($Scholarship->grade)) Average Grades is {{(!empty($Scholarship->grade))? $Scholarship->grade: '' }}  , @endif @if(!empty($Scholarship->address))  Living in   {{(!empty($Scholarship->address))? $Scholarship->address: '' }}  @endif @if(!empty($Scholarship->Parent_Income)) and has Parent Income of maximum    {{(!empty($Scholarship->Parent_Income))? $Scholarship->Parent_Income: '' }} pesos @endif  </a>
 <span class="time">6 mins ago</span>
 </div>
 </div>
@@ -51,14 +51,45 @@
 
 @endforeach
 
+<li>
+
+<div class="activity-user">
+<a href="profile.html" class="avatar" title="Jeffery Lalor" data-toggle="tooltip">L</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>Scholarship 1</b> and Schedule of Interview will be August 5, 2023
+ 
+<a  href= "assets/img/pdf.png" class="btn btn-outline-danger mr-2 float-right" download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
+<span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
+<span class="time">6 mins ago</span>
+</div>
+</div>
+</li>
+
+<li>
+
+<div class="activity-user">
+<a href="profile.html" class="avatar" title="Jeffery Lalor" data-toggle="tooltip">L</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>Scholarship 2    </b> and Schedule of Interview will be June 1, 2023
+ 
+<a  href= "assets/img/pdf.png" class="btn btn-outline-danger mr-2 float-right" download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
+<span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
+<span class="time">6 mins ago</span>
+</div>
+</div>
+</li>
 
 
 
 
-
-
-
-
+<!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]
 
 
 <li>
@@ -148,7 +179,7 @@
 
 @endforeach
 @endif
-
+-->
 </ul>
 </div>
 </div>

@@ -336,12 +336,12 @@
 <li><a href=""><i class="fas fa-user" aria-hidden="true"></i><span>&nbsp;By: {{$detail->user?->name}}</span>  </a></li>
 </ul>
 </div>
-<div class="post-right"><a href=""><i class="far fa-heart" aria-hidden="true"></i>&nbsp;21 &nbsp;</a> <a href=""><i class="fas fa-eye" aria-hidden="true"></i>&nbsp;8&nbsp;</a> <a href=""><i class="fas fa-comment" aria-hidden="true"></i>&nbsp;17 &nbsp;</a></div>
-</div>
+
 <div class="blog-image">
 <a href="#"><img alt="" src="{{(!empty($detail->image))? url('upload/image/'.$detail->image):url('upload/no_image.jpg')}}" class="img-fluid"></a>
 </div>
 <div class="blog-content">
+<p > <b>Description</b> </p>
 <p > {{$detail->description}} </p>
 
     <p> {{$detail->description}} </p>
@@ -357,11 +357,14 @@
 
 
 
+<!--
+-->
 
 
 
 
 <div class="widget author-widget clearfix">
+  <!--
 <h3>About author</h3>
 <div class="about-author">
 <div class="about-author-img">
@@ -490,8 +493,12 @@
 </div>
 </div>
 </form>
+-->
+
+
 </div>
 </div>
+
 </div>
 
 
@@ -503,8 +510,8 @@
 <div class="widget category-widget">
 <h5>Scholarship Criteria</h5>
 <ul class="categories">
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->grade:$swabe}}</i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->grade)) && ($detail->grade) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->grade) ?  'ok':''}}</h5> @endif </li>
-<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Address)) && ($detail->Address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Address) ?  'ok':''}}</h5> @endif </li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->grade:$swabe}}  {{(!empty($detail->grade))? '-'.' '.$detail->grade2.' '.'Average'.' '.'Range':$swabe}}           </i>         </a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->grade)) &&  (($detail->grade) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) || ((auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA)  >=  ($detail->grade) &&  (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) <= ($detail->grade2) )) ?  'ok':''}}</h5> @endif </li>
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->address)) && ($detail->address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Permanent_Address) ?  'ok':''}}</h5> @endif </li>
 <li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->Parent_Income. ' '. 'Pesos':$swabe}}  </i></a> @if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Parent_Income)) && ($detail->Parent_Income) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Parent_Income) ?  'ok':''}}</h5>
 @endif</li>
 <li>  <p> <center>If you meet the required criteria, the system will automatically approve your application. </center></p>  </li>
@@ -562,216 +569,8 @@
 </aside>
 </div>
 </div>
-<div class="notification-box">
-<div class="msg-sidebar notifications msg-noti">
-<div class="topnav-dropdown-header">
-<span>Messages</span>
-</div>
-<div class="drop-scroll msg-list-scroll">
-<ul class="list-box">
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">R</span>
-</div>
-<div class="list-body">
-<span class="message-author">Richard Miles </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item new-message">
-<div class="list-left">
-<span class="avatar">J</span>
-</div>
-<div class="list-body">
-<span class="message-author">Ruth C. Gault</span>
-<span class="message-time">1 Aug</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">T</span>
-</div>
-<div class="list-body">
-<span class="message-author"> Tarah Shropshire </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">M</span>
-</div>
-<div class="list-body">
-<span class="message-author">Mike Litorus</span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">C</span>
-</div>
-<div class="list-body">
-<span class="message-author"> Catherine Manseau </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">D</span>
-</div>
-<div class="list-body">
-<span class="message-author"> Domenic Houston </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">B</span>
-</div>
-<div class="list-body">
-<span class="message-author"> Buster Wigton </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">R</span>
- </div>
-<div class="list-body">
-<span class="message-author"> Rolland Webber </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">C</span>
-</div>
-<div class="list-body">
-<span class="message-author"> Claire Mapes </span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">M</span>
-</div>
-<div class="list-body">
-<span class="message-author">Melita Faucher</span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">J</span>
-</div>
-<div class="list-body">
-<span class="message-author">Jeffery Lalor</span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">L</span>
-</div>
-<div class="list-body">
-<span class="message-author">Loren Gatlin</span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-<li>
-<a href="chat.html">
-<div class="list-item">
-<div class="list-left">
-<span class="avatar">T</span>
-</div>
-<div class="list-body">
-<span class="message-author">Tarah Shropshire</span>
-<span class="message-time">12:28 AM</span>
-<div class="clearfix"></div>
-<span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-</div>
-</div>
-</a>
-</li>
-</ul>
-</div>
-<div class="topnav-dropdown-footer">
-<a href="chat.html">See all messages</a>
-</div>
-</div>
-</div>
-</div>
+
+
 
 </div>
 

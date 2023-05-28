@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('address')->nullable();
             $table->string('grade')->nullable();
+            $table->string('grade2')->nullable();
             $table->string('Parent_Income')->nullable();
             $table->string('Slot')->nullable();
             $table->timestamps();

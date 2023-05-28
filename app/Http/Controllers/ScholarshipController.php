@@ -50,6 +50,7 @@ class ScholarshipController extends Controller
         $data['description'] = $request->description;
         $data['address'] = $request->address;
         $data['grade'] = $request->grade;
+        $data['grade2'] = $request->grade2;
         $data['Parent_Income'] = $request->Parent_Income;
         $data['Slot'] = $request->Slot;
         if ($request->file('image')){
@@ -77,5 +78,14 @@ class ScholarshipController extends Controller
         $detail =  Scholarship::get()->where('id',$id)->first();
         $swabe = 'Not Active';
         return view('backend.user.scholarshipdetails', compact('detail', 'swabe'));
+    }
+
+
+    public function editScholarship($id)
+    {
+        
+        $edit =  Scholarship::get()->where('id',$id)->first();
+       
+        return view('backend.user.editScholarship', compact('edit'));
     }
 }

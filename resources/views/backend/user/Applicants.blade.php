@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Preschool - Bootstrap Admin Template</title>
+<title> Scholarship </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 <link rel="shortcut icon" type="image/x-icon" href="{{('assets/img/favicon.png')}}">
@@ -23,11 +23,18 @@
 <link rel="stylesheet" href="../../assets/css/style.css">
 
 <link rel="stylesheet" href="../../assets/toaster/toastr.min.css">
+
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
-    <style>
+    
+</head>
+<body>
+<style>
       /* Loader styles */
       .loader {
         display: flex;
@@ -60,9 +67,6 @@
         display: none;
       }
     </style>
-</head>
-<body>
-
 <div class="main-wrapper">
 
 
@@ -340,7 +344,7 @@
 <div class="row">
 <div class="col-md-12 mb-3">
 <div class="table-responsive">
-<table class="table custom-table mb-0 datatable">
+<table  id="example4" class="table custom-table mb-0 ">
 <thead class="thead-light">
 <tr>
 <th>Name</th>
@@ -374,12 +378,8 @@
 @endif
 </a>
 <div class="dropdown-menu dropdown-menu-right">
- 
- 
-<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}"  ><i class="far fa-dot-circle text-danger"></i> Pending</a>
-
-<a class="dropdown-item" href= "{{URL::to('/status/'.$baho->id)}}" ><i class="far fa-dot-circle text-success"></i> Approved</a>
-
+<a class="dropdown-item "  href= "{{URL::to('/status/'.$baho->id)}}"  ><i class="far fa-dot-circle text-danger"></i> Pending</a>
+<a class="dropdown-item "  href= "{{URL::to('/status/'.$baho->id)}}" ><i class="far fa-dot-circle text-success"></i> Approved</a>
 </div>
 </div>
 </td>
@@ -862,6 +862,30 @@
 <script src="../../assets/plugins/datetimepicker/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/sweetalert.min.js"></script>
+
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+
+
+
+<script>
+  $(function () {
+    
+    $("#example4").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy" ,"excel", "pdf", "print"]
+    }
+    ).buttons().container().appendTo('#example4_wrapper .col-md-6:eq(0)')});
+</script>
 <script>
       // Hide the loader and show the content when the page is loaded
       setTimeout(function() {

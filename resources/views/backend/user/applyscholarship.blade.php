@@ -429,11 +429,13 @@
 <label> Parent Mobile number</label>
 <input type="text" class="form-control"  name="Father_number" id="Father_number" >
 </div>
+
+<!--
 <div class="form-group">
 <label>Present Address</label>
 <textarea class="form-control" rows="4"  name="Present_Address" id="Present_Address"></textarea>
 </div>
-
+    -->
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 
