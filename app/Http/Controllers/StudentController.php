@@ -190,4 +190,12 @@ class StudentController extends Controller
         return view ('backend.user.studentdetails',  compact('tada' , 'swabe'));
     }
 
+    public function editStudent($id)
+    {
+        
+        $edits =  student::get()->where('id',$id)->first();
+       
+        return view('backend.user.editStudent', compact('edits'));
+    }
+
 }

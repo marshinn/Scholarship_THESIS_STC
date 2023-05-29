@@ -528,7 +528,11 @@
 @if($detail->student->contains('user_id' , auth::id()))
 
 <a class="btn btn-dark" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Status: {{auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Status}}  &nbsp; &nbsp; </a>    &nbsp; 
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel My Application &nbsp; &nbsp; </a>     &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; 
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel My Application &nbsp; &nbsp; </a>     
+
+
+
+
 
 @else
 
@@ -564,8 +568,18 @@
 <a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
 -->
 </div>
-@endif
 
+  
+@endif
+@if($detail->student->contains('user_id' , auth::id()))
+<div class="widget tags-widget">
+<h5>My Application</h5>
+<a class="btn btn-primary" href="{{ URL::to('/editStudent/'.$detail->id) }}" ><i class="fas fa-address-book"></i>&nbsp; &nbsp;    Edit My Application  &nbsp; &nbsp; </a>  
+<a href="">&nbsp;</a> <a href="">&nbsp;</a>
+<a class="btn btn-secondary" href="{{ URL::to('/View/'.$detail->id) }}"><i class="fas fa-book"></i>&nbsp; &nbsp;    View  My Application &nbsp; &nbsp; </a> 
+</div>
+
+@endif
 </aside>
 </div>
 </div>
