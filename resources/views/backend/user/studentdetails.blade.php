@@ -96,6 +96,16 @@
 </ul>
 
 <ul class="nav user-menu float-right">
+
+
+@if(auth()->user()-> role == 'Student')
+
+
+
+
+
+
+
 <li class="nav-item dropdown d-none d-sm-block">
 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 <img src="../../assets/img/sidebar/icon-22.png" alt="">
@@ -106,6 +116,8 @@
 </div>
 <div class="drop-scroll">
 <ul class="notification-list">
+  
+@foreach(auth()->user()->student as $Scholarship)
 <li class="notification-message">
 <a href="activities.html">
 <div class="media">
@@ -113,56 +125,13 @@
 <img alt="John Doe" src="../../assets/img/user-06.jpg" class="img-fluid rounded-circle">
 </span>
 <div class="media-body">
-<p class="noti-details"><span class="noti-title">John Doe</span> is now following you </p>
+<p class="noti-details"><span class="noti-title"><b>You</b> </span> submitted a scholarship application for <b> {{ $Scholarship -> Scholarship->title}} </b> and it was  <b> {{ $Scholarship ->Status}}</b></p>
 <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
 </div>
 </div>
 </a>
 </li>
-<li class="notification-message">
-<a href="activities.html">
-<div class="media">
-<span class="avatar">T</span>
-<div class="media-body">
-<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> sent you a message.</p>
-<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
-</div>
-</div>
-</a>
-</li>
-<li class="notification-message">
-<a href="activities.html">
-<div class="media">
-<span class="avatar">L</span>
-<div class="media-body">
-<p class="noti-details"><span class="noti-title">Misty Tison</span> like your photo.</p>
-<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
-</div>
-</div>
-</a>
-</li>
-<li class="notification-message">
-<a href="activities.html">
-<div class="media">
-<span class="avatar">G</span>
-<div class="media-body">
-<p class="noti-details"><span class="noti-title">Rolland Webber</span> booking appoinment for meeting.</p>
-<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
-</div>
-</div>
-</a>
-</li>
-<li class="notification-message">
-<a href="activities.html">
-<div class="media">
-<span class="avatar">T</span>
-<div class="media-body">
-<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> like your photo.</p>
-<p class="noti-time"><span class="notification-time">2 days ago</span></p>
-</div>
-</div>
-</a>
-</li>
+@endforeach
 </ul>
 </div>
 <div class="topnav-dropdown-footer">
@@ -170,9 +139,11 @@
 </div>
 </div>
 </li>
-<li class="nav-item dropdown d-none d-sm-block">
-<a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><img src="../../assets/img/sidebar/icon-23.png" alt=""> </a>
-</li>
+
+
+
+@endif
+
  <li class="nav-item dropdown has-arrow">
 <a href="#" class=" nav-link user-link" data-toggle="dropdown">
 <span class="user-img"><img class="rounded-circle" src="../../assets/img/user-06.jpg" width="30" alt="Admin">
@@ -252,17 +223,36 @@
 </li>
 
 
+<!--Announcement Side :) ^_^ -->
 
 
-
- <!--Calendar Side :) ^_^ -->
-
-
- <li>
-<a href="calendar.html"><img src="../../assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+<li>
+<a href="{{URL::to('/announcement')}}"><img src="../../assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
 </li>
 <li>
 
+
+
+ <!--Calendar Side :) ^_^ 
+
+
+ <li>
+<a href="{{URL::to('/calendar')}}"><img src="assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+</li>
+<li>
+
+-->
+
+
+ <!--Message Side :) 
+
+
+ <li>
+<a href=""><img src="assets/img/sidebar/icon-4.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">5</span><span>Message</span></a>
+</li>
+<li>
+
+^_^ -->
 
  <!-- Accounts Side :) ^_^ -->
 
@@ -298,7 +288,6 @@
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
 
-  
 
     <!-- Start of Dashboard :) ^_^ -->
 
@@ -496,8 +485,8 @@ Parent Information
 <div class="col-md-3 col-6"> <strong>Parent Nationality</strong>
 <p class="text-muted">{{$tada->Parent_Nationlity}}</p>
 </div>
-<div class="col-md-3 col-6"> <strong>Present Address</strong>
-<p class="text-muted">{{$tada->Present_Address}}</p>
+<div class="col-md-3 col-6"> <strong> Address</strong>
+<p class="text-muted">{{$tada->Permanent_Address}}</p>
 </div>
 <div class="col-md-3 col-6"> <strong>Parent Number</strong>
 <p class="text-muted">{{$tada->Mobile_number}}</p>

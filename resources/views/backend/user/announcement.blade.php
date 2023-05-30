@@ -43,7 +43,7 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-<a href="" class="name"> {{ $Scholarship->user->name}}</a> added a <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="name"> {{ $Scholarship->title}}</a> and it has  <a href="" class="name">  Scholarship Criteria</a> of <a href=""> @if(!empty($Scholarship->grade)) Average Grades is {{(!empty($Scholarship->grade))? $Scholarship->grade: '' }}  , @endif @if(!empty($Scholarship->address))  Living in   {{(!empty($Scholarship->address))? $Scholarship->address: '' }}  @endif @if(!empty($Scholarship->Parent_Income)) and has Parent Income of maximum    {{(!empty($Scholarship->Parent_Income))? $Scholarship->Parent_Income: '' }} pesos @endif  </a>
+<a href="" class="name"> {{ $Scholarship->user->name}}</a> added a <a href="{{ URL::to('/Scholarship-details/'.$Scholarship->id) }}" class="name"> {{ $Scholarship->title}}</a> @if((!empty($Scholarship->grade))&& (!empty($Scholarship->address)) && (!empty($Scholarship->Parent_Income)) )   and it has  <a href="" class="name">  Scholarship Criteria</a> of <a href=""> @endif @if(!empty($Scholarship->grade)) of Average Grades is {{(!empty($Scholarship->grade))? $Scholarship->grade: '' }}  , @endif @if(!empty($Scholarship->address))  Living in   {{(!empty($Scholarship->address))? $Scholarship->address: '' }}  @endif @if(!empty($Scholarship->Parent_Income)) and has Parent Income of maximum    {{(!empty($Scholarship->Parent_Income))? $Scholarship->Parent_Income: '' }} pesos @endif  </a>
 <span class="time">6 mins ago</span>
 </div>
 </div>

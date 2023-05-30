@@ -144,9 +144,6 @@
 
 @endif
 
-<li class="nav-item dropdown d-none d-sm-block">
-<a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><img src="../../assets/img/sidebar/icon-23.png" alt=""> </a>
-</li>
  <li class="nav-item dropdown has-arrow">
 <a href="#" class=" nav-link user-link" data-toggle="dropdown">
 <span class="user-img"><img class="rounded-circle" src="../../assets/img/user-06.jpg" width="30" alt="Admin">
@@ -293,307 +290,76 @@
 
 
 
-  <!-- Start of Dashboard :) ^_^ -->
+    <!-- Start of Dashboard :) ^_^ -->
 
 
-  <div class="page-wrapper">
+
+
+
+    <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">Personal Information</h5>
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+<h5 class="text-uppercase mb-0 mt-0 page-title">My Application</h5>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<div class="col-lg-6 col-md-12 col-sm-12 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
-<li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-<li class="breadcrumb-item"><a href="index.html">Student</a></li>
-<li class="breadcrumb-item"><span> Add Student</span></li>
+<li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i> Dashboard</a></li>
+
 </ul>
 </div>
 </div>
 </div>
-<div class="page-content">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile-sidebar">
+<div class="row">
+<div class="col-lg-3 col-md-12 col-sm-12 col-12">
+<div class="aboutprofile">
 <div class="card">
 <div class="card-body">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<form action= "{{URL::to('/editapply/'.$edits->id)}}"enctype="multipart/form-data" method="post" onsubmit="return submitForm(this);">
-@csrf
-<div class="form-group">
-<label>Firstname</label>
-<input type="text" class="form-control" name="Fname" id="Fname" value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Fname}}">
-</div>
-<div class="form-group">
-<label>Email</label>
-<input type="Email" class="form-control"  value="{{ auth()->user()->email }}"  disabled> 
-</div>
-  <!-- end of Dashboard :) 
-
-<div class="form-group">
-<label>Password</label>
-<input type="password" class="form-control">
-</div>
-
-<div class="form-group">
-<label>Subject</label>
-<input type="text" class="form-control">
-</div>
-^_^ -->
-<div class="form-group">
-<label>Gender</label>
-<select class="form-control" name="Gender" id="Gender">
-<option>Male</option>
-<option>Female</option>
-</select>
-</div>
-<div class="form-group">
-<label>Birth Date</label>
-<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker" name="Birthdate" id="Birthdate" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Birthdate}}">
-</div>
- <!-- end of Dashboard :) 
-<div class="form-group">
-<label>Class</label>
-<input type="text" class="form-control">
-</div>
-^_^ -->
-<div class="form-group">
-<label>Religion</label>
-<input type="text" class="form-control" name="Religion" id="Religion" value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Religion}}">
-</div>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-
-<div class="form-group">
-<label>Lastname</label>
-<input type="text" class="form-control" name="Lname" id="Lname"  value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Lname}}">
-</div>
- <!-- end of Dashboard :) 
-<div class="form-group">
-<label>Joining Date</label>
-<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker">
-</div>
-<div class="form-group">
-<label>Comfirm Password</label>
-<input type="password" class="form-control">
-</div>
-^_^ -->
-<div class="form-group">
-<label>Mobile number</label>
-<input type="text" class="form-control"  name="Mobile_number" id="Mobile_number"  value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Mobile_number}}">
-</div>
-<div class="form-group">
-<label>Nationality</label>
-<input type="text" class="form-control" name="Nationality" id="Nationality" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Nationality}}">
-</div>
-<div class="form-group">
-<label> School ID Number</label>
- <input type="text" class="form-control"  name="School_ID" id="School_ID" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->School_ID}}">
-</div>
- <!-- end of Dashboard :) 
-<div class="form-group">
-<label>Section</label>
-<input type="text" class="form-control">
-</div>
-^_^ -->
-
-</div>
-<div class="mt-4">
-<div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<div class="page-title ml-3">Parents information</div>
+<div class="aboutprofile-pic">
+<img class="card-img-top" src="{{(!empty($tada->Student_Imag))? url(  'upload/image/'.$tada->Student_Image):url('upload/no_image.jpg')}}"
+                        alt="Card image">
 </div>
+<div class="aboutprofile-name">
+<h5 class="text-center mt-2">Full Name : &nbsp;  {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Fname}} &nbsp;{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Lname}}</h5>
+<p class="text-center">School Name :&nbsp;   {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->School_Name}}</p>
 </div>
-</div>
-<div class="card-body w-100 p-3">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+<ul class="list-group list-group-flush">
 
-<div class="form-group">
-<label>Father Name</label>
-<input type="text" class="form-control"   name="Father_name" id="Father_name" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Father_name}}">
-</div>
-<div class="form-group">
-<label>Father Occupation</label>
-<input type="text" class="form-control"   name="Father_job" id="Father_job"value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Father_job}}">
-</div>
-<div class="form-group">
-<label> Parent Mobile number</label>
-<input type="text" class="form-control"  name="Father_number" id="Father_number"  value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Father_number}}" >
-</div>
-
-<!--
-<div class="form-group">
-<label>Present Address</label>
-<textarea class="form-control" rows="4"  name="Present_Address" id="Present_Address"></textarea>
-</div>
-    -->
-    <div class="form-group">
-<label>Permanent Address </label> <span class="text-danger">&nbsp;*</span>
-<input class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"  value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Permanent_Address}}"></input>
-</div>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-
-<div class="form-group">
-<label>Mother Name</label>
-<input type="text" class="form-control"  name="Mother_name" id="Mother_name" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Mother_name}}">
-</div>
-<div class="form-group">
-<label>Mother Occupation</label>
-<input type="text" class="form-control"  name="Mother_job" id="Mother_job" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Mother_job}}">
-</div>
-<div class="form-group">
-<label>Nationality</label>
-<input type="text" class="form-control"  name="Parent_Nationlity" id="Parent_Nationlity"  value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Parent_Nationlity}}">
-</div>
-<div class="form-group">
-<label>Parent Income </label><span class="text-danger">&nbsp;*</span> 
-<input class="form-control" rows="4" name="Parent_Income" id="Parent_Income"  value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Parent_Income}}"></input>
-</div>
-
-
-</div>
-</div>
-</div>
-<div class="mt-4">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<div class="page-title ml-3">Academic Background:</div>
-</div>
-</div>
-</div>
-<div class="card-body w-100 p-3">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-
-<div class="form-group">
-<label>School Name</label>
-<input type="text" class="form-control" name="School_Name" id="School_Name" value="{{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->School_Name}}">
-</div>
-<!--
-<div class="form-group">
-<label>Honors, Awards, or Recognition Received</label>
-<input type="text" class="form-control" name="Honor" id="Honor">
-</div>
-    -->
-
-<div class="form-group">
-<label>School Address</label>
-<input class="form-control" rows="4"  name="School_Address" id="School_Address"  value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->School_Address}} "></input>
-</div>
-
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<!--
-<div class="form-group">
-<label>Extracurricular Activities or Leadership Positions</label>
-<input type="text" class="form-control">
-</div>
-<div class="form-group">
-<label>Community Service or Volunteer Work</label>
-<input type="text" class="form-control">
-</div>
-    -->
-    <div class="form-group">
-<label>Grade Point Average (GPA)</label> <span class="text-danger">&nbsp;*</span> 
-<input type="text" class="form-control" name="GPA" id="GPA" value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->GPA}}">
-</div>
-<div class="form-group">
-<label>School Year / Course</label>
-<input type="text" class="form-control"  name="Year_Course" id="Year_Course"  value=" {{auth()->user()->student->firstwhere('scholarship_id', $edits->id)?->Year_Course}}">
-</div>
-
-
-
-</div>
-</div>
-</div>
-
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
-<div class="form-group">
-<label>Student Image</label>
-<input type="file"   class="form-control" name="Student_Image" id="Student_Image" >
-</div>
-
-</div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
-<div class="form-group">
-<label>Registration Form</label>
-<input type="file"  class="form-control" name="Parent_Image" id="Parent_Image" >
-</div>
-
-</div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
-<div class="form-group text-center custom-mt-form-group">
-<button type="submit" class="btn btn-primary mr-2" >Submit</button>
-<a  href="/Scholarship" class="btn btn-secondary" type="reset">Cancel</a>
-</div>
-</form>
-</div>
-
+</ul>
 </div>
 </div>
 </div>
 </div>
 </div>
+<div class="aboutme-profile">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+Scholarship Criteria
+</h4>
 </div>
-</div>
+<div class="card-body">
 
-</div>
-
-
-
-
-
-    
-  <!-- end of Dashboard :) ^_^ -->
+<ul class="categories">
+<center><p>Scholarship Name &nbsp;: &nbsp; <b>{{$tada->title}}</b> </p></center>
 
 
 
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->grade))? $tada->grade:$swabe}} {{(!empty($tada->grade2))? '-'.' '.$tada->grade2.' '.'Average'.' '.'Range':$swabe}}   </i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{ (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) == ($tada->grade) || ((auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) >= ($tada->grade)  && (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) <= ($tada->grade2)  ) ?   'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->grade)) && (  (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) != ($tada->grade) && !((auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) >= ($tada->grade) && (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA) <= ($tada->grade2)) ) ?  ' ':''}}</p>  </li>
+
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->address))? $tada->address . ' '. 'Only' :$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{(auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Permanent_Address) == ($tada->address) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->address)) && (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Permanent_Address) != ($tada->address) ?  ' ':''}}</p>  </li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Parent_Income))? $tada->Parent_Income . ' '. 'Pesos':$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{(auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Parent_Income) == ($tada->Parent_Income) ?  'ok':''}}</p> 
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Parent_Income)) && (auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Parent_Income) != ($tada->Parent_Income) ?  ' ':''}}</p>  </li>
 
 
   
@@ -601,6 +367,193 @@
 
 
 
+
+
+
+</ul>
+</div>
+</div>
+</div>
+<div class="aboutprofile-address">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title post-left">Status</h4>
+<i class= "post-right">Current : &nbsp; {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Status}} </i>
+</div>
+<div class="card-body">
+
+<a class="btn btn-danger float-right" href=" " ><i class="fas fa-ban"></i>&nbsp; &nbsp; Cancel &nbsp; &nbsp; </a> 
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-12 col-sm-12 col-12">
+<div class="profile-content">
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header">
+<h4 class="page-title">
+ &nbsp;Personal Information
+</h4>
+</div>
+
+<div class="card-body">
+<div id="biography" class="biography">
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Full Name</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Fname}} &nbsp;{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Lname}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mobile</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Mobile_number}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Email</strong>
+<p class="text-muted"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543e31323226312d14312c35392438317a373b39">[email&#160;protected]</a></p>
+</div>
+<div class="col-md-3 col-6"> <strong>Address</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Permanent_Address}} </p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Birthdate</strong>
+<p class="text-muted"> {{ date('M  d,  Y', strtotime(auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Birthdate))}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Gender</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Gender}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Religion</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Religion}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Nationality</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Nationality}} </p>
+</div>
+</div>
+<hr>
+
+
+<div class="card-header">
+<h4 class="page-title">
+Education
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>School Name</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->School_Name}} </p>
+</div>
+<div class="col-md-3 col-6"> <strong>School Address</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->School_Address}} </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Grade</strong>
+<p class="text-muted">  {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->GPA}} </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Year and Course</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Year_Course}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Registration Form</strong>
+<p></p>
+<span class="name" ><b>Download :  &nbsp;</b>  </span>
+<a  href= "{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Parent_Image}}" class="btn btn-outline-danger mr-2" download> <img src="../../assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
+
+</div>
+
+
+
+</div>
+<hr>
+<div class="card-header">
+<h4 class="page-title">
+Parent Information
+</h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Father Name</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Father_name}} </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Father Occupation</strong>
+<p class="text-muted"> {{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Father_job}}  </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Name</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Mother_name}}  </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Mother Occupation</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Mother_job}}</p>
+</div>
+</div>
+<hr>
+<hr>
+<div class="row">
+<div class="col-md-3 col-6"> <strong>Parent Income Monthly</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Parent_Income}} </p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Nationality</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Parent_Nationlity}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong> Address</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Permanent_Address}}</p>
+</div>
+<div class="col-md-3 col-6"> <strong>Parent Number</strong>
+<p class="text-muted">{{auth()->user()->student->firstwhere('scholarship_id', $tada->id)?->Mobile_number}}</p>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 <script src="../../assets/js/jquery-3.6.0.min.js"></script>
@@ -639,23 +592,7 @@
 <!-- Start Toaster & Sweetalert -->
 <script src="../../assets/toaster/toastr.min.js"></script>
 <script src="../../assets/toaster/sweetalert.min.js"></script>
-<script>  
-function submitForm(form) {
-        swal({
-            title: "Are you sure?",
-            text: "This form will be submitted",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then(function (isOkay) {
-            if (isOkay) {
-                form.submit();
-            }
-        });
-        return false;
-    }
-</script>
+
 
 <script>
             @if(Session::has('messege'))
@@ -718,87 +655,6 @@ function submitForm(form) {
                     });
                 });
         </script>
-
-<script type="text/javascript">
-			( function() { // javascript document ready function
-				var firstJavaScriptInput = document.getElementById( 'inputWarning' );
-				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch1' );
-			
-				
-				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
-					if ( this.checked ) { // check box is checked so disable input and select
-					
-						firstJavaScriptInput.disabled = 'disabled';
-					} else { // checkbox is not checked, make input and select editable
-					
-						firstJavaScriptInput.disabled = '';
-					}
- 				} );
-			} )();
-		</script>
-    <script type="text/javascript">
-			( function() { // javascript document ready function
-				var firstJavaScriptInput = document.getElementById( 'inputWarning2' );
-				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch2' );
-			
-				
-				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
-					if ( this.checked ) { // check box is checked so disable input and select
-					
-						firstJavaScriptInput.disabled = 'disabled';
-					} else { // checkbox is not checked, make input and select editable
-					
-						firstJavaScriptInput.disabled = '';
-					}
- 				} );
-			} )();
-		</script>
-		  <script type="text/javascript">
-			( function() { // javascript document ready function
-				var firstJavaScriptInput = document.getElementById( 'inputWarning5' );
-				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch5' );
-			
-				
-				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
-					if ( this.checked ) { // check box is checked so disable input and select
-					
-						firstJavaScriptInput.disabled = 'disabled';
-					} else { // checkbox is not checked, make input and select editable
-					
-						firstJavaScriptInput.disabled = '';
-					}
- 				} );
-			} )();
-		</script>
-        <script type="text/javascript">
-			( function() { // javascript document ready function
-				var firstJavaScriptInput = document.getElementById( 'inputWarning3' );
-				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch3' );
-			
-				
-				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
-					if ( this.checked ) { // check box is checked so disable input and select
-					
-						firstJavaScriptInput.disabled = 'disabled';
-					} else { // checkbox is not checked, make input and select editable
-					
-						firstJavaScriptInput.disabled = '';
-					}
- 				} );
-			} )();
-		</script>
-        <script type="text/javascript">
-    $(document).ready(function(){
-      $('#image').change(function(e){
-        var reader = new FileReader();
-        reader.onload = function(e){
-          $('#showImage').attr('src',e.target.result);  
-        }
-        reader.readAsDataURL(e.target.files['0']);
-      });
-    });
-    </script>
-
 
 </body>
 </html>

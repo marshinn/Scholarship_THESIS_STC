@@ -39,19 +39,24 @@
 
 </div>
 <h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">{{$lucky->title}} </a></h4>
-<div class="text-muted ">No. of Slot : 55/100 </div>
-
-
-<div class=" small text-muted text-primary">Status:  Open</div>
-
-<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+<div class="text-muted ">No. of Slot :{{$lucky->Slot - $lucky->Student->where('Status', 'Approve')->count() }} left </div>
+@if(($lucky->Slot - $lucky->Student->where('Status', 'Approve')->count()) == 0)
 
 
 <div class="red-text small" >No Slot</div>
 
-<button class="btn btn-warning" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp; </button>
 
+<button class="btn btn-warning" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp; </button>
+@else
+
+
+<div class=" small text-muted text-primary">Status:  Open</div>
+<a class="btn btn-info" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>
+
+
+@endif
 </div>
+
 </div>
 @endforeach
 

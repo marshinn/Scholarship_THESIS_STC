@@ -50,7 +50,7 @@ Route::get('/Remove/{id}', [App\Http\Controllers\StudentController::class, 'Remo
 
 Route::get('/Apply/{id}', [App\Http\Controllers\StudentController::class, 'Apply'])->name('Apply');
 
-
+Route::post('/editapply/{id}', [App\Http\Controllers\StudentController::class, 'editapply'])->name('editapply');
 Route::post('/applying/{id}', [App\Http\Controllers\StudentController::class, 'applying'])->name('applying');
 
 
@@ -72,3 +72,7 @@ Route::post('/updates/{id}', [App\Http\Controllers\ScholarshipController::class,
 
 
 Route::get('/editStudent/{id}', [App\Http\Controllers\StudentController::class, 'editStudent'])->name('editStudent');
+
+
+
+Route::get('/mystudent/{id}', [App\Http\Controllers\StudentController::class, 'mystudent'])->name('mystudent');

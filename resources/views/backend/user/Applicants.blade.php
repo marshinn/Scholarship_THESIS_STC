@@ -212,10 +212,10 @@
 </div>
 
 
-<!-- Start of Side BAR kaya mo yan  :) ^_^ -->
+  <!-- Start of Side BAR kaya mo yan  :) ^_^ -->
 
 
-<div class="sidebar" id="sidebar">
+  <div class="sidebar" id="sidebar">
 <div class="sidebar-inner slimscroll">
 <div id="sidebar-menu" class="sidebar-menu">
 <div class="header-left">
@@ -256,17 +256,36 @@
 </li>
 
 
+<!--Announcement Side :) ^_^ -->
 
 
-
- <!--Calendar Side :) ^_^ -->
-
-
- <li>
-<a href="calendar.html"><img src="../../assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+<li>
+<a href="{{URL::to('/announcement')}}"><img src="../../assets/img/sidebar/icon-22.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">!</span> <span>Announcement</span></a>
 </li>
 <li>
 
+
+
+ <!--Calendar Side :) ^_^ 
+
+
+ <li>
+<a href="{{URL::to('/calendar')}}"><img src="assets/img/sidebar/icon-6.png" alt="icon"> <span>Calendar</span></a>
+</li>
+<li>
+
+-->
+
+
+ <!--Message Side :) 
+
+
+ <li>
+<a href=""><img src="assets/img/sidebar/icon-4.png" alt="icon"> <span class="badge badge-pill bg-primary float-right">5</span><span>Message</span></a>
+</li>
+<li>
+
+^_^ -->
 
  <!-- Accounts Side :) ^_^ -->
 
@@ -301,10 +320,6 @@
 </div>
 
   <!-- End of Side BAR kaya mo yan  :) ^_^ -->
-
-
-
-
 
 
 
