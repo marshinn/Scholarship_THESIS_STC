@@ -385,11 +385,11 @@
 <td>{{ $baho->Year_Course}}</td>
 <td class="text-center">
 <div class="dropdown action-label">
-<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+<a class="btn btn-white btn-sm btn-rounded" href="#">
   @if($baho->Status == 'Pending')
-<i class="far fa-dot-circle text-danger"></i> {{ $baho->Status}}
+<i class="far fa-dot-circle text-danger"></i> {{ $baho->Status}} :
 @else
-<i class="far fa-dot-circle text-success"></i> {{ $baho->Status}}
+<i class="far fa-dot-circle text-success"></i> {{ $baho->Status}} :
 @endif
 </a>
 

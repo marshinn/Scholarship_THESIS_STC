@@ -23,7 +23,7 @@
 @if(auth()->user()-> role == 'Admin')
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12 text-right add-btn-col">
-<a class="btn btn-info btn-rounded float-right" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-bell"></i>  &nbsp;Add Annoucement</a>
+<a class="btn btn-info btn-rounded float-right" href="{{ URL::to('/AddAnnouncement') }}" ><i class="fas fa-bell"></i>  &nbsp;Add Annoucement</a>
 </div>
 @endif
 
@@ -34,7 +34,7 @@
 <div class="activity-box">
 <ul class="activity-list">
 
-
+<!--
 @foreach($alls as $Scholarship)
 <li>
 
@@ -50,6 +50,9 @@
 </li>
 
 @endforeach
+
+-->
+
 @foreach($alls as $ship)
 <li>
 
@@ -58,114 +61,20 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>{{$ship->title}}</b> and Schedule of Interview will be {{ date('M  d,  Y', strtotime($ship->created_at))}}
+  <a href="" class="name"></a>  {{$ship->user->name}} added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>{{$ship->name_announcement}}</b> and Schedule of Interview will be <b>{{ date('M  d,  Y  - g:i A', strtotime($ship->time))}}</b> 
  
-<a  href= "assets/img/pdf.png" class="btn btn-outline-danger mr-2 float-right" download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
+<a  href= "{{url('upload/reg/'.$ship->PDF)}}" class="btn btn-outline-danger mr-2 float-right"download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
 <span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
 <span class="time">6 mins ago</span>
 </div>
 </div>
 </li>
 
-<li>
+
 
 @endforeach
 
 
-<!--[if lt IE 9]>
-        <script src="assets/js/html5shiv.min.js"></script>
-        <script src="assets/js/respond.min.js"></script>
-    <![endif]
-
-
-<li>
-<div class="page-title ml-3">Notifications</div>
-
-</li>
-
-@if(auth()->user()-> role == 'Student')
-
-<li>
-<div class="activity-user">
-<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
-<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-</a>
-</div>
-
-<div class="activity-content">
-
-<div class="timeline-content">
-<a href="" class="name"> <b>You</b> </a> submitted a new scholarship request for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Scholarship->title}} </b> 
-<span class="time"> {{ date('M  d,  Y', strtotime($details?->created_at))}}</span>
-</div>
-
-</div>
-
-</li>
-
-
-
-
-
-<li>
-<div class="activity-user">
-<a href="#" title="Bernardo Galaviz" data-toggle="tooltip" class="avatar">
-<img alt="Bernardo Galaviz" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-</a>
-</div>
-<div class="activity-content">
-<div class="timeline-content">
-<a href="" class="name">You </a> submitted a scholarship application for <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Scholarship->title}} </b>  and it was <b>{{auth()->user()->student->firstwhere('scholarship_id', $details?->id)?->Status}} </b> . 
-<span class="time">{{ date('M  d,  Y', strtotime($details?->updated_at))}}</span>
-</div>
-</div>
-</li>
-
-@endif
-@if(auth()->user()-> role == 'Admin')
-
-@foreach($alls as $Scholarship)
-
-<li>
-<div class="activity-user">
-<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
-<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-</a>
-</div>
-
-<div class="activity-content">
-
-<div class="timeline-content">
-<a href="" class="name"> <b>You</b> </a> only have   <b>{{ $Scholarship->Slot}}</b>  slot left   for {{ $Scholarship->title}}
-<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
-</div>
-
-</div>
-
-</li>
-@endforeach
-@foreach($alls as $Scholarship)
-<li>
-<div class="activity-user">
-<a href="profile.html" title="Lesley Grauer" data-toggle="tooltip" class="avatar">
-<img alt="Lesley Grauer" src="assets/img/user.jpg" class="img-fluid rounded-circle">
-</a>
-</div>
-
-<div class="activity-content">
-
-<div class="timeline-content">
-<a href="" class="name"> <b>You</b> </a> have been approve    <b>{{$Scholarship->student()->where('Status', 'Approve')->count()}}</b>  Student and only  {{$Scholarship->student()->where('Status', 'Pending')->count()}} for pending
-<span class="time"> {{ date('M  d,  Y', strtotime($details->created_at))}}</span>
-</div>
-
-</div>
-
-</li>
-
-@endforeach
-@endif
--->
 </ul>
 </div>
 </div>

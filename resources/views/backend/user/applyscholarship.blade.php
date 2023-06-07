@@ -357,7 +357,7 @@
 </div>
 <div class="form-group">
 <label>Birth Date</label>
-<input class="form-control datetimepicker-input datetimepicker" type="text" data-toggle="datetimepicker" name="Birthdate" id="Birthdate">
+<input class="form-control" type="date"  name="Birthdate" id="Birthdate">
 </div>
  <!-- end of Dashboard :) 
 <div class="form-group">

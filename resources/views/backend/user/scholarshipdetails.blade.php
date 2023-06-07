@@ -501,10 +501,27 @@
 <div class="widget category-widget">
 <h5>Scholarship Criteria</h5>
 <ul class="categories">
+
+@if(!empty($detail->grade))
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($detail->grade))? $detail->grade:$swabe}}  {{(!empty($detail->grade))? '-'.' '.$detail->grade2.' '.'Average'.' '.'Range':$swabe}}           </i>         </a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->grade)) &&  (($detail->grade) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) || ((auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA)  >=  ($detail->grade) &&  (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->GPA) <= ($detail->grade2) )) ?  'ok':''}}</h5> @endif </li>
+
+@endif
+
+@if(!empty($detail->address))
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->address)) && ($detail->address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Permanent_Address) ?  'ok':''}}</h5> @endif </li>
+
+@endif
+@if(!empty($detail->Parent_Income))
 <li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->Parent_Income. ' '. 'Pesos':$swabe}}  </i></a> @if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Parent_Income)) && ($detail->Parent_Income) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Parent_Income) ?  'ok':''}}</h5>
 @endif</li>
+
+@endif
+
+
+
+
+
+
 <li>  <p> <center>If you meet the required criteria, the system will automatically approve your application. </center></p>  </li>
 
 </ul>
@@ -527,14 +544,22 @@
 
 @else
 
+@if(date('M  d,  Y / g:i A ') >= date('M  d,  Y / g:i A ', strtotime($detail->deadline)))
+<button class="btn  btn-danger float-right" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Close &nbsp; &nbsp;  </button>&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+
+@else
 @if(($detail->Slot - $detail->Student->where('Status', 'Approve')->count()) == 0)
 
 <button class="btn  btn-warning float-right" href="/Scholarship" disabled ><i class="fas fa-arrow-right" ></i>&nbsp; &nbsp; Full &nbsp; &nbsp;  </button>&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+
 @else
 <a class="btn btn-secondary" href="  {{ URL::to('/Apply/'.$detail->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Apply &nbsp; &nbsp; </a>   &nbsp; &nbsp; &nbsp; 
 <a class="btn btn-info" href="/Scholarship" ><i class="fas fa-ban"></i>&nbsp; &nbsp;  Cancel &nbsp; &nbsp; </a>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
 
 @endif
+
+@endif
+
 
 @endif
 <p></p>
@@ -562,6 +587,16 @@
 
   
 @endif
+<div class="widget tags-widget">
+<h5>Deadline of Scholarship </h5>
+<i>{{ date('M  d,  Y / g:i A ', strtotime($detail->deadline))}}</i>
+<!--
+<p></p>
+<h5>Find suitable student for the scholarship </h5>
+<a class="btn btn-warning" href="{{ URL::to('/AddScholarship') }}" ><i class="fas fa-search fa-fw"></i>&nbsp; &nbsp;  Find Student &nbsp; &nbsp; </a> 
+-->
+</div>
+
 @if($detail->student->contains('user_id' , auth::id()))
 <div class="widget tags-widget">
 <h5>My Application</h5>

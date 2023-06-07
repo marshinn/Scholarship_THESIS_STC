@@ -81,3 +81,9 @@ Route::get('/mystudent/{id}', [App\Http\Controllers\StudentController::class, 'm
 Route::get('/Approve/{id}', [App\Http\Controllers\StudentController::class, 'Approve'])->name('Approve');
 
 Route::get('/Disapprove/{id}', [App\Http\Controllers\StudentController::class, 'Disapprove'])->name('Disapprove');
+
+
+Route::get('/AddAnnouncement', [App\Http\Controllers\AnnouncementController::class, 'AddAnnouncement'])->name('AddAnnouncement');
+
+
+Route::post('/pogs', [App\Http\Controllers\AnnouncementController::class, 'pogs'])->name('pogs');

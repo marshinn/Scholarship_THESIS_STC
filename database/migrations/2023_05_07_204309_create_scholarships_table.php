@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('grade2')->nullable();
             $table->string('Parent_Income')->nullable();
             $table->string('Slot')->nullable();
+            $table->string('deadline')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

@@ -18,13 +18,13 @@
 <div class="page-header">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<h5 class="text-uppercase mb-0 mt-0 page-title">add Scholarship</h5>
+<h5 class="text-uppercase mb-0 mt-0 page-title">add Announcement</h5>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <ul class="breadcrumb float-right p-0 mb-0">
 <li class="breadcrumb-item"><a href="">Home</a></li>
 <li class="breadcrumb-item"><a href="">Scholarship</a></li>
-<li class="breadcrumb-item"><span> Add Scholarship</span></li>
+<li class="breadcrumb-item"><span>  Announcement</span></li>
 </ul>
 </div>
 </div>
@@ -33,118 +33,40 @@
 <div class="card-body">
 <div class="row">
 <div class="col-md-12">
-<form action="/p" enctype="multipart/form-data" method="post">
+<form action="/pogs" enctype="multipart/form-data" method="post">
 @csrf
 <div class="form-group">
+
 <label>Scholarship Name</label>
-<input type="text" class="form-control" name="title" id="title">
-</div>
-<div class="form-group">
-<label>Scholarship Image</label>
-<input type="file" name="image" accept="image/*" class="form-control" id="image">
-
-@if ($errors->has('image'))
-            
-                <strong>{{ $errors->first('image')}}</strong>
-          
-        @endif
-<small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png.</small>
-
-</div>
-<div class="form-group">
-              <img id="showImage"  class="image-frame">
-              
-              </div>
-<div class="row">
-</div>
-<div class="form-group">
-<label>Scholarship Description</label>
-<input class="form-control" placeholder="Description" rows="4"  name="description" id="description" ></input>
-</div>
-<div class="form-group">
-<label>Scholarship Slots</label>
-<input type="number" class="form-control" name="Slot" id="Slot">
+<select class="form-control" name="name_announcement" id="name_announcement">
+@foreach(auth()->user()->scholarship as $goodboy)
+<option>{{$goodboy->title}}</option>
+@endforeach
+</select>
 </div>
 
+
+
+
 <div class="form-group">
-<label>Scholarship Deadline</label>
-<input type="datetime-local" class="form-control" name="deadline" id="deadline">
+<label>Scholarship Date for the Interview</label>
+<input type="datetime-local"  class="form-control" name="time" id="time">
+</div>
+<div class="form-group">
+<label>List of Applicants  in PDF File Format</label>
+<input type="file"  class="form-control" name="PDF" id="PDF">
 </div>
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<h4>Scholarship Criteria</h4>
+
 </div>
 </div>
-<div class="form-group">
-                        <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Set a Criteria</label>
-                        <p>You can set one or more criteria to find the right applicants </p>
-                        </div>
 
 
 
-						<div class="form-group">
-  <div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="checked">
-    <label class="custom-control-label" for="customSwitch1">Location</label>
-  </div>
-</div>
-
-<div class="form-group">
-  <select class="form-control is-warning" id="provinceSelect" onchange="updateCityOptions()" disabled="disabled">
-    <option value="">Select a province in Calabarzon</option>
-	<option value="Batangas">Batangas</option>
-    <option value="Cavite">Cavite</option>
-  <option value="Laguna">Laguna</option>
-  
-  <option value="Rizal">Rizal</option>
-  <option value="Quezon">Quezon</option>
-    <!-- Add other provinces here -->
-  </select>
-<p></p>
-  <select class="form-control is-warning" id="citySelect" name="address" disabled="disabled">
-    <option value="">Select a city</option>
-    <!-- City options will be populated dynamically -->
-  </select>
-</div>
-
-<div class="form-group">
-                       
-<div class="custom-control custom-switch">
-<input type="checkbox" class="custom-control-input" id="customSwitch2" for="customSwitch2" checked="checked" >
-<label class="custom-control-label" for="customSwitch2">GWA  </label>
-</div>
-</div>
-<div class="form-group">
-
-<input type="text" class="form-control is-warning" id="inputWarning2" placeholder="Enter First Number" disabled="disabled" name="grade">
-</div>
-
-<div class="form-group">
-                       
-<div class="custom-control custom-switch">
-<input type="checkbox" class="custom-control-input" id="customSwitch5" for="customSwitch5" checked="checked" >
-<label class="custom-control-label" for="customSwitch5">UP TO </label>
-</div>
-</div>
-<div class="form-group">
-
-<input type="text" class="form-control is-warning" id="inputWarning5" placeholder="Enter Second Number" disabled="disabled" name="grade2">
-</div>
-
-<div class="form-group">
-                       
-<div class="custom-control custom-switch">
-<input type="checkbox" class="custom-control-input" id="customSwitch3" for="customSwitch3" checked="checked" >
-<label class="custom-control-label" for="customSwitch3">Parent Income Monthly</label>
-</div>
-</div>
-<div class="form-group">
-
-<input type="number" class="form-control is-warning" id="inputWarning3" placeholder="Enter ..." disabled="disabled" name="Parent_Income">
-</div>
 
 <div class="m-t-20 text-center">
-<button type="submit" class="btn btn-primary mr-2">Add Scholarship</button>
+<button type="submit" class="btn btn-primary mr-2">Add Announcement</button>
 <a href="/Scholarship" class="btn btn-secondary" type="reset">Cancel</a>
 </div>
 </form>

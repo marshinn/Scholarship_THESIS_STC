@@ -53,6 +53,7 @@ class ScholarshipController extends Controller
         $data['grade2'] = $request->grade2;
         $data['Parent_Income'] = $request->Parent_Income;
         $data['Slot'] = $request->Slot;
+        $data['deadline'] = $request->deadline;
         if ($request->file('image')){
             $file = $request->file('image');
 

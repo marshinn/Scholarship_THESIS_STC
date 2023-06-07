@@ -370,11 +370,11 @@ Scholarship Criteria
 <i class= "post-right">Current : &nbsp; {{$tada->Status}}</i>
 </div>
 <div class="card-body">
-@if($tada->Status == 'Pending')
+@if($tada->Status == 'Pre-Approved')
 
 <a class="btn btn-success" href="{{ URL::to('/Approve/'.$tada->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
 @else
-<a class="btn btn-warning" href="{{ URL::to('/Approve/'.$tada->id) }}"><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Pending &nbsp; &nbsp; </a> 
+<a class="btn btn-primary" href="{{ URL::to('/Approve/'.$tada->id) }}"><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Pre-Approved &nbsp; &nbsp; </a> 
 @endif
 <a class="btn btn-danger float-right" href="{{ URL::to('/Disapprove/'.$tada->id) }}" ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
 </div>

@@ -95,39 +95,39 @@ class StudentController extends Controller
         $status = student::select('Status')->firstWhere('id', $id);
 
         if($data['Parent_Income'] == $edit['Parent_Income'] && (empty($edit->address))  &&  (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
         
         elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
         
         elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address'] &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
         
         elseif((empty($edit->Parent_Income)) &&  (empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif((empty($edit->Parent_Income)) && $data['Permanent_Address'] == $edit['address'] &&   (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
         elseif((empty($edit->Parent_Income))  &&(empty($edit->address)) &&  (empty($edit->grade))  &&  (empty($edit->grade2)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
@@ -270,39 +270,39 @@ class StudentController extends Controller
         $status = student::select('Status')->firstWhere('id', $id);
 
         if($data['Parent_Income'] == $edit['Parent_Income'] && (empty($edit->address))  &&  (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
         
         elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
         
         elseif($data['Parent_Income'] == $edit['Parent_Income'] &&   $data['Permanent_Address'] == $edit['address']  &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif((empty($edit->Parent_Income))  &&   $data['Permanent_Address'] == $edit['address'] &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
         
         elseif((empty($edit->Parent_Income)) &&  (empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif((empty($edit->Parent_Income)) && $data['Permanent_Address'] == $edit['address'] &&   (empty($edit->grade)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
         elseif($data['Parent_Income'] == $edit['Parent_Income']  &&(empty($edit->address)) &&  (($data['GPA'] == $edit['grade']) || (  ($data['GPA'] >= $edit['grade']) && ($data['GPA'] <= $edit['grade2']) )   ) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
         elseif((empty($edit->Parent_Income))  &&(empty($edit->address)) &&  (empty($edit->grade))  &&  (empty($edit->grade2)) ){
-            $status   = 'Approve';
+            $status   = 'Pre-Approved';
         }
 
 
@@ -329,13 +329,13 @@ class StudentController extends Controller
      
          $status = student::select('Status')->where('id', $id)->first();
         
-        if($status->Status =='Pending'){
+        if($status->Status =='Pre-Approved'){
             $status = 'Approve';
         }
         
         
         else{
-            $status = 'Pending';
+            $status = 'Pre-Approved';
         }
         student::where('id', $id)->update(['Status'=>$status]);
         $notifications = array
@@ -352,14 +352,14 @@ class StudentController extends Controller
     public function Disapprove($id)
     {
      
-        $status = student::firstwhere('scholarship_id', $id)->delete();
+        $status = student::where('id', $id)->delete();
         $notifications = array
         (
             'messege' => 'Successfully Status Change',
             'alert-type' => 'success'
 
         );
-        return redirect()->back()->with($notifications);
+        return redirect()->route('Scholarship')->with($notifications);
         
     }
 

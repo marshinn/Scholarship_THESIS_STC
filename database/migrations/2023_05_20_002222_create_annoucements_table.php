@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('annoucements', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('name_announcement')->nullable();
+            $table->string('time')->nullable();
+            $table->string('PDF')->nullable();
             $table->timestamps();
+            $table->index('user_id');
         });
     }
 
