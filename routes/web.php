@@ -76,3 +76,8 @@ Route::get('/editStudent/{id}', [App\Http\Controllers\StudentController::class, 
 
 
 Route::get('/mystudent/{id}', [App\Http\Controllers\StudentController::class, 'mystudent'])->name('mystudent');
+
+
+Route::get('/Approve/{id}', [App\Http\Controllers\StudentController::class, 'Approve'])->name('Approve');
+
+Route::get('/Disapprove/{id}', [App\Http\Controllers\StudentController::class, 'Disapprove'])->name('Disapprove');

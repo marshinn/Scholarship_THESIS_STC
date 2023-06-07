@@ -351,7 +351,7 @@ Scholarship Criteria
 <p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->grade)) && (  ($tada->GPA) != ($tada->Scholarship->grade) && !(($tada->GPA) >= ($tada->Scholarship->grade) && ($tada->GPA) <= ($tada->Scholarship->grade2)) ) ?  ' ':''}}</p>  </li>
 
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->address))? $tada->Scholarship->address . ' '. 'Only' :$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Permanent_Address) == ($tada->Scholarship->address) ?  'ok':''}}</p> 
-<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->address)) && ($tada->Permanent_Address) != ($tada->Scholarship->address) ?  '':''}}</p>  </li>
+<p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->address)) && ($tada->Permanent_Address) != ($tada->Scholarship->address) ?  ' ':''}}</p>  </li>
 
 
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->Parent_Income))? $tada->Scholarship->Parent_Income . ' '. 'Pesos':$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Parent_Income) == ($tada->Scholarship->Parent_Income) ?  'ok':''}}</p> 
@@ -370,8 +370,13 @@ Scholarship Criteria
 <i class= "post-right">Current : &nbsp; {{$tada->Status}}</i>
 </div>
 <div class="card-body">
-<a class="btn btn-success" href="/Scholarship" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
-<a class="btn btn-danger float-right" href=" " ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
+@if($tada->Status == 'Pending')
+
+<a class="btn btn-success" href="{{ URL::to('/Approve/'.$tada->id) }}" ><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Approve &nbsp; &nbsp; </a> 
+@else
+<a class="btn btn-warning" href="{{ URL::to('/Approve/'.$tada->id) }}"><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Pending &nbsp; &nbsp; </a> 
+@endif
+<a class="btn btn-danger float-right" href="{{ URL::to('/Disapprove/'.$tada->id) }}" ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
 </div>
 </div>
 </div>
@@ -448,7 +453,7 @@ Education
 <div class="col-md-3 col-6"> <strong>Registration Form</strong>
 <p></p>
 <span class="name" ><b>Download :  &nbsp;</b>  </span>
-<a  href= "{{$tada->Parent_Image}}" class="btn btn-outline-danger mr-2" download> <img src="../../assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
+<a  href= "../../upload/reg/REGISTRATION_AND_ASSESSMENT_FORM_Raymond_Matining.pdf"   class="btn btn-outline-danger mr-2" download="REGISTRATION_AND_ASSESSMENT_FORM_Raymond_Matining.pdf"> <img src="../../assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
 
 </div>
 

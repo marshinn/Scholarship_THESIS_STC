@@ -50,7 +50,7 @@
 </li>
 
 @endforeach
-
+@foreach($alls as $ship)
 <li>
 
 <div class="activity-user">
@@ -58,7 +58,7 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>Scholarship 1</b> and Schedule of Interview will be August 5, 2023
+  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>{{$ship->title}}</b> and Schedule of Interview will be {{ date('M  d,  Y', strtotime($ship->created_at))}}
  
 <a  href= "assets/img/pdf.png" class="btn btn-outline-danger mr-2 float-right" download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
 <span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
@@ -69,21 +69,7 @@
 
 <li>
 
-<div class="activity-user">
-<a href="profile.html" class="avatar" title="Jeffery Lalor" data-toggle="tooltip">L</a>
-</div>
-<div class="activity-content">
-<div class="timeline-content">
-  <a href="" class="name"></a>  Admin added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>Scholarship 2    </b> and Schedule of Interview will be June 1, 2023
- 
-<a  href= "assets/img/pdf.png" class="btn btn-outline-danger mr-2 float-right" download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
-<span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
-<span class="time">6 mins ago</span>
-</div>
-</div>
-</li>
-
-
+@endforeach
 
 
 <!--[if lt IE 9]>

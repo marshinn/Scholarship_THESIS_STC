@@ -392,10 +392,7 @@
 <i class="far fa-dot-circle text-success"></i> {{ $baho->Status}}
 @endif
 </a>
-<div class="dropdown-menu dropdown-menu-right">
-<a class="dropdown-item "  href= "{{URL::to('/status/'.$baho->id)}}"  ><i class="far fa-dot-circle text-danger"></i> Pending</a>
-<a class="dropdown-item "  href= "{{URL::to('/status/'.$baho->id)}}" ><i class="far fa-dot-circle text-success"></i> Approved</a>
-</div>
+
 </div>
 </td>
 <td class="text-right">

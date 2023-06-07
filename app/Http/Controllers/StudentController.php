@@ -323,4 +323,47 @@ class StudentController extends Controller
         $swabe = 'Not Active';
         return view ('backend.user.mystudent',  compact('tada' , 'swabe'));
     }
+
+    public function Approve($id)
+    {
+     
+         $status = student::select('Status')->where('id', $id)->first();
+        
+        if($status->Status =='Pending'){
+            $status = 'Approve';
+        }
+        
+        
+        else{
+            $status = 'Pending';
+        }
+        student::where('id', $id)->update(['Status'=>$status]);
+        $notifications = array
+        (
+            'messege' => 'Successfully Status Change',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notifications);
+        
+    }
+   
+
+    public function Disapprove($id)
+    {
+     
+        $status = student::firstwhere('scholarship_id', $id)->delete();
+        $notifications = array
+        (
+            'messege' => 'Successfully Status Change',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notifications);
+        
+    }
+
+
+   
+    
 }

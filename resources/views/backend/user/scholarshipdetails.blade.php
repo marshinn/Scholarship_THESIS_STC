@@ -335,7 +335,7 @@
 <p > <b>Description</b> </p>
 <p > {{$detail->description}} </p>
 
-    <p> {{$detail->description}} </p>
+   
 </div>
 </article>
 
