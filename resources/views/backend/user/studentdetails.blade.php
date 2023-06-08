@@ -347,15 +347,28 @@ Scholarship Criteria
 
 <ul class="categories">
 <center><p>Scholarship Name &nbsp;: &nbsp; <b>{{$tada->Scholarship->title}}</b> </p></center>
+
+@if(!empty($tada->Scholarship->grade))
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Grades:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->grade))? $tada->Scholarship->grade:$swabe}} {{(!empty($tada->Scholarship->grade2))? '-'.' '.$tada->Scholarship->grade2.' '.'Average'.' '.'Range':$swabe}}   </i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{ ($tada->GPA) == ($tada->Scholarship->grade) || (($tada->GPA) >= ($tada->Scholarship->grade)  && ($tada->GPA) <= ($tada->Scholarship->grade2)  ) ?   'ok':''}}</p> 
 <p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->grade)) && (  ($tada->GPA) != ($tada->Scholarship->grade) && !(($tada->GPA) >= ($tada->Scholarship->grade) && ($tada->GPA) <= ($tada->Scholarship->grade2)) ) ?  ' ':''}}</p>  </li>
+
+@endif
+
+@if(!empty($tada->Scholarship->address))
 
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->address))? $tada->Scholarship->address . ' '. 'Only' :$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Permanent_Address) == ($tada->Scholarship->address) ?  'ok':''}}</p> 
 <p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->address)) && ($tada->Permanent_Address) != ($tada->Scholarship->address) ?  ' ':''}}</p>  </li>
 
 
+@endif
+
+
+@if(!empty($tada->Scholarship->Parent_Income))
+
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Parent Income:</b><i class="blog-author-name"> &nbsp;{{(!empty($tada->Scholarship->Parent_Income))? $tada->Scholarship->Parent_Income . ' '. 'Pesos':$swabe}}</i></a> <p class="blog-author-name text-dark badge badge-pill bg-primary float-right">{{($tada->Parent_Income) == ($tada->Scholarship->Parent_Income) ?  'ok':''}}</p> 
 <p class="blog-author-name text-danger badge badge-pill  float-right fa fa-times-circle  ">{{(!empty($tada->Scholarship->Parent_Income)) && ($tada->Parent_Income) != ($tada->Scholarship->Parent_Income) ?  ' ':''}}</p>  </li>
+
+@endif
 
 
 
@@ -367,7 +380,7 @@ Scholarship Criteria
 <div class="card">
 <div class="card-header">
 <h4 class="page-title post-left">Status</h4>
-<i class= "post-right">Current : &nbsp; {{$tada->Status}}</i>
+<i class= "post-right blog-author-name">Current : &nbsp; {{$tada->Status}}</i>
 </div>
 <div class="card-body">
 @if($tada->Status == 'Pre-Approved')
@@ -376,7 +389,7 @@ Scholarship Criteria
 @else
 <a class="btn btn-primary" href="{{ URL::to('/Approve/'.$tada->id) }}"><i class="fas fa-arrow-right"></i>&nbsp; &nbsp; Pre-Approved &nbsp; &nbsp; </a> 
 @endif
-<a class="btn btn-danger float-right" href="{{ URL::to('/Disapprove/'.$tada->id) }}" ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
+<a class="btn btn-danger float-right" href="{{ URL::to('/Disapprove/'.$tada->id) }}"  ><i class="fas fa-ban"></i>&nbsp; &nbsp; Remove &nbsp; &nbsp; </a> 
 </div>
 </div>
 </div>
@@ -587,7 +600,10 @@ Parent Information
 <script src="../../assets/toaster/toastr.min.js"></script>
 <script src="../../assets/toaster/sweetalert.min.js"></script>
 
+<script>
 
+  
+</script>
 <script>
             @if(Session::has('messege'))
               var type="{{Session::get('alert-type','info')}}"

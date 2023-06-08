@@ -24,6 +24,11 @@ return new class extends Migration
             $table->string('Mobile_number')->nullable();
             $table->string('Nationality')->nullable();
             $table->string('School_ID')->nullable();
+            $table->string('Working')->nullable();
+            $table->string('PWD')->nullable();
+
+
+
 
  /**
      * Parent Information
@@ -48,7 +53,9 @@ return new class extends Migration
             $table->string('GPA')->nullable();
             $table->string('School_Address')->nullable();
             $table->string('Year_Course')->nullable();
-
+            $table->string('Year')->nullable();
+            $table->string('Varsity')->nullable();
+            $table->string('sport')->nullable();
 
             $table->string('Student_Image')->nullable();
             $table->string('Parent_Image')->nullable();

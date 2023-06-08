@@ -61,8 +61,11 @@
 </div>
 <div class="activity-content">
 <div class="timeline-content">
-  <a href="" class="name"></a>  {{$ship->user->name}} added a List of Student Who Have been Passed in the Scholarship Evalution in    </a>   <b>{{$ship->name_announcement}}</b> and Schedule of Interview will be <b>{{ date('M  d,  Y  - g:i A', strtotime($ship->time))}}</b> 
- 
+  <a href="" class="name"></a>  {{$ship->user->name}} added a List of Student Who Have been Pre-Approved in the Scholarship Evalution in    </a>   <b>{{$ship->name_announcement}}</b> and Schedule of Interview will be <b>{{ date('M  d,  Y  - g:i A', strtotime($ship->time))}}</b> 
+  @if(auth()->user()-> role == 'Admin')
+  <a href="{{ URL::to('/delete-announcement/'.$ship->id) }}" type="submit"  class="btn btn-danger btn-sm mb-2 float-right" id="delete"> <i class="far fa-trash-alt"></i>
+</a>
+@endif
 <a  href= "{{url('upload/reg/'.$ship->PDF)}}" class="btn btn-outline-danger mr-2 float-right"download><img src="assets/img/pdf.png" alt="" height="18"><span class="ml-2">PDF</span></a>
 <span class="name float-right" ><b>Download :  &nbsp;</b>  </span>
 <span class="time">6 mins ago</span>

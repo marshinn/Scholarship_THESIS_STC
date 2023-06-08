@@ -40,8 +40,8 @@ class StudentController extends Controller
             'Religion' => 'required',
             'Mobile_number' => 'required',
             'Nationality' => 'required',
-            'School_ID' => 'required',
-
+            'PWD' => 'required',
+            'Working' => 'required',
 
 
 
@@ -61,7 +61,10 @@ class StudentController extends Controller
             'GPA' => 'required',
             'School_Address' => 'required',
             'Year_Course' => 'required',
-            
+            'sport' => 'required',
+            'Varsity' => 'required',
+            'Year' => 'required',
+
 
 
             'Student_Image' => ['required','image'],

@@ -87,3 +87,7 @@ Route::get('/AddAnnouncement', [App\Http\Controllers\AnnouncementController::cla
 
 
 Route::post('/pogs', [App\Http\Controllers\AnnouncementController::class, 'pogs'])->name('pogs');
+
+
+
+Route::get('/delete-announcement/{id}', [App\Http\Controllers\AnnouncementController::class, 'Deleteannounce'])->name('Deleteannounce');

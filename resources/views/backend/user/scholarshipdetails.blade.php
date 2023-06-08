@@ -511,6 +511,8 @@
 <li><a href=""><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i><b> Address:</b> <i class="blog-author-name">  {{(!empty($detail->address))? $detail->address . ' '. 'Only':$swabe}} </i></a>@if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->address)) && ($detail->address) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Permanent_Address) ?  'ok':''}}</h5> @endif </li>
 
 @endif
+
+
 @if(!empty($detail->Parent_Income))
 <li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Parent Income:</b> <i class="blog-author-name"> {{(!empty($detail->Parent_Income))? $detail->Parent_Income. ' '. 'Pesos':$swabe}}  </i></a> @if(auth()-> user() ->role=='Student') <h5 class="badge badge-pill bg-primary float-right">{{(!empty($detail->Parent_Income)) && ($detail->Parent_Income) == (auth()->user()->student->firstwhere('scholarship_id', $detail->id)?->Parent_Income) ?  'ok':''}}</h5>
 @endif</li>
@@ -518,7 +520,43 @@
 @endif
 
 
+@if(!empty($detail->Single_Parent))
 
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Single Parent (Ulilang Lubos) : </b> <i class="blog-author-name"> {{(!empty($detail->Single_Parent))? 'Activate '. ' ':$swabe}}  </i>
+@endif
+
+@if(!empty($detail->Gender))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Gender : </b> <i class="blog-author-name"> {{(!empty($detail->Gender))? $detail->Gender.' Only'. ' ':$swabe}}  </i>
+@endif
+
+
+@if(!empty($detail->Course))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Course : </b> <i class="blog-author-name"> {{(!empty($detail->Course))? $detail->Course.' Only'. ' ':$swabe}}  </i>
+@endif
+
+@if(!empty($detail->Year))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Year : </b> <i class="blog-author-name"> {{(!empty($detail->Year))? $detail->Year.' Only'. ' ':$swabe}}  </i>
+@endif
+
+
+@if(!empty($detail->Working_Student))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Working Student : </b> <i class="blog-author-name"> {{(!empty($detail->Working_Student))? ' Activate'. ' ':$swabe}}  </i>
+@endif
+
+
+@if(!empty($detail->Varsity))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >Varsity  : </b> <i class="blog-author-name"> {{(!empty($detail->Varsity))? ' Activate'. ' ':$swabe}}  </i>
+@endif
+
+@if(!empty($detail->PWD))
+
+<li><a href="" ><i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i> <b >PWD  : </b> <i class="blog-author-name"> {{(!empty($detail->PWD))? ' Activate'. ' ':$swabe}}  </i>
+@endif
 
 
 

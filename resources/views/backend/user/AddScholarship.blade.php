@@ -131,6 +131,7 @@
 <input type="text" class="form-control is-warning" id="inputWarning5" placeholder="Enter Second Number" disabled="disabled" name="grade2">
 </div>
 
+
 <div class="form-group">
                        
 <div class="custom-control custom-switch">
@@ -142,6 +143,162 @@
 
 <input type="number" class="form-control is-warning" id="inputWarning3" placeholder="Enter ..." disabled="disabled" name="Parent_Income">
 </div>
+
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch4" for="customSwitch4" checked="checked" >
+<label class="custom-control-label" for="customSwitch4">Single Parent (Ulilang lubos)</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning4"  name="Single_Parent" id="Single_Parent" disabled="disabled" >
+
+
+<option value="YES">Activate </option>
+
+
+</select>
+
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch11" for="customSwitch11" checked="checked" >
+<label class="custom-control-label" for="customSwitch11">Gender</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning11"  name="Gender" id="Single_Parent" disabled="disabled" >
+
+
+<option value="Male">Male Only</option>
+<option  value="Female">Female Only</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch12" for="customSwitch12" checked="checked" >
+<label class="custom-control-label" for="customSwitch12">Course</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning12"  name="Course" id="Single_Parent" disabled="disabled" >
+
+<option value="">-- Select a Course --</option>
+    <option value="Bachelor of Medicine, Bachelor of Surgery (MBBS)">Bachelor of Medicine, Bachelor of Surgery (MBBS)</option>
+    <option value="Bachelor of Engineering">Bachelor of Engineering</option>
+    <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+    <option value="Bachelor of Business Administration">Bachelor of Business Administration</option>
+    <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
+    <option value="Bachelor of Education">Bachelor of Education</option>
+    <option value="Bachelor of Science in Psychology">Bachelor of Science in Psychology</option>
+    <option value="Bachelor of Science in Nursing">Bachelor of Science in Nursing</option>
+    <option value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
+    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+    <option value="Bachelor of Arts in Communication Arts">Bachelor of Arts in Communication Arts</option>
+    <option value="Bachelor of Science in Tourism and Hospitality Management">Bachelor of Science in Tourism and Hospitality Management</option>
+    <option value="Bachelor of Fine Arts">Bachelor of Fine Arts</option>
+    <option value="Bachelor of Science in Agriculture">Bachelor of Science in Agriculture</option>
+    <option value="Bachelor of Science in Pharmacy">Bachelor of Science in Pharmacy</option>
+    <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
+    <option value="Bachelor of Laws (LLB)">Bachelor of Laws (LLB)</option>
+    <option value="Bachelor of Science in Social Sciences">Bachelor of Science in Social Sciences</option>
+    <option value="Bachelor of Science in Environmental Science">Bachelor of Science in Environmental Science</option>
+    <option value="Bachelor of Science in Marine Biology">Bachelor of Science in Marine Biology</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch15" for="customSwitch15" checked="checked" >
+<label class="custom-control-label" for="customSwitch15">Year</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning15"  name="Year" id="Single_Parent" disabled="disabled" >
+
+<option value="">-- Select a Year --</option>
+<option value="1st Year">1st Year </option>
+<option value="2nd Year">2nd Year </option>
+<option value="3rd Year">3rd Year </option>
+<option value="4th Year">4th Year </option>
+<option value="5th Year">5th Year </option>
+</select>
+
+</div>
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch13" for="customSwitch13" checked="checked" >
+<label class="custom-control-label" for="customSwitch13">Working Student</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning13"  name="Working_Student" id="Single_Parent" disabled="disabled" >
+
+
+<option value="YES">Activate </option>
+
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch16" for="customSwitch16" checked="checked" >
+<label class="custom-control-label" for="customSwitch16">Varsities of different sports</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning16"  name="Varsity"  disabled="disabled" >
+
+
+<option value="YES">Activate </option>
+
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+                       
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input" id="customSwitch17" for="customSwitch17" checked="checked" >
+<label class="custom-control-label" for="customSwitch17">PWD</label>
+</div>
+</div>
+<div class="form-group">
+
+<select class="form-control is-warning" id="inputWarning17"  name="PWD"  disabled="disabled" >
+
+
+<option value="YES">Activate </option>
+
+
+</select>
+
+</div>
+
 
 <div class="m-t-20 text-center">
 <button type="submit" class="btn btn-primary mr-2">Add Scholarship</button>
@@ -482,6 +639,147 @@
  				} );
 			} )();
 		</script>
+
+
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning4' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch4' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+
+
+
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning11' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch11' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning12' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch12' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning13' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch13' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning15' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch15' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning16' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch16' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+</script>
+        <script type="text/javascript">
+			( function() { // javascript document ready function
+				var firstJavaScriptInput = document.getElementById( 'inputWarning17' );
+				var firstJavaScriptCheckbox = document.getElementById( 'customSwitch17' );
+			
+				
+				firstJavaScriptCheckbox.addEventListener( 'click', function() { // do things when the checkbox gets clicked
+					if ( this.checked ) { // check box is checked so disable input and select
+					
+						firstJavaScriptInput.disabled = 'disabled';
+					} else { // checkbox is not checked, make input and select editable
+					
+						firstJavaScriptInput.disabled = '';
+					}
+ 				} );
+			} )();
+		</script>
+
+
+
+
+
+
+
+
+
+
         <script type="text/javascript">
     $(document).ready(function(){
       $('#image').change(function(e){

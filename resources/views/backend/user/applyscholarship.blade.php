@@ -326,7 +326,7 @@
 <div class="card-body">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-<form action="{{ URL::to('/applying/'.$data->id) }}" enctype="multipart/form-data" method="post">
+<form action="{{ URL::to('/applying/'.$data->id) }}" enctype="multipart/form-data" method="post"  onsubmit="return submitForm(this);">
 @csrf
 <div class="form-group">
 <label>Firstname</label>
@@ -395,9 +395,22 @@
 <input type="text" class="form-control" name="Nationality" id="Nationality">
 </div>
 <div class="form-group">
-<label> School ID Number</label>
- <input type="text" class="form-control"  name="School_ID" id="School_ID">
+<label> Please answer if you have disabilities or PWD</label>
+<select class="form-control" name="PWD" id="PWD">
+<option >YES</option>
+<option>No</option>
+</select>
+
 </div>
+<div class="form-group">
+<label> Are You Working Student?</label>
+<select class="form-control" name="Working" id="Working">
+<option >YES</option>
+<option >No</option>
+</select>
+
+</div>
+
  <!-- end of Dashboard :) 
 <div class="form-group">
 <label>Section</label>
@@ -438,7 +451,22 @@
     -->
     <div class="form-group">
 <label>Permanent Address </label> <span class="text-danger">&nbsp;*</span>
-<input class="form-control" rows="4" name="Permanent_Address" id="Permanent_Address"></input>
+
+<select class="form-control is-warning" id="provinceSelect" onchange="updateCityOptions()"">
+    <option value="">Select a province in Calabarzon</option>
+	<option value="Batangas">Batangas</option>
+    <option value="Cavite">Cavite</option>
+  <option value="Laguna">Laguna</option>
+  
+  <option value="Rizal">Rizal</option>
+  <option value="Quezon">Quezon</option>
+    <!-- Add other provinces here -->
+  </select>
+<p></p>
+  <select class="form-control is-warning" id="citySelect" name="Permanent_Address" >
+    <option value="">Select a city</option>
+    <!-- City options will be populated dynamically -->
+  </select>
 </div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -490,8 +518,19 @@
 <label>School Address</label>
 <input class="form-control" rows="4"  name="School_Address" id="School_Address"></input>
 </div>
-
+<div class="form-group">
+<label>Are you Varsity in your School</label>
+<select class="form-control" name="Varsity" id="Varsity">
+<option>YES</option>
+<option >No</option>
+</select>
 </div>
+<div class="form-group">
+<label>What Sports</label>
+<input class="form-control" rows="4"  name="sport" id="sport"></input>
+</div>
+</div>
+
 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 <!--
 <div class="form-group">
@@ -508,11 +547,46 @@
 <input type="text" class="form-control" name="GPA" id="GPA">
 </div>
 <div class="form-group">
-<label>School Year / Course</label>
-<input type="text" class="form-control"  name="Year_Course" id="Year_Course">
+<label>Course</label>
+<select class="form-control" name="Year_Course" id="Year_Course">
+
+<option value="">-- Select a Course --</option>
+    <option value="Bachelor of Medicine, Bachelor of Surgery (MBBS)">Bachelor of Medicine, Bachelor of Surgery (MBBS)</option>
+    <option value="Bachelor of Engineering">Bachelor of Engineering</option>
+    <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+    <option value="Bachelor of Business Administration">Bachelor of Business Administration</option>
+    <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
+    <option value="Bachelor of Education">Bachelor of Education</option>
+    <option value="Bachelor of Science in Psychology">Bachelor of Science in Psychology</option>
+    <option value="Bachelor of Science in Nursing">Bachelor of Science in Nursing</option>
+    <option value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
+    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+    <option value="Bachelor of Arts in Communication Arts">Bachelor of Arts in Communication Arts</option>
+    <option value="Bachelor of Science in Tourism and Hospitality Management">Bachelor of Science in Tourism and Hospitality Management</option>
+    <option value="Bachelor of Fine Arts">Bachelor of Fine Arts</option>
+    <option value="Bachelor of Science in Agriculture">Bachelor of Science in Agriculture</option>
+    <option value="Bachelor of Science in Pharmacy">Bachelor of Science in Pharmacy</option>
+    <option value="Bachelor of Dental Surgery (BDS)">Bachelor of Dental Surgery (BDS)</option>
+    <option value="Bachelor of Laws (LLB)">Bachelor of Laws (LLB)</option>
+    <option value="Bachelor of Science in Social Sciences">Bachelor of Science in Social Sciences</option>
+    <option value="Bachelor of Science in Environmental Science">Bachelor of Science in Environmental Science</option>
+    <option value="Bachelor of Science in Marine Biology">Bachelor of Science in Marine Biology</option>
+    </select>
+
 </div>
 
+<div class="form-group">
+<label>Year</label>
+<select class="form-control" name="Year" id="Year">
 
+<option value="">-- Select a Year --</option>
+<option value="1st Year">1st Year </option>
+<option value="2nd Year">2nd Year </option>
+<option value="3rd Year">3rd Year </option>
+<option value="4th Year">4th Year </option>
+<option value="5th Year">5th Year </option>
+    </select>
+</div>
 
 </div>
 </div>
@@ -541,6 +615,7 @@
 <a  href="/Scholarship" class="btn btn-secondary" type="reset">Cancel</a>
 </div>
 </form>
+
 </div>
 
 </div>
@@ -803,6 +878,23 @@
 <script src="../../assets/plugins/datetimepicker/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/sweetalert.min.js"></script>
+<script>  
+function submitForm(form) {
+        swal({
+            title: "Are you sure?",
+            text: "This form will be submitted",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then(function (isOkay) {
+            if (isOkay) {
+                form.submit();
+            }
+        });
+        return false;
+    }
+</script>
 <script>
       // Hide the loader and show the content when the page is loaded
       setTimeout(function() {
@@ -817,6 +909,35 @@
 <script src="../../assets/toaster/sweetalert.min.js"></script>
 
 
+<script>
+  function updateCityOptions() {
+    var provinceSelect = document.getElementById("provinceSelect");
+    var citySelect = document.getElementById("citySelect");
+    var selectedProvince = provinceSelect.value;
+
+    // Clear existing city options
+    citySelect.innerHTML = "";
+
+    if (selectedProvince === "Batangas") {
+      var batangasCities = [
+        "Agoncillo", "Alitagtag", "Balayan", "Balete", "Batangas City", "Bauan",
+        "Calaca", "Calatagan", "Cuenca", "Ibaan", "Laurel", "Lemery", "Lian",
+        "Lipa City", "Lobo", "Mabini", "Malvar", "Mataasnakahoy", "Nasugbu",
+        "Padre Garcia", "Rosario", "San Jose", "San Juan", "San Luis", "San Nicolas",
+        "San Pascual", "Santa Teresita", "Santo Tomas", "Taal", "Talisay",
+        "Tanauan City", "Taysan", "Tingloy", "Tuy"
+      ];
+
+      // Populate city options for Batangas
+      for (var i = 0; i < batangasCities.length; i++) {
+        var cityOption = document.createElement("option");
+        cityOption.value = batangasCities[i];
+        cityOption.text = batangasCities[i];
+        citySelect.appendChild(cityOption);
+      }
+    }
+  }
+</script>
 <script>
             @if(Session::has('messege'))
               var type="{{Session::get('alert-type','info')}}"

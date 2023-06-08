@@ -54,6 +54,21 @@ class ScholarshipController extends Controller
         $data['Parent_Income'] = $request->Parent_Income;
         $data['Slot'] = $request->Slot;
         $data['deadline'] = $request->deadline;
+        $data['Single_Parent'] = $request->Single_Parent;
+        $data['Gender'] = $request->Gender;
+        $data['Course'] = $request->Course;
+        $data['Year'] = $request->Year;
+        $data['Working_Student'] = $request->Working_Student;
+        $data['Varsity'] = $request->Varsity;
+        $data['PWD'] = $request->PWD;
+
+
+
+
+
+      
+
+
         if ($request->file('image')){
             $file = $request->file('image');
 
@@ -101,6 +116,15 @@ class ScholarshipController extends Controller
         $data['grade2'] = $request->grade2;
         $data['Parent_Income'] = $request->Parent_Income;
         $data['Slot'] = $request->Slot;
+        $data['deadline'] = $request->deadline;
+        $data['Single_Parent'] = $request->Single_Parent;
+        $data['Gender'] = $request->Gender;
+        $data['Course'] = $request->Course;
+        $data['Year'] = $request->Year;
+        $data['Working_Student'] = $request->Working_Student;
+        $data['Varsity'] = $request->Varsity;
+        $data['PWD'] = $request->PWD;
+
         if ($request->file('image')){
             $file = $request->file('image');
 

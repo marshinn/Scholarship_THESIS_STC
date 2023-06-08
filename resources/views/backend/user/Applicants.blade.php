@@ -364,7 +364,7 @@
 <tr>
 <th>Name</th>
  <th>Gender</th>
-<th>Mobile Number</th>
+<th>GPA</th>
 <th>Address</th>
 <th>School Name</th>
 <th>Year and Course</th>
@@ -379,10 +379,10 @@
 <a href="{{ URL::to('/studentdetails/'.$baho->id) }}"><strong>{{ $baho->Fname}}</strong></a>
 </td>
 <td>{{ $baho->Gender}}</td>
-<td>{{ $baho->Mobile_number}}</td>
+<td>{{ $baho->GPA}}</td>
 <td>{{ $baho->Permanent_Address}}</td>
 <td>{{ $baho->School_Name}}</td>
-<td>{{ $baho->Year_Course}}</td>
+<td>{{ $baho->Year}} {{ $baho->Year_Course}} </td>
 <td class="text-center">
 <div class="dropdown action-label">
 <a class="btn btn-white btn-sm btn-rounded" href="#">

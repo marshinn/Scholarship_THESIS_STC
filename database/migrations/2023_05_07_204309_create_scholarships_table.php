@@ -24,6 +24,13 @@ return new class extends Migration
             $table->string('Parent_Income')->nullable();
             $table->string('Slot')->nullable();
             $table->string('deadline')->nullable();
+            $table->string('Single_Parent')->nullable();
+            $table->string('Gender')->nullable();
+            $table->string('Course')->nullable();
+            $table->string('Year')->nullable();
+            $table->string('Working_Student')->nullable();
+            $table->string('Varsity')->nullable();
+            $table->string('PWD')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

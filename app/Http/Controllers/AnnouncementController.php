@@ -55,4 +55,32 @@ class AnnouncementController extends Controller
         
     }
 
+
+    
+    public function Deleteannounce($id)
+    {
+        $delete = Annoucement::where('id',$id)->delete();
+    
+        if($delete)
+        {
+           $notifications = array
+           (
+            'messege'=>'Successfully Announcement Deleted',
+            'alert-type'=>'info'
+
+           );
+           return redirect()->route('announcement')->with($notifications);
+
+        }
+        else
+        {
+            $notifications = array
+           (
+            'messege'=>'Something is wrong,please try again',
+            'alert-type'=>'error'
+
+           );
+           return redirect()->route('announcement')->with($notifications);
+        }
+    }
 }
